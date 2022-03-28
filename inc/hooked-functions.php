@@ -159,7 +159,7 @@ if ( ! function_exists( 'sacchaone_footer_widgets' ) ) {
 	 * Generate footer widgets based on customizer options.
 	 */
 	function sacchaone_footer_widgets() {
-		$widgets = get_theme_mod( 'sacchaone_footer_widgets', 0 );
+		$widgets = get_theme_mod( 'sacchaone_footer_widgets', sacchaone_get_defaults( 'sacchaone_footer_widgets' ) );
 
 		if ( $widgets > 0 ) :
 

@@ -378,7 +378,7 @@ h6 {
 a {
     color: #117889;
 	color: var(--sone-link-color);
-	text-decoration: underline;
+	text-decoration: none;
     background-color: transparent;
 	-webkit-text-decoration-skip: objects;
 }
@@ -480,6 +480,12 @@ article.post {
 	margin-left: 10px;
 }
 
+.sone-single-post .entry-content a,
+aside .widget_text a,
+footer .widget_text a {
+    text-decoration: underline;
+}
+
 /*
  * Buttons
  */
@@ -523,7 +529,7 @@ article.post {
 	margin-bottom: 10px;
 }
 
-.sidebar .widget.widget_categories li a:before,
+/* .sidebar .widget.widget_categories li a:before,
 .sidebar .widget.widget_meta li a:before,
 aside .widget.widget_archive li a:before,
 #recentcomments li:before,
@@ -533,7 +539,7 @@ aside .widget.widget_archive li a:before,
 	content: "\f101";
 	font-family: "FontAwesome";
 	color: #128294;
-}
+} */
 
 aside.sidebar .widget_categories ul,
 aside.sidebar .widget_meta ul,
