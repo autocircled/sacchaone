@@ -1,0 +1,7 @@
+.sacchaone-range-title-area {
+    display: flex;
+    justify-content: space-between;
+}
+span.sacchaone-reset-range-control {
+    cursor: pointer;
+}

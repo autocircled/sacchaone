@@ -1,0 +1,437 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2022-03-16 01:28+0600\n"
+"PO-Revision-Date: 2022-03-16 02:06+0600\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.0.1\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __;esc_attr__;esc_html__;esc_attr_x;esc_html_x;_x;_e\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: comments.php:39
+#, php-format
+msgid "One thought on &ldquo;%1$s&rdquo;"
+msgstr ""
+
+#: functions.php:63
+msgid "Primary"
+msgstr ""
+
+#: inc/customizer.php:59
+msgid "Hide Title"
+msgstr ""
+
+#: inc/customizer.php:81
+msgid "Hide Description"
+msgstr ""
+
+#: inc/customizer.php:94
+msgid "Layout"
+msgstr ""
+
+#: inc/customizer.php:105
+msgid "Container"
+msgstr ""
+
+#: inc/customizer.php:132
+msgid "Container Width"
+msgstr ""
+
+#: inc/customizer.php:135
+msgid "Measurement is in pixel."
+msgstr ""
+
+#: inc/customizer.php:150 inc/customizer.php:584
+msgid "Header"
+msgstr ""
+
+#: inc/customizer.php:172
+msgid "Header Preset"
+msgstr ""
+
+#: inc/customizer.php:177 inc/customizer.php:416
+msgid "Default"
+msgstr ""
+
+#: inc/customizer.php:178
+msgid "Navigation Top"
+msgstr ""
+
+#: inc/customizer.php:179
+msgid "Navigation Top Center"
+msgstr ""
+
+#: inc/customizer.php:180
+msgid "Navigation Bottom"
+msgstr ""
+
+#: inc/customizer.php:181
+msgid "Navigation Bottom Center"
+msgstr ""
+
+#: inc/customizer.php:182
+msgid "Navigation Left"
+msgstr ""
+
+#: inc/customizer.php:204
+msgid "Header Width"
+msgstr ""
+
+#: inc/customizer.php:209 inc/customizer.php:315
+msgid "Boxed"
+msgstr ""
+
+#: inc/customizer.php:210 inc/customizer.php:316
+msgid "Full"
+msgstr ""
+
+#: inc/customizer.php:221 inc/customizer.php:686
+msgid "Navigation"
+msgstr ""
+
+#: inc/customizer.php:243
+msgid "Dropdown Direction"
+msgstr ""
+
+#: inc/customizer.php:248
+msgid "Left"
+msgstr ""
+
+#: inc/customizer.php:249
+msgid "Right"
+msgstr ""
+
+#: inc/customizer.php:271
+msgid "Navigation Search"
+msgstr ""
+
+#: inc/customizer.php:276 inc/customizer.php:375
+msgid "Enable"
+msgstr ""
+
+#: inc/customizer.php:277 inc/customizer.php:376
+msgid "Disable"
+msgstr ""
+
+#: inc/customizer.php:288
+msgid "Footer"
+msgstr ""
+
+#: inc/customizer.php:310
+msgid "Footer Width"
+msgstr ""
+
+#: inc/customizer.php:338
+msgid "Footer Widgets"
+msgstr ""
+
+#: inc/customizer.php:343
+msgid "0"
+msgstr ""
+
+#: inc/customizer.php:344
+msgid "1"
+msgstr ""
+
+#: inc/customizer.php:345
+msgid "2"
+msgstr ""
+
+#: inc/customizer.php:346
+msgid "3"
+msgstr ""
+
+#: inc/customizer.php:347
+msgid "4"
+msgstr ""
+
+#: inc/customizer.php:348
+msgid "5"
+msgstr ""
+
+#: inc/customizer.php:370
+msgid "Back to Top Button"
+msgstr ""
+
+#: inc/customizer.php:387 inc/template-functions.php:316
+msgid "Sidebar"
+msgstr ""
+
+#: inc/customizer.php:411
+msgid "Sidebar layout"
+msgstr ""
+
+#: inc/customizer.php:417
+msgid "Right Sidebar"
+msgstr ""
+
+#: inc/customizer.php:418
+msgid "Left Sidebar"
+msgstr ""
+
+#: inc/customizer.php:419
+msgid "Both Sidebar"
+msgstr ""
+
+#: inc/customizer.php:420
+msgid "No Sidebar"
+msgstr ""
+
+#: inc/customizer.php:431
+msgid "Blog"
+msgstr ""
+
+#: inc/customizer.php:454
+msgid "Blog Content"
+msgstr ""
+
+#: inc/customizer.php:459
+msgid "Excerpt"
+msgstr ""
+
+#: inc/customizer.php:460
+msgid "Full Content"
+msgstr ""
+
+#: inc/customizer.php:480
+msgid "Body"
+msgstr ""
+
+#: inc/customizer.php:511
+msgid "Text"
+msgstr ""
+
+#: inc/customizer.php:536
+msgid "Link"
+msgstr ""
+
+#: inc/customizer.php:561
+msgid "Link Hover"
+msgstr ""
+
+#: inc/customizer.php:613 inc/customizer.php:724
+msgid "Background"
+msgstr ""
+
+#: inc/customizer.php:638
+msgid "Site Title"
+msgstr ""
+
+#: inc/customizer.php:663
+msgid "Tagline"
+msgstr ""
+
+#: inc/customizer.php:749
+msgid "Hover Color"
+msgstr ""
+
+#: inc/customizer.php:774
+msgid "Active Color"
+msgstr ""
+
+#: inc/customizer.php:799 inc/customizer.php:1104
+msgid "Text Color"
+msgstr ""
+
+#: inc/customizer.php:824 inc/customizer.php:1129
+msgid "Text Hover Color"
+msgstr ""
+
+#: inc/customizer.php:849
+msgid "Text Active Color"
+msgstr ""
+
+#: inc/customizer.php:874
+msgid "Sub Menu Background Color"
+msgstr ""
+
+#: inc/customizer.php:899
+msgid "Sub Menu Background Hover Color"
+msgstr ""
+
+#: inc/customizer.php:924
+msgid "Sub Menu Background Active Color"
+msgstr ""
+
+#: inc/customizer.php:949
+msgid "Sub Menu Text Color"
+msgstr ""
+
+#: inc/customizer.php:974
+msgid "Sub Menu Text Active Color"
+msgstr ""
+
+#: inc/customizer.php:999
+msgid "Sub Menu Text Hover Color"
+msgstr ""
+
+#: inc/customizer.php:1022
+msgid "Buttons"
+msgstr ""
+
+#: inc/customizer.php:1054
+msgid "Background Color"
+msgstr ""
+
+#: inc/customizer.php:1079
+msgid "Background Hover Color"
+msgstr ""
+
+#: inc/customizer.php:1154
+msgid "Border Color"
+msgstr ""
+
+#: inc/customizer.php:1179
+msgid "Border Hover Color"
+msgstr ""
+
+#: inc/dynamic-css.php:150
+msgid "404"
+msgstr ""
+
+#: inc/dynamic-css.php:151
+msgid "Oops! Looks like this is a dead end. And we know that."
+msgstr ""
+
+#: inc/dynamic-css.php:152
+msgid ""
+"It looks like nothing was found at this location. Maybe try one of the links "
+"below or a search?"
+msgstr ""
+
+#: inc/dynamic-css.php:153
+msgid "Load more"
+msgstr ""
+
+#: inc/hooked-functions.php:131
+msgid "Y"
+msgstr ""
+
+#: inc/hooked-functions.php:136
+msgid "https://wordpress.org/"
+msgstr ""
+
+#: inc/hooked-functions.php:137
+msgid "Powered by WordPress"
+msgstr ""
+
+#: inc/template-functions.php:172
+msgid "Read More"
+msgstr ""
+
+#: inc/template-functions.php:188
+msgid "Previous"
+msgstr ""
+
+#: inc/template-functions.php:189
+msgid "Next"
+msgstr ""
+
+#: inc/template-functions.php:318 inc/template-functions.php:330
+#: inc/template-functions.php:342 inc/template-functions.php:353
+#: inc/template-functions.php:364 inc/template-functions.php:375
+#: inc/template-functions.php:386 inc/template-functions.php:397
+msgid "Add widgets here."
+msgstr ""
+
+#: inc/template-functions.php:328
+msgid "Secondary Sidebar"
+msgstr ""
+
+#: inc/template-functions.php:340
+msgid "Footer 1"
+msgstr ""
+
+#: inc/template-functions.php:351
+msgid "Footer 2"
+msgstr ""
+
+#: inc/template-functions.php:362
+msgid "Footer 3"
+msgstr ""
+
+#: inc/template-functions.php:373
+msgid "Footer 4"
+msgstr ""
+
+#: inc/template-functions.php:384
+msgid "Footer 5"
+msgstr ""
+
+#: inc/template-functions.php:395
+msgid "Copyright"
+msgstr ""
+
+#: inc/template-functions.php:437
+msgid "Skip to the content"
+msgstr ""
+
+#: inc/template-tags.php:50
+#, php-format
+msgid "by %s"
+msgstr ""
+
+#: inc/template-tags.php:81 inc/template-tags.php:88
+msgid ", "
+msgstr ""
+
+#: inc/template-tags.php:101
+#, php-format
+msgid "Leave a Comment<span class=\"screen-reader-text\"> on %s</span>"
+msgstr ""
+
+#: inc/template-tags.php:118 template-parts/content-page.php:54
+#, php-format
+msgid "Edit <span class=\"screen-reader-text\">%s</span>"
+msgstr ""
+
+#: search.php:26
+#, php-format
+msgid "Search Results for: %s"
+msgstr ""
+
+#: searchform.php:22 searchform.php:30
+msgid "Search &hellip;"
+msgstr ""
+
+#: searchform.php:29
+msgid "Search for:"
+msgstr ""
+
+#: searchform.php:32
+msgid "Search"
+msgstr ""
+
+#: single.php:30
+msgid "Previous:"
+msgstr ""
+
+#: single.php:31
+msgid "Next:"
+msgstr ""
+
+#: template-parts/content-none.php:28
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr ""
+
+#: template-parts/content-page.php:37 template-parts/content.php:80
+msgid "Pages:"
+msgstr ""
+
+#: template-parts/content-search.php:18
+msgid "Featured"
+msgstr ""
+
+#: template-parts/content.php:67
+#, php-format
+msgid "Continue reading<span class=\"screen-reader-text\"> \"%s\"</span>"
+msgstr ""

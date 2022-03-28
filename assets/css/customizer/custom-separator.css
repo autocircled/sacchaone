@@ -1,0 +1,51 @@
+.sacchaone-separator-title-area {
+    display: flex;
+    justify-content: space-between;
+}
+.sacchaone-toggle-control {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+#customize-control-background_color,
+#customize-control-body_text_color_control,
+#customize-control-body_link_color_control,
+#customize-control-body_link_hover_color_control,
+#customize-control-header_background_colorr_control,
+#customize-control-header_site_title_color_control,
+#customize-control-header_tagline_color_control,
+#customize-control-nav_background_color_control,
+#customize-control-nav_hover_color_control,
+#customize-control-nav_active_color_control,
+#customize-control-nav_text_color_control,
+#customize-control-nav_text_hover_color_control,
+#customize-control-nav_text_active_color_control,
+#customize-control-nav_sub_text_color_control,
+#customize-control-nav_sub_text_hover_color_control,
+#customize-control-nav_sub_text_active_color_control,
+#customize-control-nav_sub_bg_color_control,
+#customize-control-nav_sub_bg_hover_color_control,
+#customize-control-nav_sub_bg_active_color_control,
+#customize-control-button_bg_color_control,
+#customize-control-button_bg_hover_color_control,
+#customize-control-button_text_color_control,
+#customize-control-button_text_hover_color_control,
+#customize-control-button_border_color_control,
+#customize-control-button_border_hover_color_control {
+    display: none;
+}
+
+.sacchaone-toggle-control .dashicons {
+    transform: rotate(0deg);
+    transition: all .2s;
+}
+.sacchaone-toggle-control.showing .dashicons {
+    transform: rotate(90deg);
+}
+
+#sub-accordion-section-colors .customize-control-title {
+    font-weight: 400;
+}
+#sub-accordion-section-colors .sacchaone-separator-control .customize-control-title {
+    font-weight: 600;
+}
