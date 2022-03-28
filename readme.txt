@@ -6,7 +6,7 @@ Tags: custom-menu, custom-logo, entertainment, one-column, two-columns, left-sid
 Requires at least: 4.5
 Tested up to: 5.9
 Requires PHP: 5.6
-Stable tag: 1.0.6
+Stable tag: 1.0.7
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -34,6 +34,8 @@ SacchaOne is licensed under the GNU General Public License v2 or later
 SacchaOne includes support for Infinite Scroll in Jetpack.
 
 == Changelog ==
+= 1.0.7 - March 15 2022 =
+* 
 
 = 1.0.6 - March 15 2022 =
 * Initial release
