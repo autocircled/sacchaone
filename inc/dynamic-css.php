@@ -15,6 +15,7 @@ if ( ! function_exists( 'sacchaone_get_dynamic_css' ) ) {
 	 * Dynamic CSS
 	 */
 	function sacchaone_get_dynamic_css() {
+		// var_dump(get_theme_mods());
 		$settings = wp_parse_args(
 			get_theme_mods(),
 			sacchaone_get_defaults()
@@ -45,80 +46,80 @@ if ( ! function_exists( 'sacchaone_get_dynamic_css' ) ) {
 
 		// Color section starts.
 		$css->set_selector( 'body' );
-		$css->add_property( 'background-color', $settings['background_color'] );
-		$css->add_property( 'color', $settings['body_text_color'] );
+		$css->add_property( 'background-color', maybe_hash_hex_color( $settings['background_color'] ) );
+		$css->add_property( 'color', maybe_hash_hex_color( $settings['body_text_color'] ) );
 
 		$css->set_selector( 'body a' );
-		$css->add_property( 'color', $settings['body_link_color'] );
+		$css->add_property( 'color', maybe_hash_hex_color( $settings['body_link_color'] ) );
 
 		$css->set_selector( 'body a:hover, body a:focus' );
-		$css->add_property( 'color', $settings['body_link_hover_color'] );
+		$css->add_property( 'color', maybe_hash_hex_color( $settings['body_link_hover_color'] ) );
 
 		$css->set_selector( '.header-bg' );
-		$css->add_property( 'background-color', $settings['header_background_color'] );
+		$css->add_property( 'background-color', maybe_hash_hex_color( $settings['header_background_color'] ) );
 
 		$css->set_selector( '.site-title a, .site-title a:hover, .site-title a:focus' );
-		$css->add_property( 'color', $settings['header_site_title_color'] );
+		$css->add_property( 'color', maybe_hash_hex_color( $settings['header_site_title_color'] ) );
 
 		$css->set_selector( '.site-description' );
-		$css->add_property( 'color', $settings['header_tagline_color'] );
+		$css->add_property( 'color', maybe_hash_hex_color( $settings['header_tagline_color'] ) );
 
 		$css->set_selector( '.navbar-collapse' );
-		$css->add_property( 'background-color', $settings['nav_background_color'] );
+		$css->add_property( 'background-color', maybe_hash_hex_color( $settings['nav_background_color'] ) );
 
 		$css->set_selector( '.nav>li.open>a, .nav>li:hover>a' );
-		$css->add_property( 'background-color', $settings['nav_hover_color'] );
+		$css->add_property( 'background-color', maybe_hash_hex_color( $settings['nav_hover_color'] ) );
 
 		$css->start_media_query( '(min-width: 769px)' );
 			$css->set_selector( '.navbar .navbar-collapse ul li[class*="current-menu-"] > a, .navbar .navbar-collapse ul li[class*="current_page_"] > a' );
-			$css->add_property( 'background-color', $settings['nav_active_color'] . '30' );
-			$css->add_property( 'border-bottom-color', $settings['nav_active_color'] );
+			$css->add_property( 'background-color', maybe_hash_hex_color( $settings['nav_active_color'] . '30' ) );
+			$css->add_property( 'border-bottom-color', maybe_hash_hex_color( $settings['nav_active_color'] ) );
 		$css->stop_media_query();
 
 		$css->start_media_query( '(max-width: 768px)' );
 			$css->set_selector( '.navbar .navbar-collapse ul li[class*="current-menu-"] > a, .navbar .navbar-collapse ul li[class*="current_page_"] > a' );
-			$css->add_property( 'background-color', $settings['nav_active_color'] . '30' );
-			$css->add_property( 'border-left-color', $settings['nav_active_color'] );
+			$css->add_property( 'background-color', maybe_hash_hex_color( $settings['nav_active_color'] . '30' ) );
+			$css->add_property( 'border-left-color', maybe_hash_hex_color( $settings['nav_active_color'] ) );
 			$css->add_property( 'padding-left', '15px' );
 		$css->stop_media_query();
 
 		$css->set_selector( '.nav.navbar-nav li a' );
-		$css->add_property( 'color', $settings['nav_text_color'] );
+		$css->add_property( 'color', maybe_hash_hex_color( $settings['nav_text_color'] ) );
 
 		$css->set_selector( '.nav>li.open>a, .nav>li:hover>a' );
-		$css->add_property( 'color', $settings['nav_text_hover_color'] );
+		$css->add_property( 'color', maybe_hash_hex_color( $settings['nav_text_hover_color'] ) );
 
 		$css->set_selector( '.nav.navbar-nav li.current_page_item a' );
-		$css->add_property( 'color', $settings['nav_text_active_color'] );
+		$css->add_property( 'color', maybe_hash_hex_color( $settings['nav_text_active_color'] ) );
 
 		$css->set_selector( '.nav li>ul' );
-		$css->add_property( 'background-color', $settings['nav_sub_bg_color'] );
+		$css->add_property( 'background-color', maybe_hash_hex_color( $settings['nav_sub_bg_color'] ) );
 
 		$css->set_selector( '.nav li li.open>a, .nav li li:hover>a' );
-		$css->add_property( 'background-color', $settings['nav_sub_bg_hover_color'] );
+		$css->add_property( 'background-color', maybe_hash_hex_color( $settings['nav_sub_bg_hover_color'] ) );
 
 		$css->set_selector( '.nav.navbar-nav li li.current_page_ancestor > a, .nav.navbar-nav li li.current_page_item > a' );
-		$css->add_property( 'background-color', $settings['nav_sub_bg_active_color'] . '30' );
-		$css->add_property( 'border-left-color', $settings['nav_sub_bg_active_color'] );
+		$css->add_property( 'background-color', maybe_hash_hex_color( $settings['nav_sub_bg_active_color'] . '30' ) );
+		$css->add_property( 'border-left-color', maybe_hash_hex_color( $settings['nav_sub_bg_active_color'] ) );
 
 		$css->set_selector( '.nav.navbar-nav li li a' );
-		$css->add_property( 'color', $settings['nav_sub_text_color'] );
+		$css->add_property( 'color', maybe_hash_hex_color( $settings['nav_sub_text_color'] ) );
 
 		$css->set_selector( '.nav li li.open>a, .nav li li:hover>a' );
-		$css->add_property( 'color', $settings['nav_sub_text_hover_color'] );
+		$css->add_property( 'color', maybe_hash_hex_color( $settings['nav_sub_text_hover_color'] ) );
 
 		$css->set_selector( '.nav.navbar-nav li li.current_page_ancestor > a, .nav.navbar-nav li li.current_page_item > a' );
-		$css->add_property( 'color', $settings['nav_sub_text_active_color'] );
+		$css->add_property( 'color', maybe_hash_hex_color( $settings['nav_sub_text_active_color'] ) );
 
 		$css->set_selector( 'input[type="submit"], form.comment-form .form-submit input.submit, .wp-block-search__button' );
-		$css->add_property( 'background-color', $settings['button_bg_color'] );
-		$css->add_property( 'border-color', $settings['button_border_color'] );
-		$css->add_property( 'color', $settings['button_text_color'] );
+		$css->add_property( 'background-color', maybe_hash_hex_color( $settings['button_bg_color'] ) );
+		$css->add_property( 'border-color', maybe_hash_hex_color( $settings['button_border_color'] ) );
+		$css->add_property( 'color', maybe_hash_hex_color( $settings['button_text_color'] ) );
 
 		$css->set_selector( 'input[type="submit"]:focus, input[type="submit"]:active, input[type="submit"]:hover, form.comment-form .form-submit input.submit:focus, form.comment-form .form-submit input.submit:active, form.comment-form .form-submit input.submit:hover, .wp-block-search__button:focus, .wp-block-search__button:hover, .wp-block-search__button:active' );
-		$css->add_property( 'background-color', $settings['button_bg_hover_color'] );
-		$css->add_property( 'border-color', $settings['button_border_hover_color'] );
-		$css->add_property( 'color', $settings['button_text_hover_color'] );
+		$css->add_property( 'background-color', maybe_hash_hex_color( $settings['button_bg_hover_color'] ) );
+		$css->add_property( 'border-color', maybe_hash_hex_color( $settings['button_border_hover_color'] ) );
+		$css->add_property( 'color', maybe_hash_hex_color( $settings['button_text_hover_color'] ) );
 
 		return $css->css_output();
 	}
