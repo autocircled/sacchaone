@@ -590,8 +590,19 @@ aside.sidebar .widget-title::after,
 .sone-both-sidebar aside.sidebar-secondary-2 {
 	order: -10;
 }
+.sone-both-sidebar aside.sidebar-secondary-1 {
+    order: 10;
+}
 .sone-both-sidebar #primary {
 	padding-left: 15px;
+}
+.sidebar-type-boxed aside.sidebar {
+    background: #fff;
+    padding: 40px;
+}
+.sidebar-type-separated .sidebar-inner > * {
+    background: #fff;
+    padding: 40px;
 }
 
 /*
@@ -1287,12 +1298,6 @@ ul.social-network li {
 
 	.footer-widgets {
 		flex-direction: column;
-	}
-	#primary {
-		padding-right: 0;
-	}
-	aside#secondary {
-		padding-left: 0;
 	}
 	.nav > li > a {
 		border-left: 3px solid transparent;

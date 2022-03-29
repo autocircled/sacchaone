@@ -422,6 +422,32 @@ function sacchaone_customize_register( $wp_customize ) {
 		)
 	);
 
+	$wp_customize->add_setting(
+		'sacchaone_sidebar_type',
+		array(
+			'type'              => 'theme_mod',
+			'capability'        => 'edit_theme_options',
+			'default'           => $defaults['sacchaone_sidebar_type'],
+			'transport'         => 'refresh',
+			'sanitize_callback' => 'sacchaone_sanitize_select',
+		)
+	);
+
+	$wp_customize->add_control(
+		'sacchaone_sidebar_type',
+		array(
+			'label'    => __( 'Sidebar Type', 'sacchaone' ),
+			'section'  => 'sacchaone_sidebar_section',
+			'settings' => 'sacchaone_sidebar_type',
+			'type'     => 'select',
+			'choices'  => array(
+				'sidebar-type-default'   => __( 'Default', 'sacchaone' ),
+				'sidebar-type-boxed'     => __( 'Boxed', 'sacchaone' ),
+				'sidebar-type-separated' => __( 'Separated', 'sacchaone' ),
+			),
+		)
+	);
+
 	/**
 	 * Section: Blog
 	 */

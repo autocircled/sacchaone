@@ -77,6 +77,8 @@ function sacchaone_body_classes( $classes ) {
 		}
 	}
 
+	$classes[] = get_theme_mod( 'sacchaone_sidebar_type', sacchaone_get_defaults( 'sacchaone_sidebar_type' ) );
+
 	// Add class for back2top button.
 	$back2top_status = get_theme_mod( 'sacchaone_back2top', 0 );
 	if ( $back2top_status ) {
