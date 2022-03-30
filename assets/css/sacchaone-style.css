@@ -577,21 +577,9 @@ aside.sidebar .widget-title::after,
 .no-sidebar #primary {
     flex-grow: 1;
 }
-
-.sone-left-sidebar aside.sidebar {
-    order: -10;
-}
-
 .sone-left-sidebar #primary {
     padding-left: 15px;
 	padding-right: 0;
-}
-
-.sone-both-sidebar aside.sidebar-secondary-2 {
-	order: -10;
-}
-.sone-both-sidebar aside.sidebar-secondary-1 {
-    order: 10;
 }
 .sone-both-sidebar #primary {
 	padding-left: 15px;
