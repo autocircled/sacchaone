@@ -93,17 +93,27 @@
   wp.customize("sacchaone_header_width", function (value) {
     value.bind(function (to) {
       let header = '.nav-header';
-      let headerInner = '.header-inner';
+      let navbar = '.navbar';
       if ( 'box' === to ) {
-        if ( $( headerInner ).hasClass( 'container' ) ) {
-          $( headerInner ).removeClass( 'container' );
+        if ( $( navbar ).hasClass( 'container' ) ) {
+          $( navbar ).removeClass( 'container' );
         }
         $( header ).addClass( 'container' );
+
+        if ( $( header ).hasClass( 'header-bg' ) ) {
+          $( header ).removeClass( 'header-bg' );
+        }
+        $( navbar ).addClass( 'header-bg' );
       } else {
         if ( $( header ).hasClass( 'container' ) ) {
           $( header ).removeClass( 'container' );
         }
-        $( headerInner ).addClass( 'container' );
+        $( navbar ).addClass( 'container' );
+
+        if ( $( navbar ).hasClass( 'header-bg' ) ) {
+          $( navbar ).removeClass( 'header-bg' );
+        }
+        $( header ).addClass( 'header-bg' );
       }
     });
   });

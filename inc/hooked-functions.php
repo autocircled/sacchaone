@@ -20,10 +20,10 @@ if ( ! function_exists( 'sacchaone_header' ) ) :
 	function sacchaone_header() {
 		$header_width = get_theme_mod( 'sacchaone_header_width', 'full' );
 		?>
-		<header class="nav-header header-bg <?php echo 'box' === $header_width ? esc_attr( 'container' ) : ''; ?>">
-			<div class="header-inner <?php echo 'full' === $header_width ? esc_attr( 'container' ) : ''; ?>">
+		<header class="nav-header <?php echo 'full' === $header_width ? esc_attr( 'header-bg' ) : ''; ?>">
+			<div class="header-inner container">
 				<!--Navbar -->
-				<nav id="site-navigation" class="navbar">
+				<nav id="site-navigation" class="navbar <?php echo 'box' === $header_width ? esc_attr( 'header-bg' ) : ''; ?>">
 					<div class="site-info">
 						<?php sacchaone_site_logo(); ?>
 						<?php sacchaone_site_description(); ?>

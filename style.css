@@ -676,11 +676,11 @@ textarea {
     margin: 0;
 }
 nav#site-navigation {
-    padding: 0 1rem;
+    padding: 0 40px;
 }
 header.nav-header .header-inner {
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 .nav-search {
     position: absolute;
@@ -1276,7 +1276,13 @@ article.page {
 span.toggle-menu.fa-close {
 	display: none;
 }
+.search-modal.show {
+    padding: 0 !important;
+}
 @media (max-width: 768px) {
+	nav#site-navigation {
+		padding: 13px 15px;
+	}
 	.toggled span.toggle-menu.fa-close {
 		display: inline;
 	}
