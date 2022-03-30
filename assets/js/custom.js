@@ -37,9 +37,11 @@
       }
     });
 	
-    $("a[href^=\\#]").on( 'click', function(event){     
+    $("a[href^=\\#]").on( 'click', function(event){
         event.preventDefault();
-        $('html,body').animate({scrollTop:$(this.hash).offset().top}, 500);
+        if( ! $(this).hasClass( SACCHA_DATA.scroll_spy_selector ) ){
+          $('html,body').animate({scrollTop:($(this.hash).offset().top - 150)}, 500);
+        }
     });
 	
 	$(window).on( 'scroll', function (event) {
