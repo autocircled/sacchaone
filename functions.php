@@ -157,6 +157,12 @@ function sacchaone_scripts() {
 
 	wp_enqueue_script( 'sacchaone-custom', get_template_directory_uri() . '/assets/js/custom.js', array(), _SACCHAONE_VERSION, true );
 
+	$saccha_data = array(
+		'scroll_spy_selector' => apply_filters( 'saccha_scroll_spy_selector', 'afb-item-title' ),
+	);
+
+	wp_localize_script( 'sacchaone-custom', 'SACCHA_DATA', $saccha_data );
+
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
