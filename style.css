@@ -1035,6 +1035,7 @@ li.page_item_has_children li.focus > ul {
   @media (min-width: 769px){
 	nav#site-navigation {
 		flex-wrap: nowrap;
+		min-height: 81px;
 	}
   }
 
