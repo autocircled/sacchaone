@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 if ( ! defined( '_SACCHAONE_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_SACCHAONE_VERSION', wp_rand() ); //'1.0.7'
+	define( '_SACCHAONE_VERSION', '1.0.7' );
 }
 
 if ( ! defined( 'SACCHAONE_THEME_SETTINGS' ) ) {
