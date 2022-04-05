@@ -181,6 +181,13 @@ require get_template_directory() . '/inc/archives.php';
 require get_template_directory() . '/inc/class-sacchaone-walker-page.php';
 require get_template_directory() . '/inc/class-sacchaone-walker-menu.php';
 
+// Framework
+if ( is_admin() ) {
+	require get_template_directory() . '/inc/framework/class-sacchaone-framework.php';
+}
+// Metabox
+require get_template_directory() . '/inc/class-sacchaone-metabox.php';
+
 
 /**
  * Customizer additions.

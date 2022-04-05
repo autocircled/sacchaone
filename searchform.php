@@ -2,7 +2,7 @@
 /**
  * Search form template
  *
- * @package sacchaone
+ * @package SacchaOne
  * @since 1.0
  */
 

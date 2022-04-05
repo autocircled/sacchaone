@@ -2,7 +2,7 @@
 /**
  * SacchaOne dynamic CSS generated from Customizer.
  *
- * @package sacchaone
+ * @package SacchaOne
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
