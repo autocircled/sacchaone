@@ -103,15 +103,23 @@ if ( ! class_exists( 'SacchaOne_Metabox' ) ) {
 			if ( $parent_id = wp_is_post_revision( $post_id ) ) {
 				$post_id = $parent_id;
 			}
-				
+			
+			// Checking here if additional settings is needed for this post else exit
+			$is_settings_activated = false;
+			if ( get_post_meta( $post_id, SACCHAONE_PREFIX . 'additional_settings', true ) || isset( $_POST['additional_settings'] ) && 'yes' === $_POST['additional_settings']) {
+				$is_settings_activated =  true;
+			}
+			
 			$fields = [
 				'additional_settings',
 				'transparent_page_header',
 				'sidebar_type',
 			];
-			foreach ( $fields as $field ) {
-				if ( array_key_exists( $field, $_POST ) ) {
-					update_post_meta( $post_id, SACCHAONE_PREFIX . $field, sanitize_text_field( $_POST[$field] ) );
+			if ( $is_settings_activated ) {
+				foreach ( $fields as $field ) {
+					if ( array_key_exists( $field, $_POST ) ) {
+						update_post_meta( $post_id, SACCHAONE_PREFIX . $field, sanitize_text_field( $_POST[$field] ) );
+					}
 				}
 			}
 		}

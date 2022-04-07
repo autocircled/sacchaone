@@ -89,12 +89,17 @@ function sacchaone_body_classes( $classes ) {
 	}
 
 	// Individual post/page settings
-	$transparent_header = get_post_meta( get_the_ID(), SACCHAONE_PREFIX . 'transparent_page_header', true );
-	if ( 'yes' === $transparent_header ) {
-		$classes[] = 'transparent-header';
+	$additional_settings = get_post_meta( get_the_ID(), SACCHAONE_PREFIX . 'additional_settings', true );
+	if ( 'yes' === $additional_settings ) {
+
+		$transparent_header = get_post_meta( get_the_ID(), SACCHAONE_PREFIX . 'transparent_page_header', true );
+		if ( 'yes' === $transparent_header ) {
+			$classes[] = 'transparent-header';
+		}
+		$sidebar_type = get_post_meta( get_the_ID(), SACCHAONE_PREFIX . 'sidebar_type', true );
+		$classes[] = 'sidebar_' . $sidebar_type;
+		
 	}
-	$sidebar_type = get_post_meta( get_the_ID(), SACCHAONE_PREFIX . 'sidebar_type', true );
-	$classes[] = 'sidebar_' . $sidebar_type;
 
 	return $classes;
 }
