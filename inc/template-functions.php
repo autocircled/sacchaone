@@ -425,6 +425,8 @@ if ( ! function_exists( 'sacchaone_class_attr' ) ) {
 						$class = 'col-lg-8';
 					} elseif ( 'both' === $sidebar_single ) {
 						$class = 'col-lg-6';
+					} elseif ( 'none' === $sidebar_single ) {
+						$class = 'col-lg-12';
 					}
 
 				} else {                                              // Customizer settings
@@ -509,6 +511,8 @@ function sacchaone_sidebar( $position = 'right' ) {
 	if ( 'left' === $position ) {
 		if ( 'yes' === $individual_settings && ( get_post_meta( get_the_ID(), SACCHAONE_PREFIX . 'sidebar_type', true ) === 'both' || get_post_meta( get_the_ID(), SACCHAONE_PREFIX . 'sidebar_type', true ) === 'left' ) ) {
 			return true;
+		} elseif ( 'yes' === $individual_settings && get_post_meta( get_the_ID(), SACCHAONE_PREFIX . 'sidebar_type', true === 'none' ) ) {
+			return false;
 		}
 		if ( get_theme_mod( 'sacchaone_sidebar_settings', 'default' ) === 'both-sidebar' || get_theme_mod( 'sacchaone_sidebar_settings', 'default' ) === 'left-sidebar' ) {
 			return true;
@@ -518,6 +522,8 @@ function sacchaone_sidebar( $position = 'right' ) {
 	if ( 'right' === $position ) {
 		if ( 'yes' === $individual_settings && ( get_post_meta( get_the_ID(), SACCHAONE_PREFIX . 'sidebar_type', true ) === 'both' || get_post_meta( get_the_ID(), SACCHAONE_PREFIX . 'sidebar_type', true ) === 'right' ) ) {
 			return true;
+		} elseif ( 'yes' === $individual_settings && get_post_meta( get_the_ID(), SACCHAONE_PREFIX . 'sidebar_type', true === 'none' ) ) {
+			return false;
 		}
 
 		if ( get_theme_mod( 'sacchaone_sidebar_settings', 'default' ) === 'both-sidebar' || get_theme_mod( 'sacchaone_sidebar_settings', 'default' ) === 'right-sidebar' || get_theme_mod( 'sacchaone_sidebar_settings', 'default' ) === 'default' ) {
