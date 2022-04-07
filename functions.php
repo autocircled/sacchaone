@@ -27,6 +27,12 @@ if ( ! defined( 'SACCHAONE_THEME_DIR' ) ) {
 	define( 'SACCHAONE_THEME_DIR', trailingslashit( get_stylesheet_directory_uri() ) );
 }
 
+if ( ! defined( 'SACCHAONE_PREFIX' ) ) {
+	define( 'SACCHAONE_PREFIX', '_sacchaone_' );
+}
+
+
+
 if ( ! function_exists( 'sacchaone_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.

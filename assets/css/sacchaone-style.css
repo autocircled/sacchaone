@@ -1360,4 +1360,7 @@ ul.social-network li {
 		opacity: 1;
 		top: 0;
 	}
+	.sidebar-left .site-main > .row {
+		flex-direction: row-reverse;
+	}
 }

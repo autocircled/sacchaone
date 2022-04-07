@@ -43,7 +43,7 @@ if ( ! class_exists( 'Sacchaone_Framework' ) ) {
 			));
 			$saved_value = '';
 			if( ! empty( $id ) ) {
-				$saved_value = get_post_meta( $post->ID, $id, true );
+				$saved_value = get_post_meta( $post->ID, SACCHAONE_PREFIX . $id, true ) ? get_post_meta( $post->ID, SACCHAONE_PREFIX . $id, true ) : $args['default'];
 			}
 			
 

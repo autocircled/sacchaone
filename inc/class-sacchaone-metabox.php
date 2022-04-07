@@ -46,28 +46,42 @@ if ( ! class_exists( 'SacchaOne_Metabox' ) ) {
 			?>
 			<div class="saccha-inner-settings">
 				<?php
-				$SF = new Sacchaone_Framework();
-				$SF->add_field(
-					'page-header',
+				$s_framework = new Sacchaone_Framework();
+				$s_framework->add_field(
+					'additional_settings',
 					array(
-						'label' => __( 'Header', 'sss' ),
+						'label' => __( 'Enable Additional Settings?', 'sss' ),
 						'type'  => 'radio',
-						'default' => 'yes',
+						'default' => 'no',
 						'choices' => array(
 							'yes' => __( 'Enable', 'sss' ),
 							'no'  => __( 'Disable', 'sss' ),
 						),
 					)
 				);
-				$SF->add_field(
-					'page-footer',
+				$s_framework->add_field(
+					'transparent_page_header',
 					array(
-						'label' => __( 'Footer', 'sss' ),
+						'label' => __( 'Transparent Header', 'sss' ),
 						'type'  => 'radio',
-						'default' => 'yes',
+						'default' => 'no',
 						'choices' => array(
 							'yes' => __( 'Enable', 'sss' ),
 							'no'  => __( 'Disable', 'sss' ),
+						),
+					)
+				);
+				$s_framework->add_field(
+					'sidebar_type',
+					array(
+						'label' => __( 'Sidebar Type', 'sss' ),
+						'type'  => 'radio',
+						'default' => 'right',
+						'choices' => array(
+							'none' => __( 'None', 'sss' ),
+							'left' => __( 'Left', 'sss' ),
+							'right'  => __( 'Right', 'sss' ),
+							'both'  => __( 'Both', 'sss' ),
 						),
 					)
 				);
@@ -89,13 +103,15 @@ if ( ! class_exists( 'SacchaOne_Metabox' ) ) {
 			if ( $parent_id = wp_is_post_revision( $post_id ) ) {
 				$post_id = $parent_id;
 			}
+				
 			$fields = [
-				'page-header',
-				'page-footer',
+				'additional_settings',
+				'transparent_page_header',
+				'sidebar_type',
 			];
 			foreach ( $fields as $field ) {
 				if ( array_key_exists( $field, $_POST ) ) {
-					update_post_meta( $post_id, $field, sanitize_text_field( $_POST[$field] ) );
+					update_post_meta( $post_id, SACCHAONE_PREFIX . $field, sanitize_text_field( $_POST[$field] ) );
 				}
 			}
 		}

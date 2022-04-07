@@ -22,7 +22,7 @@ get_header();
 	<main id="site-content" class="site-main container mt-5">
 		<div class="row">
 			<?php
-			if ( get_theme_mod( 'sacchaone_sidebar_settings', 'default' ) === 'both-sidebar' || get_theme_mod( 'sacchaone_sidebar_settings', 'default' ) === 'left-sidebar' ) {
+			if ( sacchaone_sidebar( 'left' ) ) {
 				get_sidebar( 'left' );
 			}
 			?>
@@ -39,7 +39,7 @@ get_header();
 			</div><!-- .<?php echo esc_attr( sacchaone_class_attr( 'content-area' ) ); ?> -->
 
 			<?php
-			if ( get_theme_mod( 'sacchaone_sidebar_settings', 'default' ) === 'both-sidebar' || get_theme_mod( 'sacchaone_sidebar_settings', 'default' ) === 'right-sidebar' || get_theme_mod( 'sacchaone_sidebar_settings', 'default' ) === 'default' ) {
+			if ( sacchaone_sidebar( 'right' ) ) {
 				get_sidebar();
 			}
 			?>
