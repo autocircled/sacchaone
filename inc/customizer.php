@@ -223,9 +223,31 @@ function sacchaone_customize_register( $wp_customize ) {
 		)
 	);
 
-	/**
-	 * Setting: for Dropdown Direction
-	 */
+	$wp_customize->add_setting(
+		'sacchaone_sticky_nav',
+		array(
+			'type'              => 'theme_mod',
+			'capability'        => 'edit_theme_options',
+			'default'           => 'enable',
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sacchaone_sanitize_select',
+		)
+	);
+
+	$wp_customize->add_control(
+		'sacchaone_sticky_nav',
+		array(
+			'label'    => __( 'Sticky Navigation', 'sacchaone' ),
+			'section'  => 'sacchaone_nav_section',
+			'settings' => 'sacchaone_sticky_nav',
+			'type'     => 'select',
+			'choices'  => array(
+				'enable'  => __( 'Enable', 'sacchaone' ),
+				'disable' => __( 'Disable', 'sacchaone' ),
+			),
+		)
+	);
+
 	$wp_customize->add_setting(
 		'sacchaone_dropdown_direction',
 		array(

@@ -167,6 +167,22 @@
       }
     });
   });
+  
+  wp.customize("sacchaone_sticky_nav", function (value) {
+    value.bind(function (to) {
+      if ( 'enable' == to ) {
+        if ( $( 'body' ).hasClass( 'sticky-nav-disabled' ) ) {
+          $( 'body' ).removeClass( 'sticky-nav-disabled' );
+        }
+        $( 'body' ).addClass( 'sticky-nav-enabled' );
+      } else {
+        if ( $( 'body' ).hasClass( 'sticky-nav-enabled' ) ) {
+          $( 'body' ).removeClass( 'sticky-nav-enabled' );
+        }
+        $( 'body' ).addClass( 'sticky-nav-disabled' );
+      }
+    });
+  });
 
   // Color Controls
   wp.customize( 'body_text_color', function (value) {

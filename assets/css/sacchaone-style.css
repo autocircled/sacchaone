@@ -109,6 +109,19 @@ body {
 /*
  * Navbar
  */
+.transparent-header header.nav-header {
+    position: absolute;
+    width: 100%;
+    z-index: 99;
+}
+.transparent-header .header-bg {
+    background-color: #ffffff00;
+    box-shadow: none;
+}
+.transparent-header main.site-main {
+    margin-top: 0 !important;
+    padding-top: 6rem;
+}
 .nav-wrapper {
     display: flex;
     justify-content: space-between;
@@ -127,9 +140,10 @@ body {
 .sticky-nav {
     padding-top: 81px;
 }
-header.nav-header.affix {
+header.nav-header.affix,
+.transparent-header header.nav-header.affix {
 	position: fixed;
-    z-index: 1;
+    z-index: 99;
     width: 100%;
     top: 0;
 }
@@ -1190,6 +1204,7 @@ ul.social-network li {
 .form-control:focus {
 	box-shadow: none;
 }
+
 /*Responsive*/
 @media(max-width:450px){
 	.blog-sidebar {

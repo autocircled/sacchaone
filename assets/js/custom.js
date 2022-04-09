@@ -53,7 +53,7 @@
 
   function stickyNav(){
     var scrollValue = $(window).scrollTop();
-		if (scrollValue > 120) {
+		if (scrollValue > 120 && $('body').hasClass('sticky-nav-enabled')) {
 			$('body').addClass('sticky-nav');
 			$('.nav-header').addClass('affix');
 		} else{
@@ -61,9 +61,5 @@
 			$('.nav-header').removeClass('affix');
 		}
   }
-
-  // $('body').on('click', '.navbar-toggler-open', function(){
-  //   $('#exampleModal').modal('show');
-  // });
 	
 })(jQuery);

@@ -146,6 +146,7 @@ if ( ! function_exists( 'sacchaone_get_defaults' ) ) {
 			'sacchaone_hide_site_desc'     => true,
 			'sacchaone_blog_settings'      => 'excerpt',
 			'sacchaone_dropdown_direction' => 'right',
+			'sacchaone_sticky_nav'         => 'enabled',
 			'background_color'             => '#f0f0f1',
 			'body_text_color'              => '#1f1f1f',
 			'body_link_color'              => '#117889',

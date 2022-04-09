@@ -12,11 +12,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 if ( ! class_exists( 'SacchaOne_Metabox' ) ) {
 	/**
-	 * Creates minified css via PHP.
+	 * SacchaObe Post/Page Extra Settings
 	 *
-	 * @author  Carlos Rios
-	 * @link https://github.com/CarlosRios/php-css
-	 * Modified by autocircle
+	 * @since 1.0.8
 	 */
 	class SacchaOne_Metabox {
 
@@ -32,7 +30,7 @@ if ( ! class_exists( 'SacchaOne_Metabox' ) ) {
 		 * @param \WP_Post $post      Post object.
 		 */
 		public function action_add_meta_boxes(string $post_type, \WP_Post $post) : void {
-			add_meta_box( 'saccha-metabox-1', __( 'Additional Settings', 'sss' ), [ $this, 'saccha_metabox_1_callback' ] );
+			add_meta_box( 'saccha-metabox-1', __( 'Additional Settings', 'sacchaone' ), [ $this, 'saccha_metabox_1_callback' ] );
 		}
 
 		/**
@@ -41,7 +39,6 @@ if ( ! class_exists( 'SacchaOne_Metabox' ) ) {
 		 * @param WP_Post $post Current post object.
 		 */
 		public function saccha_metabox_1_callback( $post ) {
-			// ob_start();
 			
 			?>
 			<div class="saccha-inner-settings">
@@ -50,46 +47,44 @@ if ( ! class_exists( 'SacchaOne_Metabox' ) ) {
 				$s_framework->add_field(
 					'additional_settings',
 					array(
-						'label' => __( 'Enable Additional Settings?', 'sss' ),
+						'label' => __( 'Enable Additional Settings?', 'sacchaone' ),
 						'type'  => 'radio',
 						'default' => 'no',
 						'choices' => array(
-							'yes' => __( 'Enable', 'sss' ),
-							'no'  => __( 'Disable', 'sss' ),
+							'yes' => __( 'Enable', 'sacchaone' ),
+							'no'  => __( 'Disable', 'sacchaone' ),
 						),
 					)
 				);
 				$s_framework->add_field(
 					'transparent_page_header',
 					array(
-						'label' => __( 'Transparent Header', 'sss' ),
+						'label' => __( 'Transparent Header', 'sacchaone' ),
 						'type'  => 'radio',
 						'default' => 'no',
 						'choices' => array(
-							'yes' => __( 'Enable', 'sss' ),
-							'no'  => __( 'Disable', 'sss' ),
+							'yes' => __( 'Enable', 'sacchaone' ),
+							'no'  => __( 'Disable', 'sacchaone' ),
 						),
 					)
 				);
 				$s_framework->add_field(
 					'sidebar_type',
 					array(
-						'label' => __( 'Sidebar Type', 'sss' ),
+						'label' => __( 'Sidebar Type', 'sacchaone' ),
 						'type'  => 'radio',
 						'default' => 'right',
 						'choices' => array(
-							'none' => __( 'None', 'sss' ),
-							'left' => __( 'Left', 'sss' ),
-							'right'  => __( 'Right', 'sss' ),
-							'both'  => __( 'Both', 'sss' ),
+							'none' => __( 'None', 'sacchaone' ),
+							'left' => __( 'Left', 'sacchaone' ),
+							'right'  => __( 'Right', 'sacchaone' ),
+							'both'  => __( 'Both', 'sacchaone' ),
 						),
 					)
 				);
 				?>
 			</div>
 			<?php
-			// $form = ob_get_clean();
-			// echo $form;
 			
 		}
 
@@ -105,9 +100,9 @@ if ( ! class_exists( 'SacchaOne_Metabox' ) ) {
 			}
 			
 			// Checking here if additional settings is needed for this post else exit
-			$is_settings_activated = false;
+			$is_meta_box_settings_activated = false;
 			if ( get_post_meta( $post_id, SACCHAONE_PREFIX . 'additional_settings', true ) || isset( $_POST['additional_settings'] ) && 'yes' === $_POST['additional_settings']) {
-				$is_settings_activated =  true;
+				$is_meta_box_settings_activated =  true;
 			}
 			
 			$fields = [
@@ -115,7 +110,7 @@ if ( ! class_exists( 'SacchaOne_Metabox' ) ) {
 				'transparent_page_header',
 				'sidebar_type',
 			];
-			if ( $is_settings_activated ) {
+			if ( $is_meta_box_settings_activated ) {
 				foreach ( $fields as $field ) {
 					if ( array_key_exists( $field, $_POST ) ) {
 						update_post_meta( $post_id, SACCHAONE_PREFIX . $field, sanitize_text_field( $_POST[$field] ) );

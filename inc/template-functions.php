@@ -79,6 +79,7 @@ function sacchaone_body_classes( $classes ) {
 
 	// Customizer settings
 	$classes[] = get_theme_mod( 'sacchaone_sidebar_type', sacchaone_get_defaults( 'sacchaone_sidebar_type' ) );
+	$classes[] = get_theme_mod( 'sacchaone_sticky_nav', sacchaone_get_defaults( 'sacchaone_sticky_nav' ) ) === 'enable' ? 'sticky-nav-enabled' : 'sticky-nav-disabled';
 
 	// Add class for back2top button.
 	$back2top_status = get_theme_mod( 'sacchaone_back2top', 0 );
@@ -96,9 +97,11 @@ function sacchaone_body_classes( $classes ) {
 		if ( 'yes' === $transparent_header ) {
 			$classes[] = 'transparent-header';
 		}
+
+		// Sidebar left, right, both or none.
 		$sidebar_type = get_post_meta( get_the_ID(), SACCHAONE_PREFIX . 'sidebar_type', true );
 		$classes[] = 'sidebar_' . $sidebar_type;
-		
+
 	}
 
 	return $classes;
@@ -493,6 +496,29 @@ function sacchaone_sanitize_select( $input, $setting ) {
 function sacchaone_sanitize_checkbox( $input ) {
 	// returns true if checkbox is checked.
 	return ( ( isset( $input ) && true == $input ) ? true : false );
+}
+
+/**
+ * Sanitize customizer colors as RGBA.
+ *
+ * @param string $color Input must be a color.
+ * @param object $setting Customizer settings.
+ */
+function sacchaone_sanitize_rgba( $color, $setting ) {
+	var_dump($color, $setting );
+	if ( empty( $color ) || is_array( $color ) )
+		return 'rgba(0,0,0,0)';
+
+	// If string does not start with 'rgba', then treat as hex
+	// sanitize the hex color and finally convert hex to rgba
+	if ( false === strpos( $color, 'rgba' ) ) {
+		return sanitize_hex_color( $color );
+	}
+
+	// By now we know the string is formatted as an rgba color so we need to further sanitize it.
+	$color = str_replace( ' ', '', $color );
+	sscanf( $color, 'rgba(%d,%d,%d,%f)', $red, $green, $blue, $alpha );
+	return 'rgba('.$red.','.$green.','.$blue.','.$alpha.')';
 }
 
 
