@@ -287,22 +287,22 @@
     });
   });
   
-  wp.customize( 'nav_background_color', function (value) {
-    value.bind(function (to) {
-      let selector = '.navbar-collapse';
-      let id = 'nav_background_color';
-      let property = 'background-color';
+  // wp.customize( 'nav_background_color', function (value) {
+  //   value.bind(function (to) {
+  //     let selector = '.navbar-collapse';
+  //     let id = 'nav_background_color';
+  //     let property = 'background-color';
       
-      if ( $( 'style#' + id ).length ) {
-        $( 'style#' + id ).html( selector + '{' + property + ':' + to + ';}' );
-      } else {
-        $( 'head' ).append( '<style id="' + id + '">' + selector + '{' + property + ':' + to + ';}</style>' );
-        setTimeout( function() {
-          $( 'style#' + id ).not( ':last' ).remove();
-        }, 1000 );
-      }
-    });
-  });
+  //     if ( $( 'style#' + id ).length ) {
+  //       $( 'style#' + id ).html( selector + '{' + property + ':' + to + ';}' );
+  //     } else {
+  //       $( 'head' ).append( '<style id="' + id + '">' + selector + '{' + property + ':' + to + ';}</style>' );
+  //       setTimeout( function() {
+  //         $( 'style#' + id ).not( ':last' ).remove();
+  //       }, 1000 );
+  //     }
+  //   });
+  // });
   
   wp.customize( 'nav_hover_color', function (value) {
     value.bind(function (to) {

@@ -64,20 +64,20 @@ if ( ! function_exists( 'sacchaone_get_dynamic_css' ) ) {
 		$css->set_selector( '.site-description' );
 		$css->add_property( 'color', maybe_hash_hex_color( $settings['header_tagline_color'] ) );
 
-		$css->set_selector( '.navbar-collapse' );
-		$css->add_property( 'background-color', maybe_hash_hex_color( $settings['nav_background_color'] ) );
+		// $css->set_selector( '.nav-wrapper' );
+		// $css->add_property( 'background-color', maybe_hash_hex_color( $settings['nav_background_color'] ) );
 
 		$css->set_selector( '.nav>li.open>a, .nav>li:hover>a' );
 		$css->add_property( 'background-color', maybe_hash_hex_color( $settings['nav_hover_color'] ) );
 
 		$css->start_media_query( '(min-width: 769px)' );
-			$css->set_selector( '.navbar .navbar-collapse ul li[class*="current-menu-"] > a, .navbar .navbar-collapse ul li[class*="current_page_"] > a' );
+			$css->set_selector( '.navbar .nav-wrapper ul li[class*="current-menu-"] > a, .navbar .nav-wrapper ul li[class*="current_page_"] > a' );
 			$css->add_property( 'background-color', maybe_hash_hex_color( $settings['nav_active_color'] . '30' ) );
 			$css->add_property( 'border-bottom-color', maybe_hash_hex_color( $settings['nav_active_color'] ) );
 		$css->stop_media_query();
 
 		$css->start_media_query( '(max-width: 768px)' );
-			$css->set_selector( '.navbar .navbar-collapse ul li[class*="current-menu-"] > a, .navbar .navbar-collapse ul li[class*="current_page_"] > a' );
+			$css->set_selector( '.navbar .nav-wrapper ul li[class*="current-menu-"] > a, .navbar .nav-wrapper ul li[class*="current_page_"] > a' );
 			$css->add_property( 'background-color', maybe_hash_hex_color( $settings['nav_active_color'] . '30' ) );
 			$css->add_property( 'border-left-color', maybe_hash_hex_color( $settings['nav_active_color'] ) );
 			$css->add_property( 'padding-left', '15px' );
@@ -154,7 +154,7 @@ if ( ! function_exists( 'sacchaone_get_defaults' ) ) {
 			'header_background_color'      => '#fff',
 			'header_site_title_color'      => '#1f1f1f',
 			'header_tagline_color'         => '#1f1f1f',
-			'nav_background_color'         => '#fff',
+			// 'nav_background_color'         => '#fff',
 			'nav_hover_color'              => '#fff',
 			'nav_active_color'             => '#3582c4',
 			'nav_text_color'               => '#030303',

@@ -755,27 +755,27 @@ function sacchaone_customize_register( $wp_customize ) {
 	/**
 	 * Nav background color
 	 */
-	$wp_customize->add_setting(
-		'nav_background_color',
-		array(
-			'default'           => $defaults['nav_background_color'],
-			'transport'         => 'postMessage',
-			'sanitize_callback' => 'sanitize_hex_color',
-		)
-	);
+	// $wp_customize->add_setting(
+	// 	'nav_background_color',
+	// 	array(
+	// 		'default'           => $defaults['nav_background_color'],
+	// 		'transport'         => 'postMessage',
+	// 		'sanitize_callback' => 'sanitize_hex_color',
+	// 	)
+	// );
 
-	$wp_customize->add_control(
-		new WP_Customize_Color_Control(
-			$wp_customize,
-			'nav_background_color_control',
-			array(
-				'label'    => __( 'Background', 'sacchaone' ),
-				'section'  => 'colors',
-				'settings' => 'nav_background_color',
-				'priority' => 10,
-			)
-		)
-	);
+	// $wp_customize->add_control(
+	// 	new WP_Customize_Color_Control(
+	// 		$wp_customize,
+	// 		'nav_background_color_control',
+	// 		array(
+	// 			'label'    => __( 'Background', 'sacchaone' ),
+	// 			'section'  => 'colors',
+	// 			'settings' => 'nav_background_color',
+	// 			'priority' => 10,
+	// 		)
+	// 	)
+	// );
 
 	/**
 	 * Nav hover color
