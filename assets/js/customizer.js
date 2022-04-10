@@ -286,24 +286,10 @@
       }
     });
   });
-  
-  // wp.customize( 'nav_background_color', function (value) {
-  //   value.bind(function (to) {
-  //     let selector = '.navbar-collapse';
-  //     let id = 'nav_background_color';
-  //     let property = 'background-color';
-      
-  //     if ( $( 'style#' + id ).length ) {
-  //       $( 'style#' + id ).html( selector + '{' + property + ':' + to + ';}' );
-  //     } else {
-  //       $( 'head' ).append( '<style id="' + id + '">' + selector + '{' + property + ':' + to + ';}</style>' );
-  //       setTimeout( function() {
-  //         $( 'style#' + id ).not( ':last' ).remove();
-  //       }, 1000 );
-  //     }
-  //   });
-  // });
-  
+
+  /**
+   * Navigation Color Control
+   */  
   wp.customize( 'nav_hover_color', function (value) {
     value.bind(function (to) {
       let selector = '.nav>li.open>a, .nav>li:hover>a';
@@ -323,7 +309,7 @@
   
   wp.customize( 'nav_active_color', function (value) {
     value.bind(function (to) {
-      let selector = '.nav.navbar-nav > li.current_page_item > a, .nav.navbar-nav > li.current_page_ancestor > a';
+      let selector = '.nav-menu > li.current_page_item > a, .nav-menu > li.current_page_ancestor > a';
       let id = 'nav_active_color';
       let property1 = 'background-color';
       let property2 = 'border-bottom-color';
@@ -341,7 +327,7 @@
   
   wp.customize( 'nav_text_color', function (value) {
     value.bind(function (to) {
-      let selector = '.nav.navbar-nav li a';
+      let selector = '.nav-menu li a';
       let id = 'nav_text_color';
       let property = 'color';
       
@@ -375,7 +361,7 @@
   
   wp.customize( 'nav_text_active_color', function (value) {
     value.bind(function (to) {
-      let selector = '.nav.navbar-nav li.current_page_item a';
+      let selector = '.nav-menu li.current_page_item a';
       let id = 'nav_text_active_color';
       let property = 'color';
       
@@ -426,7 +412,7 @@
   
   wp.customize( 'nav_sub_bg_active_color', function (value) {
     value.bind(function (to) {
-      let selector = '.nav.navbar-nav li li.current_page_ancestor > a, .nav.navbar-nav li li.current_page_item > a';
+      let selector = '.nav-menu li li.current_page_ancestor > a, .nav-menu li li.current_page_item > a';
       let id = 'nav_sub_bg_active_color';
       let property1 = 'background-color';
       let property2 = 'border-left-color';
@@ -444,8 +430,25 @@
   
   wp.customize( 'nav_sub_text_color', function (value) {
     value.bind(function (to) {
-      let selector = '.nav.navbar-nav li li a';
+      let selector = '.nav-menu li li a';
       let id = 'nav_sub_text_color';
+      let property = 'color';
+      
+      if ( $( 'style#' + id ).length ) {
+        $( 'style#' + id ).html( selector + '{' + property + ':' + to + ';}' );
+      } else {
+        $( 'head' ).append( '<style id="' + id + '">' + selector + '{' + property + ':' + to + ';}</style>' );
+        setTimeout( function() {
+          $( 'style#' + id ).not( ':last' ).remove();
+        }, 1000 );
+      }
+    });
+  });
+
+  wp.customize( 'nav_sub_text_active_color', function (value) {
+    value.bind(function (to) {
+      let selector = '.nav-menu li li.current_page_ancestor > a, .nav-menu li li.current_page_item > a';
+      let id = 'nav_sub_text_active_color';
       let property = 'color';
       
       if ( $( 'style#' + id ).length ) {
@@ -475,24 +478,10 @@
       }
     });
   });
-  
-  wp.customize( 'nav_sub_text_active_color', function (value) {
-    value.bind(function (to) {
-      let selector = '.nav.navbar-nav li li.current_page_ancestor > a, .nav.navbar-nav li li.current_page_item > a';
-      let id = 'nav_sub_text_active_color';
-      let property = 'color';
-      
-      if ( $( 'style#' + id ).length ) {
-        $( 'style#' + id ).html( selector + '{' + property + ':' + to + ';}' );
-      } else {
-        $( 'head' ).append( '<style id="' + id + '">' + selector + '{' + property + ':' + to + ';}</style>' );
-        setTimeout( function() {
-          $( 'style#' + id ).not( ':last' ).remove();
-        }, 1000 );
-      }
-    });
-  });
 
+  /**
+   * Button Color Control
+   */
   wp.customize( 'button_bg_color', function (value) {
     value.bind(function (to) {
       let selector = 'input[type="submit"], form.comment-form .form-submit input.submit, .wp-block-search__button';
