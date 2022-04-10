@@ -31,7 +31,18 @@
 #customize-control-button_text_color_control,
 #customize-control-button_text_hover_color_control,
 #customize-control-button_border_color_control,
-#customize-control-button_border_hover_color_control {
+#customize-control-button_border_hover_color_control,
+#customize-control-saccha_nav_hover_color_control,
+#customize-control-saccha_nav_active_color_control,
+#customize-control-saccha_nav_text_color_control,
+#customize-control-saccha_nav_text_hover_color_control,
+#customize-control-saccha_nav_text_active_color_control,
+#customize-control-saccha_nav_sub_text_color_control,
+#customize-control-saccha_nav_sub_text_hover_color_control,
+#customize-control-saccha_nav_sub_text_active_color_control,
+#customize-control-saccha_nav_sub_bg_color_control,
+#customize-control-saccha_nav_sub_bg_hover_color_control,
+#customize-control-saccha_nav_sub_bg_active_color_control {
     display: none;
 }
 

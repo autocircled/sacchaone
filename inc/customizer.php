@@ -735,51 +735,22 @@ function sacchaone_customize_register( $wp_customize ) {
 				'section'    => 'colors',
 				'settings'   => 'sacchaone_navigation_color',
 				'toggle_ids' => array(
-					'nav_background_color_control',
 					'nav_hover_color_control',
 					'nav_active_color_control',
 					'nav_text_color_control',
 					'nav_text_hover_color_control',
 					'nav_text_active_color_control',
-					'nav_sub_text_color_control',
-					'nav_sub_text_hover_color_control',
-					'nav_sub_text_active_color_control',
 					'nav_sub_bg_color_control',
 					'nav_sub_bg_hover_color_control',
 					'nav_sub_bg_active_color_control',
+					'nav_sub_text_color_control',
+					'nav_sub_text_active_color_control',
+					'nav_sub_text_hover_color_control',
 				),
 			)
 		)
 	);
 
-	/**
-	 * Nav background color
-	 */
-	// $wp_customize->add_setting(
-	// 	'nav_background_color',
-	// 	array(
-	// 		'default'           => $defaults['nav_background_color'],
-	// 		'transport'         => 'postMessage',
-	// 		'sanitize_callback' => 'sanitize_hex_color',
-	// 	)
-	// );
-
-	// $wp_customize->add_control(
-	// 	new WP_Customize_Color_Control(
-	// 		$wp_customize,
-	// 		'nav_background_color_control',
-	// 		array(
-	// 			'label'    => __( 'Background', 'sacchaone' ),
-	// 			'section'  => 'colors',
-	// 			'settings' => 'nav_background_color',
-	// 			'priority' => 10,
-	// 		)
-	// 	)
-	// );
-
-	/**
-	 * Nav hover color
-	 */
 	$wp_customize->add_setting(
 		'nav_hover_color',
 		array(
@@ -802,9 +773,6 @@ function sacchaone_customize_register( $wp_customize ) {
 		)
 	);
 
-	/**
-	 * Nav active color
-	 */
 	$wp_customize->add_setting(
 		'nav_active_color',
 		array(
@@ -827,9 +795,6 @@ function sacchaone_customize_register( $wp_customize ) {
 		)
 	);
 
-	/**
-	 * Nav text color
-	 */
 	$wp_customize->add_setting(
 		'nav_text_color',
 		array(
@@ -852,9 +817,6 @@ function sacchaone_customize_register( $wp_customize ) {
 		)
 	);
 
-	/**
-	 * Nav text hover color
-	 */
 	$wp_customize->add_setting(
 		'nav_text_hover_color',
 		array(
@@ -877,9 +839,6 @@ function sacchaone_customize_register( $wp_customize ) {
 		)
 	);
 
-	/**
-	 * Nav text color
-	 */
 	$wp_customize->add_setting(
 		'nav_text_active_color',
 		array(
@@ -902,9 +861,6 @@ function sacchaone_customize_register( $wp_customize ) {
 		)
 	);
 
-	/**
-	 * Sub menu background color
-	 */
 	$wp_customize->add_setting(
 		'nav_sub_bg_color',
 		array(
@@ -927,9 +883,6 @@ function sacchaone_customize_register( $wp_customize ) {
 		)
 	);
 
-	/**
-	 * Sub menu background hover color
-	 */
 	$wp_customize->add_setting(
 		'nav_sub_bg_hover_color',
 		array(
@@ -952,9 +905,6 @@ function sacchaone_customize_register( $wp_customize ) {
 		)
 	);
 
-	/**
-	 * Sub menu text color
-	 */
 	$wp_customize->add_setting(
 		'nav_sub_bg_active_color',
 		array(
@@ -977,9 +927,6 @@ function sacchaone_customize_register( $wp_customize ) {
 		)
 	);
 
-	/**
-	 * Sub menu text color
-	 */
 	$wp_customize->add_setting(
 		'nav_sub_text_color',
 		array(
@@ -1002,9 +949,6 @@ function sacchaone_customize_register( $wp_customize ) {
 		)
 	);
 
-	/**
-	 * Sub menu text active color
-	 */
 	$wp_customize->add_setting(
 		'nav_sub_text_active_color',
 		array(
@@ -1027,9 +971,6 @@ function sacchaone_customize_register( $wp_customize ) {
 		)
 	);
 
-	/**
-	 * Sub menu text hover color
-	 */
 	$wp_customize->add_setting(
 		'nav_sub_text_hover_color',
 		array(
@@ -1047,6 +988,317 @@ function sacchaone_customize_register( $wp_customize ) {
 				'label'    => __( 'Sub Menu Text Hover Color', 'sacchaone' ),
 				'section'  => 'colors',
 				'settings' => 'nav_sub_text_hover_color',
+				'priority' => 10,
+			)
+		)
+	);
+
+	
+	/**
+	 * Setting: Transparent Navigation Toggle
+	 */
+	$wp_customize->add_setting(
+		'sacchaone_saccha_navigation_color',
+		array(
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sanitize_hex_color',
+		)
+	);
+	$wp_customize->add_control(
+		new SacchaOne_Separator_Control(
+			$wp_customize,
+			'sacchaone_saccha_navigation_color',
+			array(
+				'label'      => __( 'Navigation (Transparent)', 'sacchaone' ),
+				'section'    => 'colors',
+				'settings'   => 'sacchaone_saccha_navigation_color',
+				'toggle_ids' => array(
+					'saccha_nav_hover_color_control',
+					'saccha_nav_active_color_control',
+					'saccha_nav_text_color_control',
+					'saccha_nav_text_hover_color_control',
+					'saccha_nav_text_active_color_control',
+					'saccha_nav_sub_text_color_control',
+					'saccha_nav_sub_text_hover_color_control',
+					'saccha_nav_sub_text_active_color_control',
+					'saccha_nav_sub_bg_color_control',
+					'saccha_nav_sub_bg_hover_color_control',
+					'saccha_nav_sub_bg_active_color_control'
+				),
+			)
+		)
+	);
+
+	/**
+	 * Nav hover color
+	 */
+	$wp_customize->add_setting(
+		'saccha_nav_hover_color_control',
+		array(
+			'default'           => $defaults['saccha_nav_hover_color_control'],
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sanitize_hex_color',
+		)
+	);
+
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize,
+			'saccha_nav_hover_color_control',
+			array(
+				'label'    => __( 'Hover Color', 'sacchaone' ),
+				'section'  => 'colors',
+				'settings' => 'saccha_nav_hover_color_control',
+				'priority' => 10,
+			)
+		)
+	);
+
+	/**
+	 * Nav text color
+	 */
+	$wp_customize->add_setting(
+		'saccha_nav_text_color_control',
+		array(
+			'default'           => $defaults['saccha_nav_text_color_control'],
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sanitize_hex_color',
+		)
+	);
+
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize,
+			'saccha_nav_text_color_control',
+			array(
+				'label'    => __( 'Text Color', 'sacchaone' ),
+				'section'  => 'colors',
+				'settings' => 'saccha_nav_text_color_control',
+				'priority' => 10,
+			)
+		)
+	);
+
+	/**
+	 * Nav active color
+	 */
+	$wp_customize->add_setting(
+		'saccha_nav_active_color_control',
+		array(
+			'default'           => $defaults['saccha_nav_active_color_control'],
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sanitize_hex_color',
+		)
+	);
+
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize,
+			'saccha_nav_active_color_control',
+			array(
+				'label'    => __( 'Active Color', 'sacchaone' ),
+				'section'  => 'colors',
+				'settings' => 'saccha_nav_active_color_control',
+				'priority' => 10,
+			)
+		)
+	);
+
+	/**
+	 * Nav text hover color
+	 */
+	$wp_customize->add_setting(
+		'saccha_nav_text_hover_color_control',
+		array(
+			'default'           => $defaults['saccha_nav_text_hover_color_control'],
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sanitize_hex_color',
+		)
+	);
+
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize,
+			'saccha_nav_text_hover_color_control',
+			array(
+				'label'    => __( 'Text Hover Color', 'sacchaone' ),
+				'section'  => 'colors',
+				'settings' => 'saccha_nav_text_hover_color_control',
+				'priority' => 10,
+			)
+		)
+	);
+
+	/**
+	 * Nav text color
+	 */
+	$wp_customize->add_setting(
+		'saccha_nav_text_active_color_control',
+		array(
+			'default'           => $defaults['saccha_nav_text_active_color_control'],
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sanitize_hex_color',
+		)
+	);
+
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize,
+			'saccha_nav_text_active_color_control',
+			array(
+				'label'    => __( 'Text Active Color', 'sacchaone' ),
+				'section'  => 'colors',
+				'settings' => 'saccha_nav_text_active_color_control',
+				'priority' => 10,
+			)
+		)
+	);
+
+	/**
+	 * Sub menu text color
+	 */
+	$wp_customize->add_setting(
+		'saccha_nav_sub_text_color_control',
+		array(
+			'default'           => $defaults['saccha_nav_sub_text_color_control'],
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sanitize_hex_color',
+		)
+	);
+
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize,
+			'saccha_nav_sub_text_color_control',
+			array(
+				'label'    => __( 'Sub Menu Text Color', 'sacchaone' ),
+				'section'  => 'colors',
+				'settings' => 'saccha_nav_sub_text_color_control',
+				'priority' => 10,
+			)
+		)
+	);
+
+	/**
+	 * Sub menu text hover color
+	 */
+	$wp_customize->add_setting(
+		'saccha_nav_sub_text_hover_color_control',
+		array(
+			'default'           => $defaults['saccha_nav_sub_text_hover_color_control'],
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sanitize_hex_color',
+		)
+	);
+
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize,
+			'saccha_nav_sub_text_hover_color_control',
+			array(
+				'label'    => __( 'Sub Menu Text Hover Color', 'sacchaone' ),
+				'section'  => 'colors',
+				'settings' => 'saccha_nav_sub_text_hover_color_control',
+				'priority' => 10,
+			)
+		)
+	);
+
+	/**
+	 * Sub menu text active color
+	 */
+	$wp_customize->add_setting(
+		'saccha_nav_sub_text_active_color_control',
+		array(
+			'default'           => $defaults['saccha_nav_sub_text_active_color_control'],
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sanitize_hex_color',
+		)
+	);
+
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize,
+			'saccha_nav_sub_text_active_color_control',
+			array(
+				'label'    => __( 'Sub Menu Text Active Color', 'sacchaone' ),
+				'section'  => 'colors',
+				'settings' => 'saccha_nav_sub_text_active_color_control',
+				'priority' => 10,
+			)
+		)
+	);
+
+	/**
+	 * Sub menu background color
+	 */
+	$wp_customize->add_setting(
+		'saccha_nav_sub_bg_color_control',
+		array(
+			'default'           => $defaults['saccha_nav_sub_bg_color_control'],
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sanitize_hex_color',
+		)
+	);
+
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize,
+			'saccha_nav_sub_bg_color_control',
+			array(
+				'label'    => __( 'Sub Menu Background Color', 'sacchaone' ),
+				'section'  => 'colors',
+				'settings' => 'saccha_nav_sub_bg_color_control',
+				'priority' => 10,
+			)
+		)
+	);
+
+	/**
+	 * Sub menu background hover color
+	 */
+	$wp_customize->add_setting(
+		'saccha_nav_sub_bg_hover_color_control',
+		array(
+			'default'           => $defaults['saccha_nav_sub_bg_hover_color_control'],
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sanitize_hex_color',
+		)
+	);
+
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize,
+			'saccha_nav_sub_bg_hover_color_control',
+			array(
+				'label'    => __( 'Sub Menu Background Hover Color', 'sacchaone' ),
+				'section'  => 'colors',
+				'settings' => 'saccha_nav_sub_bg_hover_color_control',
+				'priority' => 10,
+			)
+		)
+	);
+
+	/**
+	 * Sub menu text color
+	 */
+	$wp_customize->add_setting(
+		'saccha_nav_sub_bg_active_color_control',
+		array(
+			'default'           => $defaults['saccha_nav_sub_bg_active_color_control'],
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sanitize_hex_color',
+		)
+	);
+
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize,
+			'saccha_nav_sub_bg_active_color_control',
+			array(
+				'label'    => __( 'Sub Menu Background Active Color', 'sacchaone' ),
+				'section'  => 'colors',
+				'settings' => 'saccha_nav_sub_bg_active_color_control',
 				'priority' => 10,
 			)
 		)

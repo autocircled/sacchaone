@@ -142,10 +142,12 @@ body {
 }
 header.nav-header.affix,
 .transparent-header header.nav-header.affix {
-	position: fixed;
+    position: fixed;
     z-index: 99;
     width: 100%;
     top: 0;
+    background-color: #ffffff;
+    box-shadow: 4px 0px 16px 0px rgb(234 234 234 / 75%);
 }
 .site-info {
     min-width: 150px;

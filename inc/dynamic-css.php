@@ -83,13 +83,13 @@ if ( ! function_exists( 'sacchaone_get_dynamic_css' ) ) {
 			$css->add_property( 'padding-left', '15px' );
 		$css->stop_media_query();
 
-		$css->set_selector( '.nav.navbar-nav li a' );
+		$css->set_selector( '.nav-menu li a' );
 		$css->add_property( 'color', maybe_hash_hex_color( $settings['nav_text_color'] ) );
 
 		$css->set_selector( '.nav>li.open>a, .nav>li:hover>a' );
 		$css->add_property( 'color', maybe_hash_hex_color( $settings['nav_text_hover_color'] ) );
 
-		$css->set_selector( '.nav.navbar-nav li.current_page_item a' );
+		$css->set_selector( '.nav-menu li.current_page_item a' );
 		$css->add_property( 'color', maybe_hash_hex_color( $settings['nav_text_active_color'] ) );
 
 		$css->set_selector( '.nav li>ul' );
@@ -98,17 +98,17 @@ if ( ! function_exists( 'sacchaone_get_dynamic_css' ) ) {
 		$css->set_selector( '.nav li li.open>a, .nav li li:hover>a' );
 		$css->add_property( 'background-color', maybe_hash_hex_color( $settings['nav_sub_bg_hover_color'] ) );
 
-		$css->set_selector( '.nav.navbar-nav li li.current_page_ancestor > a, .nav.navbar-nav li li.current_page_item > a' );
+		$css->set_selector( '.nav-menu li li.current_page_ancestor > a, .nav-menu li li.current_page_item > a' );
 		$css->add_property( 'background-color', maybe_hash_hex_color( $settings['nav_sub_bg_active_color'] . '30' ) );
 		$css->add_property( 'border-left-color', maybe_hash_hex_color( $settings['nav_sub_bg_active_color'] ) );
 
-		$css->set_selector( '.nav.navbar-nav li li a' );
+		$css->set_selector( '.nav-menu li li a' );
 		$css->add_property( 'color', maybe_hash_hex_color( $settings['nav_sub_text_color'] ) );
 
 		$css->set_selector( '.nav li li.open>a, .nav li li:hover>a' );
 		$css->add_property( 'color', maybe_hash_hex_color( $settings['nav_sub_text_hover_color'] ) );
 
-		$css->set_selector( '.nav.navbar-nav li li.current_page_ancestor > a, .nav.navbar-nav li li.current_page_item > a' );
+		$css->set_selector( '.nav-menu li li.current_page_ancestor > a, .nav-menu li li.current_page_item > a' );
 		$css->add_property( 'color', maybe_hash_hex_color( $settings['nav_sub_text_active_color'] ) );
 
 		$css->set_selector( 'input[type="submit"], form.comment-form .form-submit input.submit, .wp-block-search__button' );
@@ -166,6 +166,16 @@ if ( ! function_exists( 'sacchaone_get_defaults' ) ) {
 			'nav_sub_bg_color'             => '#fff',
 			'nav_sub_bg_hover_color'       => '#f5f5f5',
 			'nav_sub_bg_active_color'      => '#3582c4',
+			// Transparent Nav Color
+			'saccha_nav_hover_color_control'        => '',
+			'saccha_nav_active_color_control'        => '',
+			'saccha_nav_text_color_control'        => '',
+			'saccha_nav_text_hover_color_control'        => '',
+			'saccha_nav_text_active_color_control'        => '',
+			'saccha_nav_sub_text_color_control'        => '',
+			'saccha_nav_sub_text_hover_color_control'        => '',
+			'saccha_nav_sub_text_active_color_control'        => '',
+			'saccha_nav_sub_bg_color_control'        => '',
 			'button_bg_color'              => '#128294',
 			'button_bg_hover_color'        => '#fff',
 			'button_text_color'            => '#fff',
