@@ -64,53 +64,92 @@ if ( ! function_exists( 'sacchaone_get_dynamic_css' ) ) {
 		$css->set_selector( '.site-description' );
 		$css->add_property( 'color', maybe_hash_hex_color( $settings['header_tagline_color'] ) );
 
-		// $css->set_selector( '.nav-wrapper' );
-		// $css->add_property( 'background-color', maybe_hash_hex_color( $settings['nav_background_color'] ) );
 
-		$css->set_selector( '.nav>li.open>a, .nav>li:hover>a' );
+		/**
+		 * Navigation Color Control
+		 */
+		$css->set_selector( 'body:not(.transparent-header) .nav-menu li a' );
+		$css->add_property( 'color', maybe_hash_hex_color( $settings['nav_text_color'] ) );
+
+		$css->set_selector( 'body:not(.transparent-header) .nav>li.open>a, body:not(.transparent-header) .nav>li:hover>a' );
 		$css->add_property( 'background-color', maybe_hash_hex_color( $settings['nav_hover_color'] ) );
+		$css->add_property( 'color', maybe_hash_hex_color( $settings['nav_text_hover_color'] ) );
 
 		$css->start_media_query( '(min-width: 769px)' );
-			$css->set_selector( '.navbar .nav-wrapper ul li[class*="current-menu-"] > a, .navbar .nav-wrapper ul li[class*="current_page_"] > a' );
+			$css->set_selector( 'body:not(.transparent-header) .navbar .nav-wrapper ul li[class*="current-menu-"] > a, body:not(.transparent-header) .navbar .nav-wrapper ul li[class*="current_page_"] > a' );
 			$css->add_property( 'background-color', maybe_hash_hex_color( $settings['nav_active_color'] . '30' ) );
 			$css->add_property( 'border-bottom-color', maybe_hash_hex_color( $settings['nav_active_color'] ) );
 		$css->stop_media_query();
 
 		$css->start_media_query( '(max-width: 768px)' );
-			$css->set_selector( '.navbar .nav-wrapper ul li[class*="current-menu-"] > a, .navbar .nav-wrapper ul li[class*="current_page_"] > a' );
+			$css->set_selector( 'body:not(.transparent-header) .navbar .nav-wrapper ul li[class*="current-menu-"] > a, body:not(.transparent-header) .navbar .nav-wrapper ul li[class*="current_page_"] > a' );
 			$css->add_property( 'background-color', maybe_hash_hex_color( $settings['nav_active_color'] . '30' ) );
 			$css->add_property( 'border-left-color', maybe_hash_hex_color( $settings['nav_active_color'] ) );
 			$css->add_property( 'padding-left', '15px' );
 		$css->stop_media_query();
 
-		$css->set_selector( '.nav-menu li a' );
-		$css->add_property( 'color', maybe_hash_hex_color( $settings['nav_text_color'] ) );
-
-		$css->set_selector( '.nav>li.open>a, .nav>li:hover>a' );
-		$css->add_property( 'color', maybe_hash_hex_color( $settings['nav_text_hover_color'] ) );
-
-		$css->set_selector( '.nav-menu li.current_page_item a' );
+		$css->set_selector( 'body:not(.transparent-header) .nav-menu li[class*="current-menu-"] a, body:not(.transparent-header) .nav-menu li[class*="current_page_"] a' );
 		$css->add_property( 'color', maybe_hash_hex_color( $settings['nav_text_active_color'] ) );
 
-		$css->set_selector( '.nav li>ul' );
-		$css->add_property( 'background-color', maybe_hash_hex_color( $settings['nav_sub_bg_color'] ) );
-
-		$css->set_selector( '.nav li li.open>a, .nav li li:hover>a' );
+		$css->set_selector( 'body:not(.transparent-header) .nav-menu li li a' );
+		$css->add_property( 'color', maybe_hash_hex_color( $settings['nav_sub_text_color'] ) );
+		
+		$css->set_selector( 'body:not(.transparent-header) .nav li li.open>a, body:not(.transparent-header) .nav li li:hover>a' );
+		$css->add_property( 'color', maybe_hash_hex_color( $settings['nav_sub_text_hover_color'] ) );
 		$css->add_property( 'background-color', maybe_hash_hex_color( $settings['nav_sub_bg_hover_color'] ) );
 
-		$css->set_selector( '.nav-menu li li.current_page_ancestor > a, .nav-menu li li.current_page_item > a' );
+		$css->set_selector( 'body:not(.transparent-header) .nav-menu li li[class*="current-menu-"] > a, body:not(.transparent-header) .nav-menu li li[class*="current_page_"] > a' );
+		$css->add_property( 'color', maybe_hash_hex_color( $settings['nav_sub_text_active_color'] ) );
 		$css->add_property( 'background-color', maybe_hash_hex_color( $settings['nav_sub_bg_active_color'] . '30' ) );
 		$css->add_property( 'border-left-color', maybe_hash_hex_color( $settings['nav_sub_bg_active_color'] ) );
 
-		$css->set_selector( '.nav-menu li li a' );
-		$css->add_property( 'color', maybe_hash_hex_color( $settings['nav_sub_text_color'] ) );
+		$css->set_selector( 'body:not(.transparent-header) .nav li>ul' );
+		$css->add_property( 'background-color', maybe_hash_hex_color( $settings['nav_sub_bg_color'] ) );
 
-		$css->set_selector( '.nav li li.open>a, .nav li li:hover>a' );
-		$css->add_property( 'color', maybe_hash_hex_color( $settings['nav_sub_text_hover_color'] ) );
+		/**
+		 * Navigation (Transparent) Color Control
+		 */
+		$css->set_selector( 'body.transparent-header .nav-header .nav-menu li a' );
+		$css->add_property( 'color', maybe_hash_hex_color( $settings['saccha_nav_text_color_control'] ) );
 
-		$css->set_selector( '.nav-menu li li.current_page_ancestor > a, .nav-menu li li.current_page_item > a' );
-		$css->add_property( 'color', maybe_hash_hex_color( $settings['nav_sub_text_active_color'] ) );
+		$css->set_selector( 'body.transparent-header .nav-header .nav>li.open>a, body.transparent-header .nav-header .nav>li:hover>a' );
+		$css->add_property( 'background-color', maybe_hash_hex_color( $settings['saccha_nav_hover_color_control'] ) );
+		$css->add_property( 'color', maybe_hash_hex_color( $settings['saccha_nav_text_hover_color_control'] ) );
 
+		$css->start_media_query( '(min-width: 769px)' );
+			$css->set_selector( 'body.transparent-header .nav-header .navbar .nav-wrapper ul li[class*="current-menu-"] > a, body.transparent-header .nav-header .navbar .nav-wrapper ul li[class*="current_page_"] > a' );
+			$css->add_property( 'background-color', maybe_hash_hex_color( $settings['saccha_nav_active_color_control'] . '30' ) );
+			$css->add_property( 'border-bottom-color', maybe_hash_hex_color( $settings['saccha_nav_active_color_control'] ) );
+		$css->stop_media_query();
+
+		$css->start_media_query( '(max-width: 768px)' );
+			$css->set_selector( 'body.transparent-header .nav-header .navbar .nav-wrapper ul li[class*="current-menu-"] > a, body.transparent-header .nav-header .navbar .nav-wrapper ul li[class*="current_page_"] > a' );
+			$css->add_property( 'background-color', maybe_hash_hex_color( $settings['saccha_nav_active_color_control'] . '30' ) );
+			$css->add_property( 'border-left-color', maybe_hash_hex_color( $settings['saccha_nav_active_color_control'] ) );
+			$css->add_property( 'padding-left', '15px' );
+		$css->stop_media_query();
+
+		$css->set_selector( 'body.transparent-header .nav-header .nav-menu li[class*="current-menu-"] a, body.transparent-header .nav-header .nav-menu li[class*="current_page_"] a' );
+		$css->add_property( 'color', maybe_hash_hex_color( $settings['saccha_nav_text_active_color_control'] ) );
+		
+		$css->set_selector( 'body.transparent-header .nav-header .nav-menu li li a' );
+		$css->add_property( 'color', maybe_hash_hex_color( $settings['saccha_nav_sub_text_color_control'] ) );
+				
+		$css->set_selector( 'body.transparent-header .nav-header .nav-menu li li[class*="current-menu-"] > a, body.transparent-header .nav-header .nav-menu li li[class*="current_page_"] > a' );
+		$css->add_property( 'color', maybe_hash_hex_color( $settings['saccha_nav_sub_text_active_color_control'] ) );
+		$css->add_property( 'background-color', maybe_hash_hex_color( $settings['saccha_nav_sub_bg_active_color_control'] . '30' ) );
+		$css->add_property( 'border-left-color', maybe_hash_hex_color( $settings['saccha_nav_sub_bg_active_color_control'] ) );
+
+		$css->set_selector( 'body.transparent-header .nav-header .nav li>ul' );
+		$css->add_property( 'background-color', maybe_hash_hex_color( $settings['saccha_nav_sub_bg_color_control'] ) );
+
+		$css->set_selector( 'body.transparent-header .nav-header .nav li li.open>a, body.transparent-header .nav-header .nav li li:hover>a' );
+		$css->add_property( 'background-color', maybe_hash_hex_color( $settings['saccha_nav_sub_bg_hover_color_control'] ) );
+		$css->add_property( 'color', maybe_hash_hex_color( $settings['saccha_nav_sub_text_hover_color_control'] ) );
+
+		/**
+		 * Buttons Color
+		 */
 		$css->set_selector( 'input[type="submit"], form.comment-form .form-submit input.submit, .wp-block-search__button' );
 		$css->add_property( 'background-color', maybe_hash_hex_color( $settings['button_bg_color'] ) );
 		$css->add_property( 'border-color', maybe_hash_hex_color( $settings['button_border_color'] ) );
@@ -167,15 +206,17 @@ if ( ! function_exists( 'sacchaone_get_defaults' ) ) {
 			'nav_sub_bg_hover_color'       => '#f5f5f5',
 			'nav_sub_bg_active_color'      => '#3582c4',
 			// Transparent Nav Color
-			'saccha_nav_hover_color_control'        => '',
-			'saccha_nav_active_color_control'        => '',
-			'saccha_nav_text_color_control'        => '',
-			'saccha_nav_text_hover_color_control'        => '',
-			'saccha_nav_text_active_color_control'        => '',
-			'saccha_nav_sub_text_color_control'        => '',
-			'saccha_nav_sub_text_hover_color_control'        => '',
-			'saccha_nav_sub_text_active_color_control'        => '',
-			'saccha_nav_sub_bg_color_control'        => '',
+			'saccha_nav_text_color_control'            => '#030303',
+			'saccha_nav_hover_color_control'           => '#fff',
+			'saccha_nav_active_color_control'          => '#3582c4',
+			'saccha_nav_text_hover_color_control'      => '#030303',
+			'saccha_nav_text_active_color_control'     => '#030303',
+			'saccha_nav_sub_text_color_control'        => '#030303',
+			'saccha_nav_sub_text_hover_color_control'  => '#030303',
+			'saccha_nav_sub_text_active_color_control' => '#3582c4',
+			'saccha_nav_sub_bg_color_control'          => '#fff',
+			'saccha_nav_sub_bg_hover_color_control'    => '#f5f5f5',
+			'saccha_nav_sub_bg_active_color_control'   => '#3582c4',
 			'button_bg_color'              => '#128294',
 			'button_bg_hover_color'        => '#fff',
 			'button_text_color'            => '#fff',
