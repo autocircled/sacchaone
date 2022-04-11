@@ -1253,6 +1253,78 @@ function sacchaone_customize_register( $wp_customize ) {
 		)
 	);
 
+
+	/**
+	 * Setting: Navigation Toggle
+	 */
+	$wp_customize->add_setting(
+		'sacchaone_navigation_toggle_color',
+		array(
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sanitize_hex_color',
+		)
+	);
+
+	$wp_customize->add_control(
+		new SacchaOne_Separator_Control(
+			$wp_customize,
+			'sacchaone_navigation_toggle_color',
+			array(
+				'label'      => __( 'Navigation Toggle', 'sacchaone' ),
+				'section'    => 'colors',
+				'settings'   => 'sacchaone_navigation_toggle_color',
+				'toggle_ids' => array(
+					'sacchaone_nav_toggle_open_icon_color',
+					'sacchaone_nav_toggle_close_icon_color',
+				),
+			)
+		)
+	);
+
+	$wp_customize->add_setting(
+		'sacchaone_nav_toggle_open_icon_color',
+		array(
+			'default'           => $defaults['sacchaone_nav_toggle_open_icon_color'],
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sanitize_hex_color',
+		)
+	);
+
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize,
+			'sacchaone_nav_toggle_open_icon_color',
+			array(
+				'label'    => __( 'Open Icon Color', 'sacchaone' ),
+				'section'  => 'colors',
+				'settings' => 'sacchaone_nav_toggle_open_icon_color',
+				'priority' => 10,
+			)
+		)
+	);
+	
+	$wp_customize->add_setting(
+		'sacchaone_nav_toggle_close_icon_color',
+		array(
+			'default'           => $defaults['sacchaone_nav_toggle_close_icon_color'],
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sanitize_hex_color',
+		)
+	);
+
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize,
+			'sacchaone_nav_toggle_close_icon_color',
+			array(
+				'label'    => __( 'Close Icon Color', 'sacchaone' ),
+				'section'  => 'colors',
+				'settings' => 'sacchaone_nav_toggle_close_icon_color',
+				'priority' => 10,
+			)
+		)
+	);
+
 	/**
 	 * Setting: Buttons
 	 */

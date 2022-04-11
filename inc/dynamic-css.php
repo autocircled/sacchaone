@@ -146,7 +146,39 @@ if ( ! function_exists( 'sacchaone_get_dynamic_css' ) ) {
 		$css->set_selector( 'body.transparent-header:not(.sticky-nav) .nav-header .nav li li.open>a, body.transparent-header:not(.sticky-nav) .nav-header .nav li li:hover>a' );
 		$css->add_property( 'background-color', maybe_hash_hex_color( $settings['saccha_nav_sub_bg_hover_color_control'] ) );
 		$css->add_property( 'color', maybe_hash_hex_color( $settings['saccha_nav_sub_text_hover_color_control'] ) );
+		
+		/**
+		 * Toggle Handle
+		 */
+		// Open Button
+		$css->set_selector( '.navbar-toggler-open, .search-toggler-open' );
+		$css->add_property( 'color', maybe_hash_hex_color( $settings['sacchaone_nav_toggle_open_icon_color'] ) );
+		$css->add_property( 'border-color', maybe_hash_hex_color( $settings['sacchaone_nav_toggle_open_icon_color'] ) );
+		
+		$css->set_selector( '.navbar-toggler-open:active, .navbar-toggler-open:hover, .navbar-toggler-open:focus, .search-toggler-open:active, .search-toggler-open:hover, .search-toggler-open:focus' );
+		$css->add_property( 'color', '#fff' );
+		$css->add_property( 'background-color', maybe_hash_hex_color( $settings['sacchaone_nav_toggle_open_icon_color'] ) );
+		$css->add_property( 'border-color', maybe_hash_hex_color( $settings['sacchaone_nav_toggle_open_icon_color'] ) );
+		
+		$css->set_selector( '.navbar-toggler-open:hover, .navbar-toggler-open:focus, .search-toggler-open:hover, .search-toggler-open:focus' );
+		$css->add_property( 'box-shadow', '0 0 0 0.2rem ' . maybe_hash_hex_color( $settings['sacchaone_nav_toggle_open_icon_color'] ) . '80' );
 
+		// Close Button
+		$css->set_selector( '.saccha-btn-close' );
+		$css->add_property( 'color', maybe_hash_hex_color( $settings['sacchaone_nav_toggle_close_icon_color'] ) );
+		$css->add_property( 'border-color', maybe_hash_hex_color( $settings['sacchaone_nav_toggle_close_icon_color'] ) );
+		
+		$css->set_selector( '.saccha-btn-close:not(:disabled):not(.disabled).active, .saccha-btn-close:not(:disabled):not(.disabled):active, .saccha-btn-close:active, .saccha-btn-close:hover, .saccha-btn-close:focus' );
+		$css->add_property( 'color', '#fff' );
+		$css->add_property( 'background-color', maybe_hash_hex_color( $settings['sacchaone_nav_toggle_close_icon_color'] ) );
+		$css->add_property( 'border-color', maybe_hash_hex_color( $settings['sacchaone_nav_toggle_close_icon_color'] ) );
+		
+		$css->set_selector( '.saccha-btn-close:hover, .saccha-btn-close:focus' );
+		$css->add_property( 'box-shadow', '0 0 0 0.2rem ' . maybe_hash_hex_color( $settings['sacchaone_nav_toggle_close_icon_color'] ) . '80' );
+
+		//color: #fff;
+		// background-color: #b85d13;
+		// border-color: #b85d13;
 		/**
 		 * Buttons Color
 		 */
@@ -217,6 +249,8 @@ if ( ! function_exists( 'sacchaone_get_defaults' ) ) {
 			'saccha_nav_sub_bg_color_control'          => '#fff',
 			'saccha_nav_sub_bg_hover_color_control'    => '#f5f5f5',
 			'saccha_nav_sub_bg_active_color_control'   => '#3582c4',
+			'sacchaone_nav_toggle_open_icon_color'     => '#128294',
+			'sacchaone_nav_toggle_close_icon_color'    => '#b85d13',
 			'button_bg_color'              => '#128294',
 			'button_bg_hover_color'        => '#fff',
 			'button_text_color'            => '#fff',

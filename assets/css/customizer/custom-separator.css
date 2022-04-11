@@ -42,7 +42,9 @@
 #customize-control-saccha_nav_sub_text_active_color_control,
 #customize-control-saccha_nav_sub_bg_color_control,
 #customize-control-saccha_nav_sub_bg_hover_color_control,
-#customize-control-saccha_nav_sub_bg_active_color_control {
+#customize-control-saccha_nav_sub_bg_active_color_control,
+#customize-control-sacchaone_nav_toggle_open_icon_color,
+#customize-control-sacchaone_nav_toggle_close_icon_color {
     display: none;
 }
 

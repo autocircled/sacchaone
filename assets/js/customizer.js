@@ -678,6 +678,85 @@
   });
 
   /**
+   * Toggle Handle
+   */
+  wp.customize( 'sacchaone_nav_toggle_open_icon_color', function (value) {
+    value.bind(function (to) {
+      let selector1 = '.navbar-toggler-open, .search-toggler-open';
+      let s1_property1 = 'color';
+      let s1_property2 = 'border-color';
+      
+      let selector2 = '.navbar-toggler-open:active, .navbar-toggler-open:hover, .navbar-toggler-open:focus, .search-toggler-open:active, .search-toggler-open:hover, .search-toggler-open:focus';
+      let s2_property1 = 'color';
+      let s2_property2 = 'background-color';
+      let s2_property3 = 'border-color';
+      
+      let selector3 = '.navbar-toggler-open:hover, .navbar-toggler-open:focus, .search-toggler-open:hover, .search-toggler-open:focus';
+      let s3_property1 = 'box-shadow';
+
+      let id = 'sacchaone_nav_toggle_open_icon_color';
+      
+      if ( $( 'style#' + id ).length ) {
+        $( 'style#' + id ).html( 
+          selector1 + '{' + s1_property1 + ':' + to + ';' + s1_property2 + ':' + to + ';}' +
+          selector2 + '{' + s2_property1 + ':' + '#fff' + ';' + s2_property2 + ':' + to + ';' + s2_property3 + ':' + to + ';}' +
+          selector3 + '{' + s3_property1 + ':' + '0 0 0 0.2rem ' + to + '80;}'
+
+        );
+      } else {
+        $( 'head' ).append(
+          '<style id="' + id + '">' +
+            selector1 + '{' + s1_property1 + ':' + to + ';' + s1_property2 + ':' + to + ';}' +
+            selector2 + '{' + s2_property1 + ':' + '#fff' + ';' + s2_property2 + ':' + to + ';' + s2_property3 + ':' + to + ';}' +
+            selector3 + '{' + s3_property1 + ':' + '0 0 0 0.2rem ' + to + '80;}' +
+          '</style>'
+        );
+        setTimeout( function() {
+          $( 'style#' + id ).not( ':last' ).remove();
+        }, 1000 );
+      }
+    });
+  });
+
+  wp.customize( 'sacchaone_nav_toggle_close_icon_color', function (value) {
+    value.bind(function (to) {
+      let selector1 = '.saccha-btn-close';
+      let s1_property1 = 'color';
+      let s1_property2 = 'border-color';
+      
+      let selector2 = '.saccha-btn-close:not(:disabled):not(.disabled).active, .saccha-btn-close:not(:disabled):not(.disabled):active, .saccha-btn-close:active, .saccha-btn-close:hover, .saccha-btn-close:focus';
+      let s2_property1 = 'color';
+      let s2_property2 = 'background-color';
+      let s2_property3 = 'border-color';
+      
+      let selector3 = '.saccha-btn-close:hover, .saccha-btn-close:focus';
+      let s3_property1 = 'box-shadow';
+
+      let id = 'sacchaone_nav_toggle_close_icon_color';
+      
+      if ( $( 'style#' + id ).length ) {
+        $( 'style#' + id ).html( 
+          selector1 + '{' + s1_property1 + ':' + to + ';' + s1_property2 + ':' + to + ';}' +
+          selector2 + '{' + s2_property1 + ':' + '#fff' + ';' + s2_property2 + ':' + to + ';' + s2_property3 + ':' + to + ';}' +
+          selector3 + '{' + s3_property1 + ':' + '0 0 0 0.2rem ' + to + '80;}'
+
+        );
+      } else {
+        $( 'head' ).append(
+          '<style id="' + id + '">' +
+            selector1 + '{' + s1_property1 + ':' + to + ';' + s1_property2 + ':' + to + ';}' +
+            selector2 + '{' + s2_property1 + ':' + '#fff' + ';' + s2_property2 + ':' + to + ';' + s2_property3 + ':' + to + ';}' +
+            selector3 + '{' + s3_property1 + ':' + '0 0 0 0.2rem ' + to + '80;}' +
+          '</style>'
+        );
+        setTimeout( function() {
+          $( 'style#' + id ).not( ':last' ).remove();
+        }, 1000 );
+      }
+    });
+  });
+
+  /**
    * Button Color Control
    */
   wp.customize( 'button_bg_color', function (value) {
