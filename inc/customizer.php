@@ -713,7 +713,7 @@ function sacchaone_customize_register( $wp_customize ) {
 			$wp_customize,
 			'navigation_color_control',
 			array(
-				'label'      => __( 'Navigation', 'sacchaone' ),
+				'label'      => __( 'Navigation with Sticky', 'sacchaone' ),
 				'section'    => 'colors',
 				'settings'   => 'sacchaone_navigation_color',
 				'toggle_ids' => array(

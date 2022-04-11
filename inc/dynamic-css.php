@@ -55,7 +55,7 @@ if ( ! function_exists( 'sacchaone_get_dynamic_css' ) ) {
 		$css->set_selector( 'body a:hover, body a:focus' );
 		$css->add_property( 'color', maybe_hash_hex_color( $settings['body_link_hover_color'] ) );
 
-		$css->set_selector( '.header-bg' );
+		$css->set_selector( '.header-bg, .transparent-header.sticky-nav .header-bg' );
 		$css->add_property( 'background-color', maybe_hash_hex_color( $settings['header_background_color'] ) );
 
 		$css->set_selector( '.site-title a, .site-title a:hover, .site-title a:focus' );
@@ -68,7 +68,7 @@ if ( ! function_exists( 'sacchaone_get_dynamic_css' ) ) {
 		/**
 		 * Navigation Color Control
 		 */
-		$css->set_selector( 'body .nav-header .nav-menu li a' );
+		$css->set_selector( 'body .nav-header .nav-menu > li > a' );
 		$css->add_property( 'color', maybe_hash_hex_color( $settings['nav_text_color'] ) );
 
 		$css->set_selector( 'body .nav-header .nav>li.open>a, body .nav-header .nav>li:hover>a' );
@@ -88,7 +88,7 @@ if ( ! function_exists( 'sacchaone_get_dynamic_css' ) ) {
 			$css->add_property( 'padding-left', '15px' );
 		$css->stop_media_query();
 
-		$css->set_selector( 'body .nav-header .nav-menu li[class*="current-menu-"] a, body .nav-header .nav-menu li[class*="current_page_"] a' );
+		$css->set_selector( 'body .nav-header .nav-menu li[class*="current-menu-"] > a, body .nav-header .nav-menu li[class*="current_page_"] > a' );
 		$css->add_property( 'color', maybe_hash_hex_color( $settings['nav_text_active_color'] ) );
 
 		$css->set_selector( 'body .nav-header .nav-menu li li a' );
@@ -109,7 +109,7 @@ if ( ! function_exists( 'sacchaone_get_dynamic_css' ) ) {
 		/**
 		 * Navigation (Transparent) Color Control
 		 */
-		$css->set_selector( 'body.transparent-header:not(.sticky-nav) .nav-header .nav-menu li a' );
+		$css->set_selector( 'body.transparent-header:not(.sticky-nav) .nav-header .nav-menu > li > a' );
 		$css->add_property( 'color', maybe_hash_hex_color( $settings['saccha_nav_text_color_control'] ) );
 
 		$css->set_selector( 'body.transparent-header:not(.sticky-nav) .nav-header .nav>li.open>a, body.transparent-header:not(.sticky-nav) .nav-header .nav>li:hover>a' );
@@ -129,7 +129,7 @@ if ( ! function_exists( 'sacchaone_get_dynamic_css' ) ) {
 			$css->add_property( 'padding-left', '15px' );
 		$css->stop_media_query();
 
-		$css->set_selector( 'body.transparent-header:not(.sticky-nav) .nav-header .nav-menu li[class*="current-menu-"] a, body.transparent-header:not(.sticky-nav) .nav-header .nav-menu li[class*="current_page_"] a' );
+		$css->set_selector( 'body.transparent-header:not(.sticky-nav) .nav-header .nav-menu li[class*="current-menu-"] > a, body.transparent-header:not(.sticky-nav) .nav-header .nav-menu li[class*="current_page_"] > a' );
 		$css->add_property( 'color', maybe_hash_hex_color( $settings['saccha_nav_text_active_color_control'] ) );
 		
 		$css->set_selector( 'body.transparent-header:not(.sticky-nav) .nav-header .nav-menu li li a' );
@@ -174,7 +174,7 @@ if ( ! function_exists( 'sacchaone_get_defaults' ) ) {
 	function sacchaone_get_defaults( $key = false ) {
 		$defaults = array(
 			'sacchaone_header_preset'      => 'default',
-			'sacchaone_header_width'       => 'box',
+			'sacchaone_header_width'       => 'full',
 			'sacchaone_footer_width'       => 'full',
 			'sacchaone_container_width'    => '1200',
 			'sacchaone_footer_widgets'     => '3',

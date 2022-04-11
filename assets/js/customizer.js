@@ -243,7 +243,7 @@
    */
   wp.customize( 'header_background_color', function (value) {
     value.bind(function (to) {
-      let selector = '.header-bg';
+      let selector = '.header-bg, .transparent-header.sticky-nav .header-bg';
       let id = 'header_background_color';
       let property = 'background-color';
       
@@ -297,7 +297,7 @@
    */  
   wp.customize( 'nav_text_color', function (value) {
     value.bind(function (to) {
-      let selector = 'body:not(.transparent-header) .nav-menu li a';
+      let selector = 'body .nav-header .nav-menu > li > a';
       let id = 'nav_text_color';
       let property = 'color';
       
@@ -314,7 +314,7 @@
 
   wp.customize( 'nav_hover_color', function (value) {
     value.bind(function (to) {
-      let selector = 'body:not(.transparent-header) .nav>li.open>a, body:not(.transparent-header) .nav>li:hover>a';
+      let selector = 'body .nav-header .nav>li.open>a, body .nav-header .nav>li:hover>a';
       let id = 'nav_hover_color';
       let property = 'background-color';
       
@@ -331,7 +331,7 @@
   
   wp.customize( 'nav_active_color', function (value) {
     value.bind(function (to) {
-      let selector = 'body:not(.transparent-header) .navbar .nav-wrapper ul li[class*="current-menu-"] > a, body:not(.transparent-header) .navbar .nav-wrapper ul li[class*="current_page_"] > a';
+      let selector = 'body .nav-header .navbar .nav-wrapper ul li[class*="current-menu-"] > a, body .nav-header .navbar .nav-wrapper ul li[class*="current_page_"] > a';
       let id = 'nav_active_color';
       let property1 = 'background-color';
       let property2 = 'border-bottom-color';
@@ -349,7 +349,7 @@
   
   wp.customize( 'nav_text_hover_color', function (value) {
     value.bind(function (to) {
-      let selector = 'body:not(.transparent-header) .nav > li.open > a, body:not(.transparent-header) .nav > li:hover > a';
+      let selector = 'body .nav-header .nav>li.open>a, body .nav-header .nav>li:hover>a';
       let id = 'nav_text_hover_color';
       let property = 'color';
       
@@ -366,7 +366,7 @@
   
   wp.customize( 'nav_text_active_color', function (value) {
     value.bind(function (to) {
-      let selector = 'body:not(.transparent-header) .nav-menu li[class*="current-menu-"] a, body:not(.transparent-header) .nav-menu li[class*="current_page_"] a';
+      let selector = 'body .nav-header .nav-menu li[class*="current-menu-"] > a, body .nav-header .nav-menu li[class*="current_page_"] > a';
       let id = 'nav_text_active_color';
       let property = 'color';
       
@@ -383,7 +383,7 @@
   
   wp.customize( 'nav_sub_text_color', function (value) {
     value.bind(function (to) {
-      let selector = 'body:not(.transparent-header) .nav-menu li li a';
+      let selector = 'body .nav-header .nav-menu li li a';
       let id = 'nav_sub_text_color';
       let property = 'color';
       
@@ -400,7 +400,7 @@
   
   wp.customize( 'nav_sub_text_hover_color', function (value) {
     value.bind(function (to) {
-      let selector = 'body:not(.transparent-header) .nav li li.open>a, body:not(.transparent-header) .nav li li:hover>a';
+      let selector = 'body .nav-header .nav li li.open>a, body .nav-header .nav li li:hover>a';
       let id = 'nav_sub_text_hover_color';
       let property = 'color';
       
@@ -417,7 +417,7 @@
 
   wp.customize( 'nav_sub_text_active_color', function (value) {
     value.bind(function (to) {
-      let selector = 'body:not(.transparent-header) .nav-menu li li[class*="current-menu-"] > a, body:not(.transparent-header) .nav-menu li li[class*="current_page_"] > a';
+      let selector = 'body .nav-header .nav-menu li li[class*="current-menu-"] > a, body .nav-header .nav-menu li li[class*="current_page_"] > a';
       let id = 'nav_sub_text_active_color';
       let property = 'color';
       
@@ -434,7 +434,7 @@
   
   wp.customize( 'nav_sub_bg_color', function (value) {
     value.bind(function (to) {
-      let selector = 'body:not(.transparent-header) .nav li>ul';
+      let selector = 'body .nav-header .nav li>ul';
       let id = 'nav_sub_bg_color';
       let property = 'background-color';
       
@@ -451,7 +451,7 @@
   
   wp.customize( 'nav_sub_bg_hover_color', function (value) {
     value.bind(function (to) {
-      let selector = 'body:not(.transparent-header) .nav li li.open>a, body:not(.transparent-header) .nav li li:hover>a';
+      let selector = 'body .nav-header .nav li li.open>a, body .nav-header .nav li li:hover>a';
       let id = 'nav_sub_bg_hover_color';
       let property = 'background-color';
       
@@ -468,7 +468,7 @@
   
   wp.customize( 'nav_sub_bg_active_color', function (value) {
     value.bind(function (to) {
-      let selector = 'body:not(.transparent-header) .nav-menu li li[class*="current-menu-"] > a, body:not(.transparent-header) .nav-menu li li[class*="current_page_"] > a';
+      let selector = 'body .nav-header .nav-menu li li[class*="current-menu-"] > a, body .nav-header .nav-menu li li[class*="current_page_"] > a';
       let id = 'nav_sub_bg_active_color';
       let property1 = 'background-color';
       let property2 = 'border-left-color';
@@ -490,7 +490,7 @@
    */
   wp.customize( 'saccha_nav_text_color_control', function (value) {
     value.bind(function (to) {
-      let selector = 'body.transparent-header .nav-header .nav-menu li a';
+      let selector = 'body.transparent-header:not(.sticky-nav) .nav-header .nav-menu > li > a';
       let id = 'saccha_nav_text_color_control';
       let property = 'color';
       
@@ -507,7 +507,7 @@
 
   wp.customize( 'saccha_nav_hover_color_control', function (value) {
     value.bind(function (to) {
-      let selector = 'body.transparent-header .nav-header .nav>li.open>a, body.transparent-header .nav-header .nav>li:hover>a';
+      let selector = 'body.transparent-header:not(.sticky-nav) .nav-header .nav>li.open>a, body.transparent-header:not(.sticky-nav) .nav-header .nav>li:hover>a';
       let id = 'saccha_nav_hover_color_control';
       let property = 'background-color';
       
@@ -524,7 +524,7 @@
   
   wp.customize( 'saccha_nav_active_color_control', function (value) {
     value.bind(function (to) {
-      let selector = 'body.transparent-header .nav-header .navbar .nav-wrapper ul li[class*="current-menu-"] > a, body.transparent-header .nav-header .navbar .nav-wrapper ul li[class*="current_page_"] > a';
+      let selector = 'body.transparent-header:not(.sticky-nav) .nav-header .navbar .nav-wrapper ul li[class*="current-menu-"] > a, body.transparent-header:not(.sticky-nav) .nav-header .navbar .nav-wrapper ul li[class*="current_page_"] > a';
       let id = 'saccha_nav_active_color_control';
       let property1 = 'background-color';
       let property2 = 'border-bottom-color';
@@ -542,7 +542,7 @@
 
   wp.customize( 'saccha_nav_text_hover_color_control', function (value) {
     value.bind(function (to) {
-      let selector = 'body.transparent-header .nav-header .nav>li.open>a, body.transparent-header .nav-header .nav>li:hover>a';
+      let selector = 'body.transparent-header:not(.sticky-nav) .nav-header .nav>li.open>a, body.transparent-header:not(.sticky-nav) .nav-header .nav>li:hover>a';
       let id = 'saccha_nav_text_hover_color_control';
       let property = 'color';
       
@@ -559,7 +559,7 @@
 
   wp.customize( 'saccha_nav_text_active_color_control', function (value) {
     value.bind(function (to) {
-      let selector = 'body.transparent-header .nav-header .nav-menu li[class*="current-menu-"] a, body.transparent-header .nav-header .nav-menu li[class*="current_page_"] a';
+      let selector = 'body.transparent-header:not(.sticky-nav) .nav-header .nav-menu li[class*="current-menu-"] > a, body.transparent-header:not(.sticky-nav) .nav-header .nav-menu li[class*="current_page_"] > a';
       let id = 'saccha_nav_text_active_color_control';
       let property = 'color';
       
@@ -576,7 +576,7 @@
 
   wp.customize( 'saccha_nav_sub_text_color_control', function (value) {
     value.bind(function (to) {
-      let selector = 'body.transparent-header .nav-header .nav-menu li li a';
+      let selector = 'body.transparent-header:not(.sticky-nav) .nav-header .nav-menu li li a';
       let id = 'saccha_nav_sub_text_color_control';
       let property = 'color';
       
@@ -593,7 +593,7 @@
 
   wp.customize( 'saccha_nav_sub_text_hover_color_control', function (value) {
     value.bind(function (to) {
-      let selector = 'body.transparent-header .nav-header .nav li li.open>a, body.transparent-header .nav-header .nav li li:hover>a';
+      let selector = 'body.transparent-header:not(.sticky-nav) .nav-header .nav li li.open>a, body.transparent-header:not(.sticky-nav) .nav-header .nav li li:hover>a';
       let id = 'saccha_nav_sub_text_hover_color_control';
       let property = 'color';
       
@@ -610,7 +610,7 @@
 
   wp.customize( 'saccha_nav_sub_text_active_color_control', function (value) {
     value.bind(function (to) {
-      let selector = 'body.transparent-header .nav-header .nav-menu li li[class*="current-menu-"] > a, body.transparent-header .nav-header .nav-menu li li[class*="current_page_"] > a';
+      let selector = 'body.transparent-header:not(.sticky-nav) .nav-header .nav-menu li li[class*="current-menu-"] > a, body.transparent-header:not(.sticky-nav) .nav-header .nav-menu li li[class*="current_page_"] > a';
       let id = 'saccha_nav_sub_text_active_color_control';
       let property = 'color';
       
@@ -627,7 +627,7 @@
 
   wp.customize( 'saccha_nav_sub_bg_color_control', function (value) {
     value.bind(function (to) {
-      let selector = 'body.transparent-header .nav-header .nav li>ul';
+      let selector = 'body.transparent-header:not(.sticky-nav) .nav-header .nav li>ul';
       let id = 'saccha_nav_sub_bg_color_control';
       let property = 'background-color';
       
@@ -644,7 +644,7 @@
 
   wp.customize( 'saccha_nav_sub_bg_hover_color_control', function (value) {
     value.bind(function (to) {
-      let selector = 'body.transparent-header .nav-header .nav li li.open>a, body.transparent-header .nav-header .nav li li:hover>a';
+      let selector = 'body.transparent-header:not(.sticky-nav) .nav-header .nav li li.open>a, body.transparent-header:not(.sticky-nav) .nav-header .nav li li:hover>a';
       let id = 'saccha_nav_sub_bg_hover_color_control';
       let property = 'background-color';
       
@@ -661,7 +661,7 @@
 
   wp.customize( 'saccha_nav_sub_bg_active_color_control', function (value) {
     value.bind(function (to) {
-      let selector = 'body.transparent-header .nav-header .nav-menu li li[class*="current-menu-"] > a, body.transparent-header .nav-header .nav-menu li li[class*="current_page_"] > a';
+      let selector = 'body.transparent-header:not(.sticky-nav) .nav-header .nav-menu li li[class*="current-menu-"] > a, body.transparent-header:not(.sticky-nav) .nav-header .nav-menu li li[class*="current_page_"] > a';
       let id = 'saccha_nav_sub_bg_active_color_control';
       let property1 = 'background-color';
       let property2 = 'border-left-color';
