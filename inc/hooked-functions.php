@@ -28,6 +28,7 @@ if ( ! function_exists( 'sacchaone_header' ) ) :
 						<?php sacchaone_site_logo(); ?>
 						<?php sacchaone_site_description(); ?>
 					</div>
+					<?php do_action( 'saccha_nav_center' ); ?>
 					<div class="nav-wrapper">
 						<?php
 						if ( has_nav_menu( 'primary' ) ) :
@@ -57,6 +58,7 @@ if ( ! function_exists( 'sacchaone_header' ) ) :
 						?>
 
 						<div class="header-controls">
+						<?php do_action( 'saccha_header_control_before' ); ?>
 							<!-- Button trigger modal -->
 							<button class="btn btn-outline-primary navbar-toggler-open" type="button"
 								data-toggle="modal" data-target="#site-navigation-mobile"
@@ -70,6 +72,7 @@ if ( ! function_exists( 'sacchaone_header' ) ) :
 								<span class="fa fa-search"></span>
 							</button>
 							<?php endif; ?>
+							<?php do_action( 'saccha_header_control_after' ); ?>
 						</div>
 					</div>
 				</nav>
@@ -185,3 +188,17 @@ if ( ! function_exists( 'sacchaone_footer_widgets' ) ) {
 
 	add_action( 'sacchaone_footer_widgets', 'sacchaone_footer_widgets', 10 );
 }
+
+/**
+ * Search Form
+ *
+ * @since 1.0.8
+ */
+function saccha_search_form() {
+	get_search_form(
+		array(
+			'location' => 'navbar',
+		)
+	);
+}
+add_action( 'saccha_search_form', 'saccha_search_form' );
