@@ -4,7 +4,7 @@
  *
  * @link https://w3guy.com/wordpress-customizer-range-control-selected-indicator/
  * @link http://ottopress.com/2012/making-a-custom-control-for-the-theme-customizer/
- * @package sacchaone
+ * @package SacchaOne
  * @since 1.0.0
  */
 
@@ -16,7 +16,7 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'SacchaOne_Custom
 	/**
 	 * WP Customize Range Control
 	 *
-	 * @package sacchaone
+	 * @package SacchaOne
 	 */
 	class SacchaOne_Separator_Control extends WP_Customize_Control {
 

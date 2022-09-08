@@ -21,6 +21,11 @@ get_header();
 
 	<main id="site-content" class="site-main container mt-5">
 		<div class="row">
+			<?php
+			if ( sacchaone_sidebar( 'left' ) ) {
+				get_sidebar( 'left' );
+			}
+			?>
 			<div id="primary" class="content-area <?php echo esc_attr( sacchaone_class_attr( 'content-area' ) ); ?>">
 				<?php
 				if ( have_posts() ) :
@@ -58,11 +63,7 @@ get_header();
 				?>
 			</div><!-- #primary -->
 			<?php
-			if ( get_theme_mod( 'sacchaone_sidebar_settings', 'default' ) === 'both-sidebar' ) {
-				get_sidebar( 'left' );
-			}
-
-			if ( get_theme_mod( 'sacchaone_sidebar_settings', 'default' ) !== 'no-sidebar' ) {
+			if ( sacchaone_sidebar( 'right' ) ) {
 				get_sidebar();
 			}
 			?>

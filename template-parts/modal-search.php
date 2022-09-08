@@ -12,13 +12,7 @@
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-body container">
-			<?php
-			get_search_form(
-				array(
-					'location' => 'navbar',
-				)
-			);
-			?>
+			<?php do_action( 'saccha_search_form' ); ?>
 			<button type="button" class="btn btn-outline-primary saccha-btn-close" data-dismiss="modal" aria-label="Close">
 				<span class="fa fa-close"></span>
 			</button>

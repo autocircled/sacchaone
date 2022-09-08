@@ -77,12 +77,31 @@ function sacchaone_body_classes( $classes ) {
 		}
 	}
 
+	// Customizer settings
+	$classes[] = get_theme_mod( 'sacchaone_sidebar_type', sacchaone_get_defaults( 'sacchaone_sidebar_type' ) );
+	$classes[] = get_theme_mod( 'sacchaone_sticky_nav', sacchaone_get_defaults( 'sacchaone_sticky_nav' ) ) === 'enable' ? 'sticky-nav-enabled' : 'sticky-nav-disabled';
+
 	// Add class for back2top button.
 	$back2top_status = get_theme_mod( 'sacchaone_back2top', 0 );
 	if ( $back2top_status ) {
 		$classes[] = 'back2top-enabled';
 	} else {
 		$classes[] = 'back2top-disabled';
+	}
+
+	// Individual post/page settings
+	$additional_settings = get_post_meta( get_the_ID(), SACCHAONE_PREFIX . 'additional_settings', true );
+	if ( 'yes' === $additional_settings ) {
+
+		$transparent_header = get_post_meta( get_the_ID(), SACCHAONE_PREFIX . 'transparent_page_header', true );
+		if ( 'yes' === $transparent_header ) {
+			$classes[] = 'transparent-header';
+		}
+
+		// Sidebar left, right, both or none.
+		$sidebar_type = get_post_meta( get_the_ID(), SACCHAONE_PREFIX . 'sidebar_type', true );
+		$classes[] = 'sidebar_' . $sidebar_type;
+
 	}
 
 	return $classes;
@@ -401,29 +420,54 @@ if ( ! function_exists( 'sacchaone_class_attr' ) ) {
 	 * @param string $location Class attribute location.
 	 */
 	function sacchaone_class_attr( $location ) {
-		$sidebar = get_theme_mod( 'sacchaone_sidebar_settings', 'default' );
+
+		$sidebar_all = get_theme_mod( 'sacchaone_sidebar_settings', 'default' );
+		$sidebar_single = get_post_meta( get_the_ID(), SACCHAONE_PREFIX . 'sidebar_type', true );
+		$individual_settings = get_post_meta( get_the_ID(), SACCHAONE_PREFIX. 'additional_settings', true );
+		$class = '';
+
 		switch ( $location ) {
 			case 'content-area':
-				if ( 'both-sidebar' === $sidebar ) {
-					$class = 'col-lg-6';
-				} elseif ( 'no-sidebar' === $sidebar ) {
-					$class = '';
-				} else {
-					$class = 'col-lg-8';
+				if ( 'yes' === $individual_settings ) {               // Individual Settings
+					if ( 'left' === $sidebar_single || 'right' === $sidebar_single ) {
+						$class = 'col-lg-8';
+					} elseif ( 'both' === $sidebar_single ) {
+						$class = 'col-lg-6';
+					} elseif ( 'none' === $sidebar_single ) {
+						$class = 'col-lg-12';
+					}
+
+				} else {                                              // Customizer settings
+					if ( 'both-sidebar' === $sidebar_all ) {
+						$class = 'col-lg-6';
+					} elseif ( 'no-sidebar' === $sidebar_all ) {
+						$class = '';
+					} else {
+						$class = 'col-lg-8';
+					}
 				}
 				break;
+
 			case 'sidebar':
-				if ( 'both-sidebar' === $sidebar ) {
-					$class = 'col-lg-3';
-				} elseif ( 'no-sidebar' === $sidebar ) {
-					$class = '';
-				} else {
-					$class = 'col-lg-4';
+				if ( 'yes' === $individual_settings ) {               // Individual Settings
+					if ( 'left' === $sidebar_single || 'right' === $sidebar_single ) {
+						$class = 'col-lg-4';
+					} elseif ( 'both' === $sidebar_single ) {
+						$class = 'col-lg-3';
+					}
+				} else {                                              // Customizer settings
+					if ( 'both-sidebar' === $sidebar_all ) {
+						$class = 'col-lg-3';
+					} elseif ( 'no-sidebar' === $sidebar_all ) {
+						$class = '';
+					} else {
+						$class = 'col-lg-4';
+					}
 				}
 				break;
 		}
 
-		return $class;
+		return apply_filters( 'sacchaone_main_column_classes', $class, $location );
 	}
 }
 
@@ -454,6 +498,29 @@ function sacchaone_sanitize_checkbox( $input ) {
 	return ( ( isset( $input ) && true == $input ) ? true : false );
 }
 
+/**
+ * Sanitize customizer colors as RGBA.
+ *
+ * @param string $color Input must be a color.
+ * @param object $setting Customizer settings.
+ */
+function sacchaone_sanitize_rgba( $color, $setting ) {
+	var_dump($color, $setting );
+	if ( empty( $color ) || is_array( $color ) )
+		return 'rgba(0,0,0,0)';
+
+	// If string does not start with 'rgba', then treat as hex
+	// sanitize the hex color and finally convert hex to rgba
+	if ( false === strpos( $color, 'rgba' ) ) {
+		return sanitize_hex_color( $color );
+	}
+
+	// By now we know the string is formatted as an rgba color so we need to further sanitize it.
+	$color = str_replace( ' ', '', $color );
+	sscanf( $color, 'rgba(%d,%d,%d,%f)', $red, $green, $blue, $alpha );
+	return 'rgba('.$red.','.$green.','.$blue.','.$alpha.')';
+}
+
 
 /**
  * Current page has children
@@ -461,10 +528,39 @@ function sacchaone_sanitize_checkbox( $input ) {
  * @since 1.0.0
  */
 function sacchaone_page_has_children( $page_id ) {
-	$pages = get_pages('child_of=' . $page_id );
-	if (count($pages) > 0):
+	$pages = get_pages( 'child_of=' . $page_id );
+	if ( count( $pages ) > 0 ):
 		return true;
 	else:
 		return false;
 	endif;
+}
+
+function sacchaone_sidebar( $position = 'right' ) {
+	$individual_settings = get_post_meta( get_the_ID(), SACCHAONE_PREFIX . 'additional_settings', true );
+
+	if ( 'left' === $position ) {
+		if ( 'yes' === $individual_settings && ( get_post_meta( get_the_ID(), SACCHAONE_PREFIX . 'sidebar_type', true ) === 'both' || get_post_meta( get_the_ID(), SACCHAONE_PREFIX . 'sidebar_type', true ) === 'left' ) ) {
+			return true;
+		} elseif ( 'yes' === $individual_settings && get_post_meta( get_the_ID(), SACCHAONE_PREFIX . 'sidebar_type', true === 'none' ) ) {
+			return false;
+		}
+		if ( get_theme_mod( 'sacchaone_sidebar_settings', 'default' ) === 'both-sidebar' || get_theme_mod( 'sacchaone_sidebar_settings', 'default' ) === 'left-sidebar' ) {
+			return true;
+		}
+	}
+
+	if ( 'right' === $position ) {
+		if ( 'yes' === $individual_settings && ( get_post_meta( get_the_ID(), SACCHAONE_PREFIX . 'sidebar_type', true ) === 'both' || get_post_meta( get_the_ID(), SACCHAONE_PREFIX . 'sidebar_type', true ) === 'right' ) ) {
+			return true;
+		} elseif ( 'yes' === $individual_settings && get_post_meta( get_the_ID(), SACCHAONE_PREFIX . 'sidebar_type', true === 'none' ) ) {
+			return false;
+		}
+
+		if ( get_theme_mod( 'sacchaone_sidebar_settings', 'default' ) === 'both-sidebar' || get_theme_mod( 'sacchaone_sidebar_settings', 'default' ) === 'right-sidebar' || get_theme_mod( 'sacchaone_sidebar_settings', 'default' ) === 'default' ) {
+			return true;
+		}
+	}
+
+	return false;
 }

@@ -2,7 +2,7 @@
 /**
  * Custom page walker for this theme.
  *
- * @package sacchaone
+ * @package SacchaOne
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

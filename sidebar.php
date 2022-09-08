@@ -17,7 +17,7 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 ?>
 
 <aside id="secondary-1" class="sidebar sidebar-secondary-1 text-left <?php echo esc_attr( sacchaone_class_attr( 'sidebar' ) ); ?>">
-	<div class="blog-sidebar">
+	<div class="sidebar-inner">
 		<?php dynamic_sidebar( 'sidebar-1' ); ?>
 	</div>
 </aside><!-- #secondary -->

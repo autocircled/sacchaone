@@ -1,9 +1,11 @@
 /*
 Theme Name: SacchaOne
-Author: autocircle
+Theme URI: https://sacchaone.com/
+Author: Saccha IT
+Author URI: https://saccha-it.com/?utm_source=theme_preview&utm_medium=author_link&utm_campaign=sacchaone_theme
 Description: SacchaOne is a lightweight, easily customizable WordPress theme. It’s perfect for blogs, small business, startups, agencies, firms as well as personal portfolio sites and most types of projects.
 Tags: custom-menu, custom-logo, entertainment, one-column, two-columns, left-sidebar, right-sidebar, custom-colors, featured-images, full-width-template, post-formats, theme-options, threaded-comments, translation-ready, blog
-Version: 1.0.6
+Version: 1.0.8
 Tested up to: 5.9
 Requires PHP: 5.6
 License: GNU General Public License v2 or later
@@ -406,6 +408,10 @@ html {
 }
 /* Typography
 --------------------------------------------- */
+body {
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+}
+
 body,
 button,
 input,
@@ -672,11 +678,11 @@ textarea {
     margin: 0;
 }
 nav#site-navigation {
-    padding: 0;
+    padding: 0 40px;
 }
 header.nav-header .header-inner {
-    padding-left: 40px;
-    padding-right: 40px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 .nav-search {
     position: absolute;
@@ -896,12 +902,6 @@ nav.navigation.post-navigation {
   	font-size: 14px;
 }
 
-#primary {
-    padding-left: 0;
-}
-aside#secondary {
-    padding-right: 0;
-}
 .page-header,
 .content-wrapper,
 .comments-area .comments-title,
@@ -910,10 +910,6 @@ aside#secondary {
 .comment-respond,
 .footer-inner {
     padding: 40px 40px;
-}
-
-.blog-sidebar {
-    padding: 0px;
 }
 
 .header-bg {
@@ -1041,6 +1037,7 @@ li.page_item_has_children li.focus > ul {
   @media (min-width: 769px){
 	nav#site-navigation {
 		flex-wrap: nowrap;
+		min-height: 81px;
 	}
   }
 
@@ -1282,7 +1279,13 @@ article.page {
 span.toggle-menu.fa-close {
 	display: none;
 }
+.search-modal.show {
+    padding: 0 !important;
+}
 @media (max-width: 768px) {
+	nav#site-navigation {
+		padding: 13px 15px;
+	}
 	.toggled span.toggle-menu.fa-close {
 		display: inline;
 	}

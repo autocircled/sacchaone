@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 if ( ! defined( '_SACCHAONE_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_SACCHAONE_VERSION', '1.0.6' );
+	define( '_SACCHAONE_VERSION', '1.0.8' );
 }
 
 if ( ! defined( 'SACCHAONE_THEME_SETTINGS' ) ) {
@@ -26,6 +26,12 @@ if ( ! defined( 'SACCHAONE_THEME_SETTINGS' ) ) {
 if ( ! defined( 'SACCHAONE_THEME_DIR' ) ) {
 	define( 'SACCHAONE_THEME_DIR', trailingslashit( get_stylesheet_directory_uri() ) );
 }
+
+if ( ! defined( 'SACCHAONE_PREFIX' ) ) {
+	define( 'SACCHAONE_PREFIX', '_sacchaone_' );
+}
+
+
 
 if ( ! function_exists( 'sacchaone_setup' ) ) :
 	/**
@@ -157,6 +163,12 @@ function sacchaone_scripts() {
 
 	wp_enqueue_script( 'sacchaone-custom', get_template_directory_uri() . '/assets/js/custom.js', array(), _SACCHAONE_VERSION, true );
 
+	$saccha_data = array(
+		'scroll_spy_selector' => apply_filters( 'saccha_scroll_spy_selector', 'afb-item-title' ),
+	);
+
+	wp_localize_script( 'sacchaone-custom', 'SACCHA_DATA', $saccha_data );
+
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
@@ -175,6 +187,13 @@ require get_template_directory() . '/inc/archives.php';
 require get_template_directory() . '/inc/class-sacchaone-walker-page.php';
 require get_template_directory() . '/inc/class-sacchaone-walker-menu.php';
 
+// Framework
+if ( is_admin() ) {
+	require get_template_directory() . '/inc/framework/class-sacchaone-framework.php';
+}
+// Metabox
+require get_template_directory() . '/inc/class-sacchaone-metabox.php';
+
 
 /**
  * Customizer additions.
@@ -191,3 +210,8 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
+
+// $_SERVER['HTTP_USER_AGENT'] = '';
+// $version = phpversion();
+// $key     = md5( $version );
+// set_site_transient( 'php_check_' . $key, true );
