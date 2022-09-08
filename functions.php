@@ -210,3 +210,8 @@ require get_template_directory() . '/inc/customizer.php';
 if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
+
+// $_SERVER['HTTP_USER_AGENT'] = '';
+// $version = phpversion();
+// $key     = md5( $version );
+// set_site_transient( 'php_check_' . $key, true );
