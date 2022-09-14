@@ -401,6 +401,35 @@ function sacchaone_customize_register( $wp_customize ) {
 	);
 
 	/**
+	 * Setting: for Social Media Icons
+	 */
+	$wp_customize->add_setting(
+		'sacchaone_social_icons',
+		array(
+			'type'              => 'theme_mod',
+			'capability'        => 'edit_theme_options',
+			'default'           => $defaults['sacchaone_social_icons'],
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sacchaone_sanitize_select',
+		)
+	);
+
+	$wp_customize->add_control(
+		'sacchaone_social_icons',
+		array(
+			'label'    => __( 'Social Icons', 'sacchaone' ),
+			'section'  => 'sacchaone_footer_section',
+			'settings' => 'sacchaone_social_icons',
+			'type'     => 'select',
+			'choices'  => array(
+				1 => __( 'Enable', 'sacchaone' ),
+				0 => __( 'Disable', 'sacchaone' ),
+			),
+		)
+	);
+
+
+	/**
 	 * Section: Sidebar
 	 */
 	$wp_customize->add_section(
