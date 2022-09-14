@@ -1013,20 +1013,33 @@ nav.navigation.post-navigation a {
     font-weight: bold;
     word-break: break-word;
 }
-
-.page-numbers,
-.post-page-numbers {
-	display: inline-block;
-	padding: 15px;
-	margin: 0 2px 0 0;
-	border: 1px solid #128294;
-	line-height: 1;
-	text-decoration: none;
-	border-radius: 2px;
-	font-weight: 600;
-	color: #333;
+.nav-links {
+    display: flex;
+    column-gap: 3px;
+    width: 100%;
+	max-width: 400px;
 }
-
+.page-numbers, 
+.post-page-numbers {
+    display: inline-block;
+    border: 1px solid #128294;
+    line-height: 1;
+    text-decoration: none;
+    border-radius: 2px;
+    font-weight: 600;
+    color: #333;
+    font-size: 20px;
+    width: 100%;
+    text-align: center;
+    padding: 5px 0;
+}
+.next.page-numbers,
+.prev.page-numbers {
+    padding: 5px 10px;
+}
+span.page-numbers.dots {
+    border: none;
+}
 span.page-numbers.current,
 span.post-page-numbers.current {
     background: #128294;
