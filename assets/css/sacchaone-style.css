@@ -147,9 +147,6 @@ header.nav-header.affix,
     width: 100%;
     top: 0;
 }
-.site-info {
-    min-width: 150px;
-}
 .sone-nav-default .site-info {
 	align-self: center;
 }
