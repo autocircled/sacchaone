@@ -1,11 +1,11 @@
 (function ($) {
 	$("body").on(
 		"click",
-		".sacchaone-toggle-control, .toggle-text",
+		".sacchaone-separator-title-area",
 		function () {
-			let parentEl = $(this).parent();
-			let $this = $(parentEl).find(".sacchaone-toggle-control");
-			var raw_ids = $($this).attr("target_ids").split(" ");
+			let $this = $(this).closest(".customize-control-sacchaone_separator");
+			let toggleIcon = $(this).find(".sacchaone-toggle-control");
+			var raw_ids = $(toggleIcon).attr("target_ids").split(" ");
 			if ($($this).hasClass("showing")) {
 				$($this).removeClass("showing");
 				$(raw_ids).each(function (i, v) {
