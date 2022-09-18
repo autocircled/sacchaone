@@ -49,10 +49,10 @@ if ( ! function_exists( 'sacchaone_get_dynamic_css' ) ) {
 		$css->add_property( 'background-color', maybe_hash_hex_color( $settings['background_color'] ) );
 		$css->add_property( 'color', maybe_hash_hex_color( $settings['body_text_color'] ) );
 
-		$css->set_selector( 'body a' );
+		$css->set_selector( 'body a, a:visited, i.fa' );
 		$css->add_property( 'color', maybe_hash_hex_color( $settings['body_link_color'] ) );
 
-		$css->set_selector( 'body a:hover, body a:focus' );
+		$css->set_selector( 'body a:hover, body a:focus, i.fa:hover' );
 		$css->add_property( 'color', maybe_hash_hex_color( $settings['body_link_hover_color'] ) );
 
 		$css->set_selector( '.header-bg, .transparent-header.sticky-nav .header-bg' );
