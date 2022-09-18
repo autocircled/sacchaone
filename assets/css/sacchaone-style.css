@@ -117,6 +117,15 @@ body {
 /*
  * Navbar
  */
+
+.site-info p.site-logo {
+	margin: 0;
+}
+
+.site-info .site-logo img.custom-logo {
+	max-width: 120px;
+}
+
 .transparent-header header.nav-header {
 	position: absolute;
 	width: 100%;
