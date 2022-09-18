@@ -540,7 +540,8 @@ function sacchaone_customize_register( $wp_customize ) {
 	);
 
 	/**
-	 * Setting: Body Toggle
+	 * Section: Colors
+	 * Setting: Body
 	 */
 	$wp_customize->add_setting(
 		'sacchaone_body_color',
@@ -1353,6 +1354,125 @@ function sacchaone_customize_register( $wp_customize ) {
 			)
 		)
 	);
+	
+	/**
+	 * Setting: Back to Top
+	 */
+	$wp_customize->add_setting(
+		'sacchaone_back2top_colors',
+		array(
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sanitize_hex_color',
+		)
+	);
+
+	$wp_customize->add_control(
+		new SacchaOne_Separator_Control(
+			$wp_customize,
+			'sacchaone_back2top_colors',
+			array(
+				'label'      => __( 'Back to Top', 'sacchaone' ),
+				'section'    => 'colors',
+				'settings'   => 'sacchaone_back2top_colors',
+				'toggle_ids' => array(
+					'sacchaone_back2top_icon_color',
+					'sacchaone_back2top_icon_h_color',
+					'sacchaone_back2top_bg_color',
+					'sacchaone_back2top_bg_h_color'
+				),
+			)
+		)
+	);
+
+	$wp_customize->add_setting(
+		'sacchaone_back2top_icon_color',
+		array(
+			'default'           => $defaults['body_link_color'],
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sanitize_hex_color',
+		)
+	);
+
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize,
+			'sacchaone_back2top_icon_color',
+			array(
+				'label'    => __( 'Icon Color', 'sacchaone' ),
+				'section'  => 'colors',
+				'settings' => 'sacchaone_back2top_icon_color',
+				'priority' => 10,
+			)
+		)
+	);
+
+	$wp_customize->add_setting(
+		'sacchaone_back2top_icon_h_color',
+		array(
+			'default'           => $defaults['default_bg_color'],
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sanitize_hex_color',
+		)
+	);
+
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize,
+			'sacchaone_back2top_icon_h_color',
+			array(
+				'label'    => __( 'Icon Hover Color', 'sacchaone' ),
+				'section'  => 'colors',
+				'settings' => 'sacchaone_back2top_icon_h_color',
+				'priority' => 10,
+			)
+		)
+	);
+	
+	$wp_customize->add_setting(
+		'sacchaone_back2top_bg_color',
+		array(
+			'default'           => $defaults['default_bg_color'],
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sanitize_hex_color',
+		)
+	);
+
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize,
+			'sacchaone_back2top_bg_color',
+			array(
+				'label'    => __( 'Background Color', 'sacchaone' ),
+				'section'  => 'colors',
+				'settings' => 'sacchaone_back2top_bg_color',
+				'priority' => 10,
+			)
+		)
+	);
+
+	$wp_customize->add_setting(
+		'sacchaone_back2top_bg_h_color',
+		array(
+			'default'           => $defaults['body_link_color'],
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sanitize_hex_color',
+		)
+	);
+
+	$wp_customize->add_control(
+		new WP_Customize_Color_Control(
+			$wp_customize,
+			'sacchaone_back2top_bg_h_color',
+			array(
+				'label'    => __( 'Background Hover Color', 'sacchaone' ),
+				'section'  => 'colors',
+				'settings' => 'sacchaone_back2top_bg_h_color',
+				'priority' => 10,
+			)
+		)
+	);
+	
+	
 
 	/**
 	 * Setting: Buttons

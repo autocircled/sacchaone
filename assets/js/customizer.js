@@ -1373,6 +1373,129 @@
 	});
 
 	/**
+	 * Back2Top Button Color Control
+	 */
+	wp.customize("sacchaone_back2top_icon_color", function (value) {
+		value.bind(function (to) {
+			let selector = ".scroll-to-top i.fa";
+			let id = "sacchaone_back2top_icon_color";
+			let property = "color";
+			if ($("style#" + id).length) {
+				$("style#" + id).html(
+					selector + "{" + property + ":" + to + ";}"
+				);
+			} else {
+				$("head").append(
+					'<style id="' +
+						id +
+						'">' +
+						selector +
+						"{" +
+						property +
+						":" +
+						to +
+						";}</style>"
+				);
+				setTimeout(function () {
+					$("style#" + id)
+						.not(":last")
+						.remove();
+				}, 1000);
+			}
+		});
+	});
+
+	wp.customize("sacchaone_back2top_icon_h_color", function (value) {
+		value.bind(function (to) {
+			let selector = ".scroll-to-top:hover i.fa";
+			let id = "sacchaone_back2top_icon_h_color";
+			let property = "color";
+			if ($("style#" + id).length) {
+				$("style#" + id).html(
+					selector + "{" + property + ":" + to + ";}"
+				);
+			} else {
+				$("head").append(
+					'<style id="' +
+						id +
+						'">' +
+						selector +
+						"{" +
+						property +
+						":" +
+						to +
+						";}</style>"
+				);
+				setTimeout(function () {
+					$("style#" + id)
+						.not(":last")
+						.remove();
+				}, 1000);
+			}
+		});
+	});
+
+	wp.customize("sacchaone_back2top_bg_color", function (value) {
+		value.bind(function (to) {
+			let selector = ".scroll-to-top";
+			let id = "sacchaone_back2top_bg_color";
+			let property = "background-color";
+			if ($("style#" + id).length) {
+				$("style#" + id).html(
+					selector + "{" + property + ":" + to + ";}"
+				);
+			} else {
+				$("head").append(
+					'<style id="' +
+						id +
+						'">' +
+						selector +
+						"{" +
+						property +
+						":" +
+						to +
+						";}</style>"
+				);
+				setTimeout(function () {
+					$("style#" + id)
+						.not(":last")
+						.remove();
+				}, 1000);
+			}
+		});
+	});
+
+	wp.customize("sacchaone_back2top_bg_h_color", function (value) {
+		value.bind(function (to) {
+			let selector = ".scroll-to-top:hover";
+			let id = "sacchaone_back2top_bg_h_color";
+			let property = "background-color";
+			if ($("style#" + id).length) {
+				$("style#" + id).html(
+					selector + "{" + property + ":" + to + ";}"
+				);
+			} else {
+				$("head").append(
+					'<style id="' +
+						id +
+						'">' +
+						selector +
+						"{" +
+						property +
+						":" +
+						to +
+						";}</style>"
+				);
+				setTimeout(function () {
+					$("style#" + id)
+						.not(":last")
+						.remove();
+				}, 1000);
+			}
+		});
+	});
+
+	/**
 	 * Button Color Control
 	 */
 	wp.customize("button_bg_color", function (value) {

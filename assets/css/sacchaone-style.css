@@ -1169,7 +1169,7 @@ span.next-post {
 }
 
 /* Scroll up */
-#scroll_to_top {
+.scroll-to-top {
 	position: fixed;
 	right: 40px;
 	bottom: 40px;
@@ -1190,10 +1190,9 @@ span.next-post {
 	z-index: 100;
 }
 
-#scroll_to_top:hover {
+.scroll-to-top:hover {
 	background: #128294;
 	box-shadow: 0 0 16px #0000001f;
-	color: white;
 }
 
 /* Footer */

@@ -176,9 +176,21 @@ if ( ! function_exists( 'sacchaone_get_dynamic_css' ) ) {
 		$css->set_selector( '.saccha-btn-close:hover, .saccha-btn-close:focus' );
 		$css->add_property( 'box-shadow', '0 0 0 0.2rem ' . maybe_hash_hex_color( $settings['sacchaone_nav_toggle_close_icon_color'] ) . '80' );
 
-		//color: #fff;
-		// background-color: #b85d13;
-		// border-color: #b85d13;
+		/**
+		 * Buttons Color
+		 */
+		$css->set_selector( '.scroll-to-top i.fa' );
+		$css->add_property( 'color', maybe_hash_hex_color( $settings['sacchaone_back2top_icon_color'] ) );
+		
+		$css->set_selector( '.scroll-to-top:hover i.fa' );
+		$css->add_property( 'color', maybe_hash_hex_color( $settings['sacchaone_back2top_icon_h_color'] ) );
+		
+		$css->set_selector( '.scroll-to-top' );
+		$css->add_property( 'background-color', maybe_hash_hex_color( $settings['sacchaone_back2top_bg_color'] ) );
+		
+		$css->set_selector( '.scroll-to-top:hover' );
+		$css->add_property( 'background-color', maybe_hash_hex_color( $settings['sacchaone_back2top_bg_h_color'] ) );
+		
 		/**
 		 * Buttons Color
 		 */
@@ -258,6 +270,7 @@ if ( ! function_exists( 'sacchaone_get_defaults' ) ) {
 			'button_text_hover_color'      => '#128294',
 			'button_border_color'          => '#128294',
 			'button_border_hover_color'    => '#128294',
+			'default_bg_color'			   => '#fff',
 			// 404
 			'sacchaone_404_title'          => __( '404', 'sacchaone' ),
 			'sacchaone_404_subtitle'       => __( 'Oops! Looks like this is a dead end. And we know that.', 'sacchaone' ),
