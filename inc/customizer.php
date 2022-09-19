@@ -539,6 +539,11 @@ function sacchaone_customize_register( $wp_customize ) {
 		)
 	);
 
+	// Moved Homepage Setting
+	$static_home_page = $wp_customize->get_section( 'static_front_page' );
+	$static_home_page->panel = 'sacchaone_layout';
+	$static_home_page->priority = 200;
+
 	/**
 	 * Section: Colors
 	 * Setting: Body
