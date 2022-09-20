@@ -159,7 +159,7 @@ if ( ! function_exists( 'sacchaone_the_posts_pagination' ) ) {
 		the_posts_pagination(
 			array(
 				'mid_size'  => 2,
-				'prev_text' => __( 'Previous', 'sacchaone' ),
+				'prev_text' => __( 'Prev', 'sacchaone' ),
 				'next_text' => __( 'Next', 'sacchaone' ),
 			)
 		);
