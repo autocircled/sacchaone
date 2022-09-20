@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 if ( ! defined( '_SACCHAONE_VERSION' ) ) {
 	// Replace the version number of the theme on each release.
-	define( '_SACCHAONE_VERSION', '1.0.8' );
+	define( '_SACCHAONE_VERSION', '1.0.9' );
 }
 
 if ( ! defined( 'SACCHAONE_THEME_SETTINGS' ) ) {
