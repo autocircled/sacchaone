@@ -34,8 +34,18 @@ SacchaOne is licensed under the GNU General Public License v2 or later
 SacchaOne includes support for Infinite Scroll in Jetpack.
 
 == Changelog ==
-= 1.0.8 - April 15 2022 =
-* 
+= 1.0.8 - September 20 2022 =
+* Added - Back2Top button controls in customizer
+* Added - Individual page settings
+
+* Fixed - Header preset in customizer
+* Fixed - Footer copyright area issue
+* Fixed - Logo size/spacing
+* Fixed - Colors control in customizer
+* Fixed - Body link color issue
+
+* Improved - Pagination
+* Improved - Customizer
 
 = 1.0.7 - April 01 2022 =
 * Added - Sidebar types in customizer
