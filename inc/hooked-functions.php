@@ -97,6 +97,8 @@ if ( ! function_exists( 'sacchaone_footer' ) ) {
 	 */
 	function sacchaone_footer() {
 		$footer_width = get_theme_mod( 'sacchaone_footer_width', 'full' );
+		$footer_social_icons = get_theme_mod( 'sacchaone_social_icons' );
+		
 		?>
 		<!--Footer-->
 		<footer class="footer footer-bg <?php echo 'box' === $footer_width ? esc_attr( 'container' ) : ''; ?>">
@@ -112,7 +114,7 @@ if ( ! function_exists( 'sacchaone_footer' ) ) {
 				do_action( 'sacchaone_footer_widgets' );
 				?>
 				<div class="row copyright_info">
-					<div class="col-md-6">
+					<div class="col-md-<?php echo $footer_social_icons ? esc_attr( '6' ) : esc_attr( '12' ); ?>">
 						<div class="mt-2">
 							<?php
 							if ( ! is_active_sidebar( 'copyright' ) ) {
@@ -139,6 +141,10 @@ if ( ! function_exists( 'sacchaone_footer' ) ) {
 							<?php } ?>
 						</div>
 					</div>
+					<?php
+						if ( $footer_social_icons ) :
+					?>
+
 					<div class="col-md-6 text-right">
 						<?php
 							/**
@@ -149,6 +155,7 @@ if ( ! function_exists( 'sacchaone_footer' ) ) {
 							do_action( 'sacchaone_social' );
 						?>
 					</div>
+					<?php endif; ?>
 				</div>
 			</div>
 		</footer>
