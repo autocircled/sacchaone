@@ -54,7 +54,7 @@ function sacchaone_customize_register( $wp_customize ) {
 	);
 
 	$wp_customize->add_control(
-		'sacchaone_hide_site_title_id',
+		'sacchaone_hide_site_title',
 		array(
 			'label'    => __( 'Hide Title', 'sacchaone' ),
 			'section'  => 'title_tagline',
@@ -76,7 +76,7 @@ function sacchaone_customize_register( $wp_customize ) {
 	);
 
 	$wp_customize->add_control(
-		'sacchaone_hide_site_desc_id',
+		'sacchaone_hide_site_desc',
 		array(
 			'label'    => __( 'Hide Description', 'sacchaone' ),
 			'section'  => 'title_tagline',
@@ -355,7 +355,7 @@ function sacchaone_customize_register( $wp_customize ) {
 	);
 
 	$wp_customize->add_control(
-		'sacchaone_footer_widgets_id',
+		'sacchaone_footer_widgets',
 		array(
 			'label'    => __( 'Footer Widgets', 'sacchaone' ),
 			'section'  => 'sacchaone_footer_section',
