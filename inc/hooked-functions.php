@@ -153,7 +153,42 @@ if ( ! function_exists( 'sacchaone_footer' ) ) {
 							 * @hooked sacchaone_social - 10
 							 */
 							do_action( 'sacchaone_social' );
-						?>
+						?>						
+						<ul>
+							<?php if ( get_theme_mod('sacchaone_social_facebook_icon') ) : ?>
+								<li><a href="<?php echo get_theme_mod('sacchaone_social_facebook_icon'); ?>" target="_blank">Facebook</a></li>
+							<?php endif; ?>
+							<?php if ( get_theme_mod('sacchaone_social_twitter_icon') ) : ?>
+								<li><a href="<?php echo get_theme_mod('sacchaone_social_twitter_icon'); ?>" target="_blank">Twitter</a></li>
+							<?php endif; ?>
+							<?php if ( get_theme_mod('sacchaone_social_instagram_icon') ) : ?>
+								<li><a href="<?php echo get_theme_mod('sacchaone_social_instagram_icon'); ?>" target="_blank">Instagram</a></li>
+							<?php endif; ?>
+
+							<?php if ( get_theme_mod('sacchaone_social_linkedin_icon') ) : ?>
+								<li><a href="<?php echo get_theme_mod('sacchaone_social_linkedin_icon'); ?>" target="_blank">LinkedIn</a></li>
+							<?php endif; ?>
+							<?php if ( get_theme_mod('sacchaone_social_youtube_icon') ) : ?>
+								<li><a href="<?php echo get_theme_mod('sacchaone_social_youtube_icon'); ?>" target="_blank">Youtube</a></li>
+							<?php endif; ?>							
+							<?php if ( get_theme_mod('sacchaone_social_xing_icon') ) : ?>
+								<li><a href="<?php echo get_theme_mod('sacchaone_social_xing_icon'); ?>" target="_blank">Xing</a></li>
+							<?php endif; ?>
+
+							<?php if ( get_theme_mod('sacchaone_social_pinterest_icon') ) : ?>
+								<li><a href="<?php echo get_theme_mod('sacchaone_social_pinterest_icon'); ?>" target="_blank">Pinterest</a></li>
+							<?php endif; ?>
+							<?php if ( get_theme_mod('sacchaone_social_github_icon') ) : ?>
+								<li><a href="<?php echo get_theme_mod('sacchaone_social_github_icon'); ?>" target="_blank">Github</a></li>
+							<?php endif; ?>
+							<?php if ( get_theme_mod('sacchaone_social_tiktok_icon') ) : ?>
+								<li><a href="<?php echo get_theme_mod('sacchaone_social_tiktok_icon'); ?>" target="_blank">Tiktok</a></li>
+							<?php endif; ?>
+
+							<?php if ( get_theme_mod('sacchaone_social_spotify_icon') ) : ?>
+								<li><a href="<?php echo get_theme_mod('sacchaone_social_spotify_icon'); ?>" target="_blank">Spotify</a></li>
+							<?php endif; ?>
+						</ul>
 					</div>
 					<?php endif; ?>
 				</div>
