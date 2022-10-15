@@ -141,55 +141,19 @@ if ( ! function_exists( 'sacchaone_footer' ) ) {
 							<?php } ?>
 						</div>
 					</div>
-					<?php
-						if ( $footer_social_icons ) :
-					?>
+					<?php if ( $footer_social_icons ) : ?>
 
-					<div class="col-md-6 text-right">
-						<?php
-							/**
-							 * Hook - sacchaone_social
-							 *
-							 * @hooked sacchaone_social - 10
-							 */
-							do_action( 'sacchaone_social' );
-						?>						
-						<ul>
-							<?php if ( get_theme_mod('sacchaone_social_facebook_icon') ) : ?>
-								<li><a href="<?php echo get_theme_mod('sacchaone_social_facebook_icon'); ?>" target="_blank">Facebook</a></li>
-							<?php endif; ?>
-							<?php if ( get_theme_mod('sacchaone_social_twitter_icon') ) : ?>
-								<li><a href="<?php echo get_theme_mod('sacchaone_social_twitter_icon'); ?>" target="_blank">Twitter</a></li>
-							<?php endif; ?>
-							<?php if ( get_theme_mod('sacchaone_social_instagram_icon') ) : ?>
-								<li><a href="<?php echo get_theme_mod('sacchaone_social_instagram_icon'); ?>" target="_blank">Instagram</a></li>
-							<?php endif; ?>
+						<div class="col-md-6 text-right">
+							<?php
+								/**
+								 * Hook - sacchaone_social
+								 *
+								 * @hooked sacchaone_social - 10
+								 */
+								do_action( 'sacchaone_social' );
 
-							<?php if ( get_theme_mod('sacchaone_social_linkedin_icon') ) : ?>
-								<li><a href="<?php echo get_theme_mod('sacchaone_social_linkedin_icon'); ?>" target="_blank">LinkedIn</a></li>
-							<?php endif; ?>
-							<?php if ( get_theme_mod('sacchaone_social_youtube_icon') ) : ?>
-								<li><a href="<?php echo get_theme_mod('sacchaone_social_youtube_icon'); ?>" target="_blank">Youtube</a></li>
-							<?php endif; ?>							
-							<?php if ( get_theme_mod('sacchaone_social_xing_icon') ) : ?>
-								<li><a href="<?php echo get_theme_mod('sacchaone_social_xing_icon'); ?>" target="_blank">Xing</a></li>
-							<?php endif; ?>
-
-							<?php if ( get_theme_mod('sacchaone_social_pinterest_icon') ) : ?>
-								<li><a href="<?php echo get_theme_mod('sacchaone_social_pinterest_icon'); ?>" target="_blank">Pinterest</a></li>
-							<?php endif; ?>
-							<?php if ( get_theme_mod('sacchaone_social_github_icon') ) : ?>
-								<li><a href="<?php echo get_theme_mod('sacchaone_social_github_icon'); ?>" target="_blank">Github</a></li>
-							<?php endif; ?>
-							<?php if ( get_theme_mod('sacchaone_social_tiktok_icon') ) : ?>
-								<li><a href="<?php echo get_theme_mod('sacchaone_social_tiktok_icon'); ?>" target="_blank">Tiktok</a></li>
-							<?php endif; ?>
-
-							<?php if ( get_theme_mod('sacchaone_social_spotify_icon') ) : ?>
-								<li><a href="<?php echo get_theme_mod('sacchaone_social_spotify_icon'); ?>" target="_blank">Spotify</a></li>
-							<?php endif; ?>
-						</ul>
-					</div>
+								?>
+						</div>
 					<?php endif; ?>
 				</div>
 			</div>
@@ -198,6 +162,50 @@ if ( ! function_exists( 'sacchaone_footer' ) ) {
 	}
 }
 add_action( 'sacchaone_footer', 'sacchaone_footer', 10 );
+
+
+add_action( 'sacchaone_social', 'show_social_media_icons' );
+
+function show_social_media_icons(){
+	$social_links = get_theme_mod('sacchaone_social_icon');
+
+	if( is_array( $social_links ) && count( $social_links ) > 0 ) :
+		?>						
+		<ul>
+			<?php foreach( $social_links as $link ) : ?>
+
+				<li><a href="<?php echo esc_url( $link ); ?>" target="_blank"><?php echo esc_html( find_social_profile_name( $link ) ); ?></a></li>
+
+			<?php endforeach; ?>
+		</ul>
+	<?php endif;
+}
+
+function find_social_profile_name( $link ) {
+	$social_networks = array(
+		'facebook',
+		'twitter',
+		'linkedin',
+		'instagram',
+		'pinterest',
+		'xing',
+		'github',
+		'youtube',
+		'tiktok'
+	);
+
+	$result = '';
+
+	foreach( $social_networks as $network ){
+
+		if ( strpos( $link, $network ) !== false ) {
+			$result = ucfirst( $network );
+			break;
+		}
+	}
+	return $result;
+
+}
 
 if ( ! function_exists( 'sacchaone_footer_widgets' ) ) {
 	/**
