@@ -13,10 +13,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-
-
-// dasbdaskdjhashdjh
-
 /**
  * Hook - sacchaone_footer
  *
