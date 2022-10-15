@@ -1659,6 +1659,172 @@ function sacchaone_customize_register( $wp_customize ) {
 		)
 	);
 
+	/**
+	 * Social Icons Section
+	 */
+	$wp_customize->add_section(
+		'sacchaone_social_icons_section',
+		array(
+			'title' => __( 'Social Icons' ),
+			'description' => __( 'Add social media account links to apply social icons on the site footer.' ),
+			'priority'=> 50,
+	));
+	$wp_customize->add_setting(
+		'sacchaone_social_icon[facebook]',
+		array(
+			'default'=> '',
+	));
+	$wp_customize->add_control(
+		'sacchaone_social_icon[facebook]',
+		array(
+			'label'=> 'Facebook',
+			'section'=> 'sacchaone_social_icons_section',
+			'setting'=> 'sacchaone_social_icon[facebook]',
+	));
+	
+	/**
+	 * Twitter Icon Section
+	 */
+	$wp_customize->add_setting(
+		'sacchaone_social_icon[twitter]',
+		array(
+			'default'=> '',
+	));
+	$wp_customize->add_control(
+		'sacchaone_social_icon[twitter]',
+		array(
+			'label'=> 'Twitter',
+			'section'=> 'sacchaone_social_icons_section',
+			'setting'=> 'sacchaone_social_icon[twitter]',
+	));
+
+	/**
+	 * Instagrm Icon Section
+	 */
+	$wp_customize->add_setting(
+		'sacchaone_social_icon[instagram]',
+		array(
+			'default'=> '',
+	));
+	$wp_customize->add_control(
+		'sacchaone_social_icon[instagram]',
+		array(
+			'label'=> 'Instagram',
+			'section'=> 'sacchaone_social_icons_section',
+			'setting'=> 'sacchaone_social_icon[instagram]',
+	));
+
+	/**
+	 * Linkedin Icon Section
+	 */
+	$wp_customize->add_setting(
+		'sacchaone_social_icon[linkedin]',
+		array(
+			'default'=> '',
+	));
+	$wp_customize->add_control(
+		'sacchaone_social_icon[linkedin]',
+		array(
+			'label'=> 'Linkedin',
+			'section'=> 'sacchaone_social_icons_section',
+			'setting'=> 'sacchaone_social_icon[linkedin]',
+	));
+
+	/**
+	 * Xing Icon Section
+	 */
+	$wp_customize->add_setting(
+		'sacchaone_social_icon[xing]',
+		array(
+			'default'=> '',
+	));
+	$wp_customize->add_control(
+		'sacchaone_social_icon[xing]',
+		array(
+			'label'=> 'Xing',
+			'section'=> 'sacchaone_social_icons_section',
+			'setting'=> 'sacchaone_social_icon[xing]',
+	));
+
+	/**
+	 * Pinterest Icon Section
+	 */
+	$wp_customize->add_setting(
+		'sacchaone_social_icon[pinterest]',
+		array(
+			'default'=> '',
+	));
+	$wp_customize->add_control(
+		'sacchaone_social_icon[pinterest]',
+		array(
+			'label'=> 'Pinterest',
+			'section'=> 'sacchaone_social_icons_section',
+			'setting'=> 'sacchaone_social_icon[pinterest]',
+	));
+
+	/**
+	 * Youtube Icon Section
+	 */
+	$wp_customize->add_setting(
+		'sacchaone_social_icon[youtube]',
+		array(
+			'default'=> '',
+	));
+	$wp_customize->add_control(
+		'sacchaone_social_icon[youtube]',
+		array(
+			'label'=> 'Youtube',
+			'section'=> 'sacchaone_social_icons_section',
+			'setting'=> 'sacchaone_social_icon[youtube]',
+	));
+
+	/**
+	 * Spotify Icon Section
+	 */
+	$wp_customize->add_setting(
+		'sacchaone_social_icon[spotify]',
+		array(
+			'default'=> '',
+	));
+	$wp_customize->add_control(
+		'sacchaone_social_icon[spotify]',
+		array(
+			'label'=> 'Spotify',
+			'section'=> 'sacchaone_social_icons_section',
+			'setting'=> 'sacchaone_social_icon[spotify]',
+	));
+
+	/**
+	 * Github Icon Section
+	 */
+	$wp_customize->add_setting(
+		'sacchaone_social_icon[github]',
+		array(
+			'default'=> '',
+	));
+	$wp_customize->add_control(
+		'sacchaone_social_icon[github]',
+		array(
+			'label'=> 'Github',
+			'section'=> 'sacchaone_social_icons_section',
+			'setting'=> 'sacchaone_social_icon[github]',
+	));
+
+	/**
+	 * Tiktok Icon Section
+	 */
+	$wp_customize->add_setting(
+		'sacchaone_social_icon[tiktok]',
+		array(
+			'default'=> '',
+	));
+	$wp_customize->add_control(
+		'sacchaone_social_icon[tiktok]',
+		array(
+			'label'=> 'Tiktok',
+			'section'=> 'sacchaone_social_icons_section',
+			'setting'=> 'sacchaone_social_icon[tiktok]',
+	));
 }
 add_action( 'customize_register', 'sacchaone_customize_register' );
 
