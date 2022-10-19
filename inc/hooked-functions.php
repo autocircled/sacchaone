@@ -170,6 +170,7 @@ if ( ! function_exists( 'show_social_media_icons' ) ) {
 
 	function show_social_media_icons(){
 		$social_links = get_theme_mod('sacchaone_social_icon');
+		// var_dump($social_links);
 
 		if( is_array( $social_links ) && count( $social_links ) > 0 ) :
 			?>						
@@ -190,12 +191,12 @@ if ( ! function_exists( 'find_social_profile_name' ) ) {
 
 	function find_social_profile_name( $link ) {
 		$social_networks = array(
+			'amazon',
 			'facebook',
 			'twitter',
 			'linkedin',
 			'instagram',
 			'pinterest',
-			'xing',
 			'github',
 			'youtube',
 			'tiktok'
@@ -303,7 +304,9 @@ if ( ! function_exists( 'social_icon_generator' ) ) {
 
 		);
 
-		return $social_icons[ $icon_key ];
+		
+
+		return array_key_exists( $icon_key, $social_icons ) ? $social_icons[ $icon_key ] : false;
 	}
 }
 

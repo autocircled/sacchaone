@@ -106,7 +106,7 @@ function sacchaone_body_classes( $classes ) {
 
 	return $classes;
 }
-add_filter( 'body_class', 'sacchaone_body_classes' );
+// add_filter( 'body_class', 'sacchaone_body_classes' );
 
 /**
  * Add a pingback url auto-discovery header for single posts, pages, or attachments.
