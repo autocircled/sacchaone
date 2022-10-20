@@ -56,7 +56,7 @@ function sacchaone_body_classes( $classes ) {
 
 		// If there is no active sidebar ther we won't go further.
 		if ( ! is_active_sidebar( 'sidebar-1' ) && ! is_active_sidebar( 'sidebar-2' ) ) {
-			return;
+			return $classes;
 		}
 
 		// Removing array key 'no-sidebar'.
@@ -106,7 +106,7 @@ function sacchaone_body_classes( $classes ) {
 
 	return $classes;
 }
-// add_filter( 'body_class', 'sacchaone_body_classes' );
+add_filter( 'body_class', 'sacchaone_body_classes' );
 
 /**
  * Add a pingback url auto-discovery header for single posts, pages, or attachments.
