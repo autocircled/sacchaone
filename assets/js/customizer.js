@@ -1689,4 +1689,110 @@
 			}
 		});
 	});
+
+	wp.customize("sacchaone_social_icon_size", function (value) {
+		value.bind(function (to) {
+			let selector = "ul.social-icons svg";
+			let id = "sacchaone_social_icon_size";
+			let property1 = "width";
+			let property2 = "height";
+			if ($("style#" + id).length) {
+				$("style#" + id).html(
+					selector +
+						"{" +
+						property1 +
+						":" +
+						to +
+						"px;" +
+						property2 +
+						":" +
+						to +
+						"px;" +
+						"}"
+				);
+			} else {
+				$("head").append(
+					'<style id="' +
+						id +
+						'">' +
+						selector +
+						"{" +
+						property1 +
+						":" +
+						to +
+						"px;" +
+						property2 +
+						":" +
+						to +
+						"px;" +
+						"}</style>"
+				);
+				setTimeout(function () {
+					$("style#" + id)
+						.not(":last")
+						.remove();
+				}, 1000);
+			}
+		});
+	});
+
+	wp.customize("sacchaone_icon_color_setting", function (value) {
+		value.bind(function (to) {
+			let selector = "ul.social-icons svg";
+			let id = "sacchaone_icon_color_setting";
+			let property = "fill";
+			if ($("style#" + id).length) {
+				$("style#" + id).html(
+					selector + "{" + property + ":" + to + "}"
+				);
+			} else {
+				$("head").append(
+					'<style id="' +
+						id +
+						'">' +
+						selector +
+						"{" +
+						property +
+						":" +
+						to +
+						"}</style>"
+				);
+				setTimeout(function () {
+					$("style#" + id)
+						.not(":last")
+						.remove();
+				}, 1000);
+			}
+		});
+	});
+
+	wp.customize("sacchaone_icon_hover_color_setting", function (value) {
+		value.bind(function (to) {
+			let selector = "ul.social-icons svg:hover";
+			let id = "sacchaone_icon_hover_color_setting";
+			let property = "fill";
+			if ($("style#" + id).length) {
+				$("style#" + id).html(
+					selector + "{" + property + ":" + to + "}"
+				);
+			} else {
+				$("head").append(
+					'<style id="' +
+						id +
+						'">' +
+						selector +
+						"{" +
+						property +
+						":" +
+						to +
+						"}</style>"
+				);
+				setTimeout(function () {
+					$("style#" + id)
+						.not(":last")
+						.remove();
+				}, 1000);
+			}
+		});
+	});
 })(jQuery);

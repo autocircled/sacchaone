@@ -1649,21 +1649,9 @@ function sacchaone_customize_register( $wp_customize ) {
 	$wp_customize->add_section(
 		'sacchaone_icon_section',
 		array(
-			'title'         => __( 'Social Icons' ),
-			'description'   => __( 'Add social media account links to apply social icons on the site footer.' ),
+			'title'         => __( 'Social Icons', 'sacchaone' ),
+			'description'   => __( 'Add social media account links to apply social icons on the site footer.', 'sacchaone' ),
 			'panel'         => 'sacchaone_icon_panel'
-		)
-	);
-	
-	/**
-	* Social Icons Options
-	*/
-	$wp_customize->add_setting('sacchaone_social_icon_option',array());
-	$wp_customize->add_control(
-		'sacchaone_social_icon_option',
-		array(
-			'section'       => 'sacchaone_icon_section',
-			'setting'		=> 'sacchaone_social_icon_option',
 		)
 	);
 
@@ -1807,24 +1795,9 @@ function sacchaone_customize_register( $wp_customize ) {
 	$wp_customize->add_section(
 		'sacchaone_icon_setting_section',
 		array(
-			'title'         => __( 'Settings' ),
-			'description'   => __( 'Add social media account links to apply social icons on the site footer.' ),
+			'title'         => __( 'Settings', 'sacchaone' ),
+			'description'   => __( 'Add social media account links to apply social icons on the site footer.', 'sacchaone' ),
 			'panel'         => 'sacchaone_icon_panel'
-		)
-	);
-	$wp_customize->add_setting(
-		'sacchaone_social_icon_setting_option',
-		array(
-			'default'		=> '',
-			'transport'     => 'PostMessage',
-
-		)
-	);
-	$wp_customize->add_control(
-		'sacchaone_social_icon_setting_option',
-		array(
-			'section'       => 'sacchaone_icon_setting_section',
-			'setting'		=> 'sacchaone_social_icon_setting_option',
 		)
 	);
 
@@ -1856,28 +1829,48 @@ function sacchaone_customize_register( $wp_customize ) {
 		)
 	);
 
+	/**
+	 * Setting: for Icon size
+	 */
 	$wp_customize->add_setting(
 		'sacchaone_social_icon_size',
 		array(
-			'default'   => ''
+			'type'              => 'theme_mod',
+			'capability'        => 'edit_theme_options',
+			'default'           => $defaults['sacchaone_social_icon_size'],
+			'transport'         => 'postMessage',
+			'sanitize_callback' => 'absint',
 		)
 	);
+
+	/**
+	 * Control: Icon size
+	 */
 	$wp_customize->add_control(
 		'sacchaone_social_icon_size',
 		array(
-			'label'		=> 'Icon Size',
-			'section'	=> 'sacchaone_icon_setting_section',
-			'setting'	=> 'sacchaone_social_icon_size',
+			'label'    => __( 'Icon Size', 'sacchaone' ),
+			'description' => __( 'Measurement is in pixel.', 'sacchaone' ),
+			'section'  => 'sacchaone_icon_setting_section',
+			'settings' => 'sacchaone_social_icon_size',
+			'type'     => 'number',
+			'input_attrs' => array(
+				'min' => 16,
+				'max' => 100,
+			),
 		)
 	);
 	
 	/**
 	* Icon Color under setting Section
 	*/
+
 	$wp_customize->add_setting(
 		'sacchaone_icon_color_setting',
 		array(
-			'default'       => '#ff8856',
+			'default'       	=> $defaults['sacchaone_icon_color_setting'],
+			'transport'     	=> 'postMessage',
+			'sanitize_callback' => 'sanitize_hex_color',
 		)
 	);
 	$wp_customize->add_control( 
@@ -1885,10 +1878,10 @@ function sacchaone_customize_register( $wp_customize ) {
 			$wp_customize, 
 			'icon_color', 
 			array(
-				'label'      => __( 'Icon Color', 'mytheme' ),
+				'label'      => __( 'Icon Color', 'sacchaone' ),
 				'section'    => 'sacchaone_icon_setting_section',
 				'settings'   => 'sacchaone_icon_color_setting',
-			) 
+			)
 		) 
 	);
 
@@ -1898,18 +1891,20 @@ function sacchaone_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'sacchaone_icon_hover_color_setting',
 		array(
-			'default'       => '#bb8856',
+			'transport'     	=> 'postMessage',
+			'sanitize_callback' => 'sanitize_hex_color',
 		)
 	);
 	$wp_customize->add_control( 
 		new WP_Customize_Color_Control( 
-		$wp_customize, 
-		'icon_hover_color', 
-		array(
-			'label'      => __( 'Icon Hover Color', 'mytheme' ),
-			'section'    => 'sacchaone_icon_setting_section',
-			'settings'   => 'sacchaone_icon_hover_color_setting',
-		) ) 
+			$wp_customize, 
+			'icon_hover_color', 
+			array(
+				'label'      => __( 'Icon Hover Color', 'sacchaone' ),
+				'section'    => 'sacchaone_icon_setting_section',
+				'settings'   => 'sacchaone_icon_hover_color_setting',
+			)
+		) 
 	);
 }
 add_action( 'customize_register', 'sacchaone_customize_register' );

@@ -204,6 +204,14 @@ if ( ! function_exists( 'sacchaone_get_dynamic_css' ) ) {
 		$css->add_property( 'border-color', maybe_hash_hex_color( $settings['button_border_hover_color'] ) );
 		$css->add_property( 'color', maybe_hash_hex_color( $settings['button_text_hover_color'] ) );
 
+		$css->set_selector( 'ul.social-icons svg' );
+		$css->add_property( 'width', $settings['sacchaone_social_icon_size'] . 'px' );
+		$css->add_property( 'height', $settings['sacchaone_social_icon_size'] . 'px' );
+		$css->add_property( 'fill', $settings['sacchaone_icon_color_setting'] );
+
+		$css->set_selector( 'ul.social-icons svg:hover' );
+		$css->add_property( 'fill', $settings['sacchaone_icon_hover_color_setting'] );
+
 		return $css->css_output();
 	}
 }
@@ -231,6 +239,9 @@ if ( ! function_exists( 'sacchaone_get_defaults' ) ) {
 			'sacchaone_blog_settings'      => 'excerpt',
 			'sacchaone_dropdown_direction' => 'right',
 			'sacchaone_sticky_nav'         => 'enabled',
+			'sacchaone_social_icon_size'   => 24,
+			'sacchaone_icon_color_setting' => '#b4c1d0',
+			'sacchaone_icon_hover_color_setting' => '#fff',
 			'background_color'             => '#f0f0f1',
 			'body_text_color'              => '#1f1f1f',
 			'body_link_color'              => '#117889',
