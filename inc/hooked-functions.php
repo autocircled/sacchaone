@@ -170,7 +170,6 @@ if ( ! function_exists( 'show_social_media_icons' ) ) {
 
 	function show_social_media_icons(){
 		$social_links = get_theme_mod('sacchaone_social_icon');
-		// var_dump($social_links);
 
 		if( is_array( $social_links ) && count( $social_links ) > 0 ) :
 			?>						
