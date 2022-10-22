@@ -236,6 +236,32 @@ if ( ! function_exists( 'sacchaone_get_defaults' ) ) {
 			'sacchaone_sidebar_type'       => 'sidebar-type-default',
 			'sacchaone_hide_site_title'    => false,
 			'sacchaone_hide_site_desc'     => true,
+
+			'sacchaone_site_title_font_color'   => '#117889',
+			'sacchaone_site_tagline_font_color' => '#b4c1d0',
+			'sacchaone_site_title_font_size' 	=> 25,
+			'sacchaone_site_tagline_font_size'	=> 20,
+
+			'sacchaone_site_title_top_pad'		=>'',
+			'sacchaone_site_title_right_pad'	=>'',
+			'sacchaone_site_title_bottom_pad'	=>'',
+			'sacchaone_site_title_left_pad'		=>'',
+
+			'sacchaone_site_tagline_top_pad'	=>'',
+			'sacchaone_site_tagline_right_pad'	=>'',
+			'sacchaone_site_tagline_bottom_pad'	=>'',
+			'sacchaone_site_tagline_left_pad'	=>'',
+
+			'sacchaone_site_logo_top_pad'		=> '',
+			'sacchaone_site_logo_right_pad'		=> '',
+			'sacchaone_site_logo_bottom_pad'	=> '',
+			'sacchaone_site_logo_left_pad'		=> '',
+
+			'sacchaone_back2top_position'		=> 'right',
+			'sacchaone_back2top_icon_size'		=> '25px',
+			'sacchaone_back2top_button_size' 	=> '50px',
+			'sacchaone_back2top_vertical_position'=> '50px',
+
 			'sacchaone_blog_settings'      => 'excerpt',
 			'sacchaone_dropdown_direction' => 'right',
 			'sacchaone_sticky_nav'         => 'enabled',
