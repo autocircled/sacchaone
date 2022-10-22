@@ -261,6 +261,7 @@ if ( ! function_exists( 'sacchaone_get_defaults' ) ) {
 			'nav_sub_bg_color'             => '#fff',
 			'nav_sub_bg_hover_color'       => '#f5f5f5',
 			'nav_sub_bg_active_color'      => '#3582c4',
+			'setting_for_font_color'	   => '#1f1f1f',
 			// Transparent Nav Color
 			'saccha_nav_text_color_control'            => '#030303',
 			'saccha_nav_hover_color_control'           => '#fff',

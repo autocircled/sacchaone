@@ -203,6 +203,7 @@ require get_template_directory() . '/inc/dynamic-css.php';
 require get_template_directory() . '/inc/class-sacchaone-range-control.php';
 require get_template_directory() . '/inc/class-sacchaone-separator-control.php';
 require get_template_directory() . '/inc/customizer.php';
+require get_template_directory() . '/inc/class-sacchaone-typography.php';
 
 /**
  * Load Jetpack compatibility file.
