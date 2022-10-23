@@ -815,33 +815,33 @@ function sacchaone_customize_register( $wp_customize ) {
 		)
 	);
 
-	/**
-	 * Setting: for Back to Top Button
-	 */
-	$wp_customize->add_setting(
-		'sacchaone_back2top',
-		array(
-			'type'              => 'theme_mod',
-			'capability'        => 'edit_theme_options',
-			'default'           => $defaults['sacchaone_back2top'],
-			'transport'         => 'postMessage',
-			'sanitize_callback' => 'sacchaone_sanitize_select',
-		)
-	);
+	// /**
+	//  * Setting: for Back to Top Button
+	//  */
+	// $wp_customize->add_setting(
+	// 	'sacchaone_back2top',
+	// 	array(
+	// 		'type'              => 'theme_mod',
+	// 		'capability'        => 'edit_theme_options',
+	// 		'default'           => $defaults['sacchaone_back2top'],
+	// 		'transport'         => 'postMessage',
+	// 		'sanitize_callback' => 'sacchaone_sanitize_select',
+	// 	)
+	// );
 
-	$wp_customize->add_control(
-		'sacchaone_back2top',
-		array(
-			'label'    => __( 'Back to Top Button', 'sacchaone' ),
-			'section'  => 'sacchaone_footer_section',
-			'settings' => 'sacchaone_back2top',
-			'type'     => 'select',
-			'choices'  => array(
-				1 => __( 'Enable', 'sacchaone' ),
-				0 => __( 'Disable', 'sacchaone' ),
-			),
-		)
-	);
+	// $wp_customize->add_control(
+	// 	'sacchaone_back2top',
+	// 	array(
+	// 		'label'    => __( 'Back to Top Button', 'sacchaone' ),
+	// 		'section'  => 'sacchaone_footer_section',
+	// 		'settings' => 'sacchaone_back2top',
+	// 		'type'     => 'select',
+	// 		'choices'  => array(
+	// 			1 => __( 'Enable', 'sacchaone' ),
+	// 			0 => __( 'Disable', 'sacchaone' ),
+	// 		),
+	// 	)
+	// );
 
 	/**
 	 * Setting: for Back to Top Checkbox Button
@@ -909,14 +909,38 @@ function sacchaone_customize_register( $wp_customize ) {
 	$wp_customize->add_control(
 		'sacchaone_back2top_position',
 		array(
-			'label'	   		=> __('Horizontal Position','sacchaone'),
+			'label'	   		=> __('Position','sacchaone'),
 			'section'  		=> 'sacchaone_footer_section',
 			'settings' 		=> 'sacchaone_back2top_position',
 			'type'     		=> 'select',
 			'choices'  		=> array(
-						'left' => __('Left','sacchaone'),
-						'right' => __('Right','sacchaone'),
+						'left' 		=> __('Left','sacchaone'),
+						'center' 	=> __('Center','sacchaone'),
+						'right' 	=> __('Right','sacchaone'),
 			),
+		)
+	);
+
+	/**
+	 * Setting: for Back to Top Button Horizontal Spacing.
+	 */
+
+	$wp_customize->add_setting(
+		'sacchaone_back2top_horizon_spacing',
+		array(
+			'capability'        => 'edit_theme_options',
+			'default'           => $defaults['sacchaone_back2top_horizon_spacing'],
+			'transport'         => 'postMessage',
+		)
+	);
+
+	$wp_customize->add_control(
+		'sacchaone_back2top_horizon_spacing',
+		array(
+			'label'	   		=> __('Horizontal Spacing','sacchaone'),
+			'section'  		=> 'sacchaone_footer_section',
+			'settings' 		=> 'sacchaone_back2top_horizon_spacing',
+			'type'			=> 'number',
 		)
 	);
 
@@ -935,9 +959,10 @@ function sacchaone_customize_register( $wp_customize ) {
 	$wp_customize->add_control(
 		'sacchaone_back2top_vertical',
 		array(
-			'label'	   		=> __('Vertical Position (px)','sacchaone'),
+			'label'	   		=> __('Bottom Position (px)','sacchaone'),
 			'section'  		=> 'sacchaone_footer_section',
 			'settings' 		=> 'sacchaone_back2top_vertical_position',
+			'type'			=> 'number',
 		)
 	);
 
@@ -959,6 +984,7 @@ function sacchaone_customize_register( $wp_customize ) {
 			'label'	   		=> __('Button Size (px)','sacchaone'),
 			'section'  		=> 'sacchaone_footer_section',
 			'settings' 		=> 'sacchaone_back2top_button_size',
+			'type'			=> 'number',
 		)
 	);
 
@@ -980,6 +1006,7 @@ function sacchaone_customize_register( $wp_customize ) {
 			'label'	   		=> __('Icon Size (px)','sacchaone'),
 			'section'  		=> 'sacchaone_footer_section',
 			'settings' 		=> 'sacchaone_back2top_icon_size',
+			'type'			=> 'number',
 		)
 	);
 
@@ -1001,6 +1028,7 @@ function sacchaone_customize_register( $wp_customize ) {
 			'label'	   		=> __('Border Radius (px)','sacchaone'),
 			'section'  		=> 'sacchaone_footer_section',
 			'settings' 		=> 'sacchaone_back2top_icon_radius',
+			'type'			=> 'number',
 		)
 	);
 	

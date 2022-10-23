@@ -261,6 +261,7 @@ if ( ! function_exists( 'sacchaone_get_defaults' ) ) {
 			'sacchaone_back2top_icon_size'		=> '25px',
 			'sacchaone_back2top_button_size' 	=> '50px',
 			'sacchaone_back2top_vertical_position'=> '50px',
+			'sacchaone_back2top_horizon_spacing' => '',
 
 			'sacchaone_blog_settings'      => 'excerpt',
 			'sacchaone_dropdown_direction' => 'right',
