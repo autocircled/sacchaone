@@ -898,7 +898,6 @@ function sacchaone_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'sacchaone_back2top_position',
 		array(
-			'type'              => 'option',
 			'capability'        => 'edit_theme_options',
 			'default'           => $defaults['sacchaone_back2top_position'],
 			'transport'         => 'postMessage',

@@ -16,6 +16,10 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return array
  */
 function sacchaone_body_classes( $classes ) {
+
+	// Get default settings values
+	$defaults = sacchaone_get_defaults();
+
 	// Adds a class of hfeed to non-singular pages.
 	if ( ! is_singular() ) {
 		$classes[] = 'hfeed';
@@ -51,6 +55,36 @@ function sacchaone_body_classes( $classes ) {
 		}
 	}
 
+	// Customizer settings
+	$classes[] = get_theme_mod( 'sacchaone_sidebar_type', sacchaone_get_defaults( 'sacchaone_sidebar_type' ) );
+	$classes[] = get_theme_mod( 'sacchaone_sticky_nav', sacchaone_get_defaults( 'sacchaone_sticky_nav' ) ) === 'enable' ? 'sticky-nav-enabled' : 'sticky-nav-disabled';
+
+	// Add class for back2top button.
+	$back2top_status = get_theme_mod( 'sacchaone_back2top', 1 );
+
+	if ( $back2top_status ) {
+		$classes[] = 'back2top-enabled';
+	} else {
+		$classes[] = 'back2top-disabled';
+	}
+
+	$classes[] = 'back2top-' . get_theme_mod( 'sacchaone_back2top_position', $defaults['sacchaone_back2top_position'] );
+
+	// Individual post/page settings
+	$additional_settings = get_post_meta( get_the_ID(), SACCHAONE_PREFIX . 'additional_settings', true );
+	if ( 'yes' === $additional_settings ) {
+
+		$transparent_header = get_post_meta( get_the_ID(), SACCHAONE_PREFIX . 'transparent_page_header', true );
+		if ( 'yes' === $transparent_header ) {
+			$classes[] = 'transparent-header';
+		}
+
+		// Sidebar left, right, both or none.
+		$sidebar_type = get_post_meta( get_the_ID(), SACCHAONE_PREFIX . 'sidebar_type', true );
+		$classes[] = 'sidebar_' . $sidebar_type;
+
+	}
+
 	// Add class based on customizer settings.
 	if ( get_theme_mod( 'sacchaone_sidebar_settings' ) ) {
 
@@ -75,33 +109,6 @@ function sacchaone_body_classes( $classes ) {
 		} elseif ( 'no-sidebar' === $sidebar ) {
 			$classes[] = 'no-sidebar';
 		}
-	}
-
-	// Customizer settings
-	$classes[] = get_theme_mod( 'sacchaone_sidebar_type', sacchaone_get_defaults( 'sacchaone_sidebar_type' ) );
-	$classes[] = get_theme_mod( 'sacchaone_sticky_nav', sacchaone_get_defaults( 'sacchaone_sticky_nav' ) ) === 'enable' ? 'sticky-nav-enabled' : 'sticky-nav-disabled';
-
-	// Add class for back2top button.
-	$back2top_status = get_theme_mod( 'sacchaone_back2top', 0 );
-	if ( $back2top_status ) {
-		$classes[] = 'back2top-enabled';
-	} else {
-		$classes[] = 'back2top-disabled';
-	}
-
-	// Individual post/page settings
-	$additional_settings = get_post_meta( get_the_ID(), SACCHAONE_PREFIX . 'additional_settings', true );
-	if ( 'yes' === $additional_settings ) {
-
-		$transparent_header = get_post_meta( get_the_ID(), SACCHAONE_PREFIX . 'transparent_page_header', true );
-		if ( 'yes' === $transparent_header ) {
-			$classes[] = 'transparent-header';
-		}
-
-		// Sidebar left, right, both or none.
-		$sidebar_type = get_post_meta( get_the_ID(), SACCHAONE_PREFIX . 'sidebar_type', true );
-		$classes[] = 'sidebar_' . $sidebar_type;
-
 	}
 
 	return $classes;

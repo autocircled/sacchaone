@@ -230,7 +230,7 @@ if ( ! function_exists( 'sacchaone_get_defaults' ) ) {
 			'sacchaone_footer_width'       => 'full',
 			'sacchaone_container_width'    => '1200',
 			'sacchaone_footer_widgets'     => '3',
-			'sacchaone_back2top'           => 0,
+			'sacchaone_back2top'           => 1,
 			'sacchaone_social_icons'       => 0,
 			'sacchaone_sidebar_settings'   => 'default',
 			'sacchaone_sidebar_type'       => 'sidebar-type-default',

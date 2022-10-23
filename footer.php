@@ -19,8 +19,10 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @hooked sacchaone_footer - 10
  */
 do_action( 'sacchaone_footer' );
+
+$back2top_icon = get_theme_mod( 'sacchaone_back2top_arrow', 'fa fa-angle-up' );
 ?>
-<div id="scroll_to_top" class="scroll-to-top"><i class="fa fa-angle-up"></i></div>
+<div id="scroll_to_top" class="scroll-to-top"><i class="<?php echo esc_attr( $back2top_icon ); ?>"></i></div>
 <?php wp_footer(); ?>
 
 </body>
