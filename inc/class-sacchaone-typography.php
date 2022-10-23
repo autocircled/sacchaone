@@ -42,7 +42,16 @@ if ( ! class_exists( 'SacchaOne_Typography' ) ) {
 							'line-height' => '1.8',
 						),
 					),
-                    'heading_h1'           => array(
+                    // 'headings' => array(
+					// 	'label'    => esc_html__( 'All Headings', 'sacchaone' ),
+					// 	'target'   => 'h1,h2,h3,h4,h5,h6',
+					// 	'exclude'  => array( 'font-size' ),
+					// 	'defaults' => array(
+					// 		'color'       => '#333333',
+					// 		'line-height' => '1.4',
+					// 	),
+					// ),
+                    'heading_h1' => array(
                         'label'    => esc_html__( 'Heading 1 (H1)', 'sacchaone' ),
                         'target'   => 'h1',
                         'defaults' => array(
@@ -51,7 +60,7 @@ if ( ! class_exists( 'SacchaOne_Typography' ) ) {
                             'line-height' => '1.4',
                         ),
                     ),
-                    'heading_h2'           => array(
+                    'heading_h2' => array(
                         'label'    => esc_html__( 'Heading 2 (H2)', 'sacchaone' ),
                         'target'   => 'h2',
                         'defaults' => array(
@@ -60,7 +69,7 @@ if ( ! class_exists( 'SacchaOne_Typography' ) ) {
                             'line-height' => '1.4',
                         ),
                     ),
-                    'heading_h3'           => array(
+                    'heading_h3' => array(
                         'label'    => esc_html__( 'Heading 3 (H3)', 'sacchaone' ),
                         'target'   => 'h3',
                         'defaults' => array(
@@ -69,7 +78,7 @@ if ( ! class_exists( 'SacchaOne_Typography' ) ) {
                             'line-height' => '1.4',
                         ),
                     ),
-                    'heading_h4'           => array(
+                    'heading_h4' => array(
                         'label'    => esc_html__( 'Heading 4 (H4)', 'sacchaone' ),
                         'target'   => 'h4',
                         'defaults' => array(
@@ -78,6 +87,15 @@ if ( ! class_exists( 'SacchaOne_Typography' ) ) {
                             'line-height' => '1.4',
                         ),
                     ),
+                    'logo' => array(
+						'label'    => esc_html__( 'Logo', 'sacchaone' ),
+						'target'   => '#site-logo a.site-logo-text',
+						'exclude'  => array( 'font-color' ),
+						'defaults' => array(
+							'font-size'   => '24px',
+							'line-height' => '1.8',
+						),
+					),
                 )
             );
         }
@@ -135,13 +153,14 @@ if ( ! class_exists( 'SacchaOne_Typography' ) ) {
 				}
 
                 $attributes = array_combine( $attributes, $attributes );
-
+                
                 // Exclude attributes for specific options
 				if ( $exclude_attributes ) {
 					foreach ( $exclude_attributes as $key => $val ) {
 						unset( $attributes[ $val ] );
 					}
 				}
+                var_dump( $attributes );
 
                 // Register new setting if label isn't empty
 				if ( $label ) {
@@ -152,7 +171,7 @@ if ( ! class_exists( 'SacchaOne_Typography' ) ) {
                     $wp_customize->add_section(
                         'sacchaone_typography_section_' . $key,
                         array(
-                            'title'    => $el['label'],
+                            'title'    => $label,
                             'priority' => $count,
                             'panel'	   => 'sacchaone_typography',
                         )
