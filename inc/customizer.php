@@ -815,59 +815,59 @@ function sacchaone_customize_register( $wp_customize ) {
 		)
 	);
 
-	// /**
-	//  * Setting: for Back to Top Button
-	//  */
-	// $wp_customize->add_setting(
-	// 	'sacchaone_back2top',
-	// 	array(
-	// 		'type'              => 'theme_mod',
-	// 		'capability'        => 'edit_theme_options',
-	// 		'default'           => $defaults['sacchaone_back2top'],
-	// 		'transport'         => 'postMessage',
-	// 		'sanitize_callback' => 'sacchaone_sanitize_select',
-	// 	)
-	// );
-
-	// $wp_customize->add_control(
-	// 	'sacchaone_back2top',
-	// 	array(
-	// 		'label'    => __( 'Back to Top Button', 'sacchaone' ),
-	// 		'section'  => 'sacchaone_footer_section',
-	// 		'settings' => 'sacchaone_back2top',
-	// 		'type'     => 'select',
-	// 		'choices'  => array(
-	// 			1 => __( 'Enable', 'sacchaone' ),
-	// 			0 => __( 'Disable', 'sacchaone' ),
-	// 		),
-	// 	)
-	// );
-
 	/**
-	 * Setting: for Back to Top Checkbox Button
+	 * Setting: for Back to Top Button
 	 */
 	$wp_customize->add_setting(
-		'sacchaone_back2top_checkbox',
+		'sacchaone_back2top',
 		array(
-			'type'              => 'option',
+			'type'              => 'theme_mod',
 			'capability'        => 'edit_theme_options',
-			'default'           => '',
+			'default'           => $defaults['sacchaone_back2top'],
 			'transport'         => 'postMessage',
+			'sanitize_callback' => 'sacchaone_sanitize_select',
 		)
 	);
 
 	$wp_customize->add_control(
-		'sacchaone_back2top_checkbox',
+		'sacchaone_back2top',
 		array(
 			'label'    => __( 'Back to Top Button', 'sacchaone' ),
 			'section'  => 'sacchaone_footer_section',
-			'settings' => 'sacchaone_back2top_checkbox',
-			'type'     => 'checkbox',
+			'settings' => 'sacchaone_back2top',
+			'type'     => 'select',
 			'choices'  => array(
-					'check' => __('Back to Top Button','sacchaone'),
+				1 => __( 'Enable', 'sacchaone' ),
+				0 => __( 'Disable', 'sacchaone' ),
 			),
 		)
 	);
+
+	// /**
+	//  * Setting: for Back to Top Checkbox Button
+	//  */
+	// $wp_customize->add_setting(
+	// 	'sacchaone_back2top_checkbox',
+	// 	array(
+	// 		'type'              => 'option',
+	// 		'capability'        => 'edit_theme_options',
+	// 		'default'           => '',
+	// 		'transport'         => 'postMessage',
+	// 	)
+	// );
+
+	// $wp_customize->add_control(
+	// 	'sacchaone_back2top_checkbox',
+	// 	array(
+	// 		'label'    => __( 'Back to Top Button', 'sacchaone' ),
+	// 		'section'  => 'sacchaone_footer_section',
+	// 		'settings' => 'sacchaone_back2top_checkbox',
+	// 		'type'     => 'checkbox',
+	// 		'choices'  => array(
+	// 				'check' => __('Back to Top Button','sacchaone'),
+	// 		),
+	// 	)
+	// );
 
 	/**
 	 * Setting: for Back to Top Arrow Icons
@@ -879,17 +879,16 @@ function sacchaone_customize_register( $wp_customize ) {
 			'capability'        => 'edit_theme_options',
 			'default'           => '',
 			'transport'         => 'postMessage',
-			'sanitize_callback' => 'sacchaone_sanitize_select',
 		)
 	);
 
 	$wp_customize->add_control(
 		'sacchaone_back2top_arrow',
 		array(
-			'label'    => __( 'Arrow Icons', 'sacchaone' ),
+			'label'    => __( 'Arrow Icon', 'sacchaone' ),
 			'section'  => 'sacchaone_footer_section',
 			'settings' => 'sacchaone_back2top_arrow',
-			'type'     => 'hidden',
+			'type'     => 'text',
 		)
 	);
 
@@ -1153,7 +1152,7 @@ function sacchaone_customize_register( $wp_customize ) {
 	$wp_customize->add_control(
 		'sacchaone_sidebar_settings',
 		array(
-			'label'    => __( 'Sidebar layout', 'sacchaone' ),
+			'label'    => __( 'Sidebar Layout', 'sacchaone' ),
 			'section'  => 'sacchaone_sidebar_section',
 			'settings' => 'sacchaone_sidebar_settings',
 			'type'     => 'select',
@@ -2519,7 +2518,7 @@ function sacchaone_customize_register( $wp_customize ) {
 		'sacchaone_icon_setting_section',
 		array(
 			'title'         => __( 'Settings', 'sacchaone' ),
-			'description'   => __( 'Add social media account links to apply social icons on the site footer.', 'sacchaone' ),
+			'description'   => __( 'You can enable social media icons and set icons size, icons color as well as icons hover.', 'sacchaone' ),
 			'panel'         => 'sacchaone_icon_panel'
 		)
 	);
