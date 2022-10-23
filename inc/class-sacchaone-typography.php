@@ -160,7 +160,6 @@ if ( ! class_exists( 'SacchaOne_Typography' ) ) {
 						unset( $attributes[ $val ] );
 					}
 				}
-                var_dump( $attributes );
 
                 // Register new setting if label isn't empty
 				if ( $label ) {
