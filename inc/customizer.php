@@ -870,7 +870,7 @@ function sacchaone_customize_register( $wp_customize ) {
 	// );
 
 	/**
-	 * Setting: for Back to Top Arrow Icons
+	 * Setting: for Back to Top Font Awesome Icon.
 	 */
 	$wp_customize->add_setting(
 		'sacchaone_back2top_arrow',
@@ -885,10 +885,14 @@ function sacchaone_customize_register( $wp_customize ) {
 	$wp_customize->add_control(
 		'sacchaone_back2top_arrow',
 		array(
-			'label'    => __( 'Font Awesome Icon', 'sacchaone' ),
-			'section'  => 'sacchaone_footer_section',
-			'settings' => 'sacchaone_back2top_arrow',
-			'type'     => 'text',
+			'label'    		=> esc_html__( 'Font Awesome Icon', 'sacchaone' ),
+			'description'   => wp_kses_post( sprintf(
+				'<a href ="https://fontawesome.com/v4/icons/" target="_blank">%s</a>',
+				__( 'Available Font Awesome Icons', 'sacchaone' )
+			) ),
+			'section'  		=> 'sacchaone_footer_section',
+			'settings' 		=> 'sacchaone_back2top_arrow',
+			'type'     		=> 'text',
 		)
 	);
 
@@ -907,7 +911,7 @@ function sacchaone_customize_register( $wp_customize ) {
 	$wp_customize->add_control(
 		'sacchaone_back2top_position',
 		array(
-			'label'	   		=> __('Position','sacchaone'),
+			'label'	   		=> __( 'Position','sacchaone'),
 			'section'  		=> 'sacchaone_footer_section',
 			'settings' 		=> 'sacchaone_back2top_position',
 			'type'     		=> 'select',
@@ -2413,8 +2417,8 @@ function sacchaone_customize_register( $wp_customize ) {
 	$wp_customize->add_section(
 		'sacchaone_icon_section',
 		array(
-			'title'         => __( 'Social Icons', 'sacchaone' ),
-			'description'   => __( 'Add social media account links to apply social icons on the site footer.', 'sacchaone' ),
+			'title'    		=> esc_html__( 'Social Icons', 'sacchaone' ),
+			'description'   => esc_html__( 'Add social media account links to apply social icons on the site footer.', 'sacchaone' ),
 			'panel'         => 'sacchaone_icon_panel'
 		)
 	);
@@ -2559,8 +2563,8 @@ function sacchaone_customize_register( $wp_customize ) {
 	$wp_customize->add_section(
 		'sacchaone_icon_setting_section',
 		array(
-			'title'         => __( 'Settings', 'sacchaone' ),
-			'description'   => __( 'You can enable social media icons and set icons size, icons color as well as icons hover.', 'sacchaone' ),
+			'title'    		=> esc_html__( 'Settings', 'sacchaone' ),
+			'description'    		=> esc_html__( 'You can enable social media icons and set icons size, icons color as well as icons hover.', 'sacchaone' ),
 			'panel'         => 'sacchaone_icon_panel'
 		)
 	);
