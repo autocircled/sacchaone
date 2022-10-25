@@ -121,7 +121,7 @@ if ( ! class_exists( 'SacchaOne_Typography' ) ) {
             $wp_customize->add_panel(
                 'sacchaone_typography',
                 array(
-                    'title'    => __( 'Typography', 'sacchaone' ),
+                    'title'    => esc_html__( 'Typography', 'sacchaone' ),
                     'priority' => 60,
                 )
             );
@@ -191,22 +191,22 @@ if ( ! class_exists( 'SacchaOne_Typography' ) ) {
                         $wp_customize->add_control(
                             'sacchaone_typo_font_family_' . $key,
                             array(
-                                'label'  	  => __('Font Family','sacchaone'),
+                                'label'  	  => esc_html__( 'Font Family','sacchaone'),
                                 'section'	  => 'sacchaone_typography_section_' . $key,
                                 'setting'	  => 'sacchaone_typo_font_family_' . $key,
                                 'type'		  => 'select',
                                 'choices'     => array(
-                                        'default' 		=> __('Default','sacchaone'),
-                                        'arial-helvet' 	=> __('Arial, Helvetica, sans-serif','sacchaone'),
-                                        'arial-black' 	=> __('Arial Black, Gadget, sans-serif','sacchaone'),
-                                        'bookman' 		=> __('Bookman Old Style, serif','sacchaone'),
-                                        'comic-sans' 	=> __('Comic Sans MS, cursive','sacchaone'),
-                                        'courier' 		=> __('Courier, monospace','sacchaone'),
-                                        'georgia' 		=> __('Georgia, serif','sacchaone'),
-                                        'impact'		=> __('Impact, Charcoal, sans-serif','sacchaone'),
-                                        'lucida' 		=> __('Lucida Console, Monaco, monospace','sacchaone'),
-                                        'tahoma' 		=> __('Tahoma, Geneva, sans-serif','sacchaone'),
-                                        'Times' 		=> __('Times New Roman, Times, serif','sacchaone'),
+                                        'default' 		=> esc_html__( 'Default','sacchaone'),
+                                        'arial-helvet' 	=> esc_html__( 'Arial, Helvetica, sans-serif','sacchaone'),
+                                        'arial-black' 	=> esc_html__( 'Arial Black, Gadget, sans-serif','sacchaone'),
+                                        'bookman' 		=> esc_html__( 'Bookman Old Style, serif','sacchaone'),
+                                        'comic-sans' 	=> esc_html__( 'Comic Sans MS, cursive','sacchaone'),
+                                        'courier' 		=> esc_html__( 'Courier, monospace','sacchaone'),
+                                        'georgia' 		=> esc_html__( 'Georgia, serif','sacchaone'),
+                                        'impact'		=> esc_html__( 'Impact, Charcoal, sans-serif','sacchaone'),
+                                        'lucida' 		=> esc_html__( 'Lucida Console, Monaco, monospace','sacchaone'),
+                                        'tahoma' 		=> esc_html__( 'Tahoma, Geneva, sans-serif','sacchaone'),
+                                        'Times' 		=> esc_html__( 'Times New Roman, Times, serif','sacchaone'),
                                 )
                             )
                         );
@@ -227,22 +227,22 @@ if ( ! class_exists( 'SacchaOne_Typography' ) ) {
                         $wp_customize->add_control(
                             'sacchaone_typography_weight_' . $key,
                             array(
-                                'label'  	  => __('Font Weight','sacchaone'),
-                                'description' => __('Important: Not all fonts support every font-weight.','sacchaone'),
+                                'label'  	  => esc_html__( 'Font Weight','sacchaone'),
+                                'description' => esc_html__( 'Important: Not all fonts support every font-weight.','sacchaone'),
                                 'section'	  => 'sacchaone_typography_section_' . $key,
                                 'setting'	  => 'sacchaone_typography_weight_' . $key,
                                 'type'		  => 'select',
                                 'choices'     => array(
-                                        'default' 		=> __('Default','sacchaone'),
-                                        'thin' 			=> __('Thin : 100','sacchaone'),
-                                        'light' 		=> __('Light : 200','sacchaone'),
-                                        'book' 			=> __('Book : 300','sacchaone'),
-                                        'normal' 		=> __('Normal : 400','sacchaone'),
-                                        'medium' 		=> __('Medium : 500','sacchaone'),
-                                        'semibold' 		=> __('Semibold : 600','sacchaone'),
-                                        'bold'			=> __('Bold : 700','sacchaone'),
-                                        'extrabold' 	=> __('Extra Bold : 800','sacchaone'),
-                                        'black' 		=> __('Black: 800','sacchaone'),
+                                        'default' 		=> esc_html__( 'Default','sacchaone'),
+                                        'thin' 			=> esc_html__( 'Thin : 100','sacchaone'),
+                                        'light' 		=> esc_html__( 'Light : 200','sacchaone'),
+                                        'book' 			=> esc_html__( 'Book : 300','sacchaone'),
+                                        'normal' 		=> esc_html__( 'Normal : 400','sacchaone'),
+                                        'medium' 		=> esc_html__( 'Medium : 500','sacchaone'),
+                                        'semibold' 		=> esc_html__( 'Semibold : 600','sacchaone'),
+                                        'bold'			=> esc_html__( 'Bold : 700','sacchaone'),
+                                        'extrabold' 	=> esc_html__( 'Extra Bold : 800','sacchaone'),
+                                        'black' 		=> esc_html__( 'Black: 800','sacchaone'),
                                 )
                             )
                         );
@@ -263,14 +263,14 @@ if ( ! class_exists( 'SacchaOne_Typography' ) ) {
                         $wp_customize->add_control(
                             'sacchaone_typo_font_style_' . $key,
                             array(
-                                'label'  	  => __('Font Style','sacchaone'),
+                                'label'  	  => esc_html__( 'Font Style','sacchaone'),
                                 'section'	  => 'sacchaone_typography_section_' . $key,
                                 'setting'	  => 'sacchaone_typo_font_style_' . $key,
                                 'type'		  => 'select',
                                 'choices'     => array(
-                                        'default' 		=> __('Default','sacchaone'),
-                                        'normal' 		=> __('Normal','sacchaone'),
-                                        'italic' 		=> __('Italic','sacchaone'),
+                                        'default' 		=> esc_html__( 'Default','sacchaone'),
+                                        'normal' 		=> esc_html__( 'Normal','sacchaone'),
+                                        'italic' 		=> esc_html__( 'Italic','sacchaone'),
                                 )
                             )
                         );
@@ -291,16 +291,16 @@ if ( ! class_exists( 'SacchaOne_Typography' ) ) {
                         $wp_customize->add_control(
                             'sacchaone_typo_text_transform_' . $key,
                             array(
-                                'label'  	  => __('Text Transform','sacchaone'),
+                                'label'  	  => esc_html__( 'Text Transform','sacchaone'),
                                 'section'	  => 'sacchaone_typography_section_' . $key,
                                 'setting'	  => 'sacchaone_typo_text_transform_' . $key,
                                 'type'		  => 'select',
                                 'choices'     => array(
-                                        'default' 		=> __('Default','sacchaone'),
-                                        'capitalize' 	=> __('Capitalize','sacchaone'),
-                                        'lowercase' 	=> __('Lowercase','sacchaone'),
-                                        'uppercase' 	=> __('Uppercase','sacchaone'),
-                                        'none' 			=> __('None','sacchaone'),
+                                        'default' 		=> esc_html__( 'Default','sacchaone'),
+                                        'capitalize' 	=> esc_html__( 'Capitalize','sacchaone'),
+                                        'lowercase' 	=> esc_html__( 'Lowercase','sacchaone'),
+                                        'uppercase' 	=> esc_html__( 'Uppercase','sacchaone'),
+                                        'none' 			=> esc_html__( 'None','sacchaone'),
                                 )
                             )
                         );
@@ -323,8 +323,8 @@ if ( ! class_exists( 'SacchaOne_Typography' ) ) {
                         $wp_customize->add_control(
                             'sacchaone_typo_font_size_' . $key,
                             array(
-                                'label'  	  => __('Font Size','sacchaone'),
-                                'description' => __('You can add: px-em-%','sacchaone'),
+                                'label'  	  => esc_html__( 'Font Size','sacchaone'),
+                                'description' => esc_html__( 'You can add: px-em-%','sacchaone'),
                                 'section'	  => 'sacchaone_typography_section_' . $key,
                                 'setting'	  => 'sacchaone_typo_font_size_' . $key,			
                             )
@@ -348,7 +348,7 @@ if ( ! class_exists( 'SacchaOne_Typography' ) ) {
                         $wp_customize->add_control(
                             'sacchaone_typo_line_height_' . $key,
                             array(
-                                'label'  	  => __('Line Height (px)','sacchaone'),
+                                'label'  	  => esc_html__( 'Line Height (px)','sacchaone'),
                                 'section'	  => 'sacchaone_typography_section_' . $key,
                                 'setting'	  => 'sacchaone_typo_line_height_' . $key,			
                             )
@@ -372,7 +372,7 @@ if ( ! class_exists( 'SacchaOne_Typography' ) ) {
                         $wp_customize->add_control(
                             'sacchaone_typo_letter_spacing_' . $key,
                             array(
-                                'label'  	  => __('Letter Spacing (px)','sacchaone'),
+                                'label'  	  => esc_html__( 'Letter Spacing (px)','sacchaone'),
                                 'section'	  => 'sacchaone_typography_section_' . $key,
                                 'setting'	  => 'sacchaone_typo_letter_spacing_' . $key,			
                             )
@@ -400,7 +400,7 @@ if ( ! class_exists( 'SacchaOne_Typography' ) ) {
                                 $wp_customize,
                                 'setting_for_font_color_' . $key,
                                 array(
-                                    'label'  	  => __('Font Color','sacchaone'),
+                                    'label'  	  => esc_html__( 'Font Color','sacchaone'),
                                     'section'  => 'sacchaone_typography_section_' . $key,
                                     'settings' => 'setting_for_font_color_' . $key,
                                 )
