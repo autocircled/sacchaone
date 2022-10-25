@@ -1868,6 +1868,38 @@
 		});
 	});
 
+	wp.customize("sacchaone_back2top_vertical_position", function (value) {
+		value.bind(function (to) {
+			let selector = ".scroll-to-top";
+			let id = "sacchaone_back2top_vertical_position";
+			let property = "bottom";
+
+			if ($("style#" + id).length) {
+				$("style#" + id).html(
+					selector + "{" + property + ":" + to + "px;" + "}"
+				);
+			} else {
+				$("head").append(
+					'<style id="' +
+						id +
+						'">' +
+						selector +
+						"{" +
+						property +
+						":" +
+						to +
+						"px;" +
+						"}</style>"
+				);
+				setTimeout(function () {
+					$("style#" + id)
+						.not(":last")
+						.remove();
+				}, 1000);
+			}
+		});
+	});
+
 	function back2topCenterAlign() {
 		if ($("body").hasClass("back2top-center")) {
 			let screenWidth = $("body").innerWidth();

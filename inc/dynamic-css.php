@@ -221,6 +221,14 @@ if ( ! function_exists( 'sacchaone_get_dynamic_css' ) ) {
 			$css->add_property( 'right', $settings['sacchaone_back2top_horizon_spacing'] . 'px' );
 		}
 
+		//Bottom Position (px)
+		$back2top_btm_position = get_theme_mod( 'sacchaone_back2top_vertical_position', $settings['sacchaone_back2top_vertical_position'] );
+		if ( $back2top_btm_position ) {
+			$css->set_selector( '.scroll-to-top' );
+			$css->add_property( 'bottom', $settings['sacchaone_back2top_vertical_position'] . 'px' );
+		}
+
+
 		return $css->css_output();
 	}
 }
