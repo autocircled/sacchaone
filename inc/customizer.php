@@ -1019,6 +1019,7 @@ function sacchaone_customize_register( $wp_customize ) {
 			'input_attrs' => array(
 				'min' 	=> 0,
 				'max'	=> 1.0,
+				'step' => 0.1,
 			),
 		)
 	);

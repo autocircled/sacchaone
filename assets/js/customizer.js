@@ -1951,6 +1951,41 @@
 	});
 
 	/**
+	 * Opacity
+	 */
+	wp.customize("sacchaone_back2top_button_opacity", function (value) {
+		value.bind(function (to) {
+			let selector = ".scroll-to-top";
+			let id = "sacchaone_back2top_button_opacity";
+			let property = "opacity";
+
+			if ($("style#" + id).length) {
+				$("style#" + id).html(
+					selector + "{" + property + ":" + to + ";" + "}"
+				);
+			} else {
+				$("head").append(
+					'<style id="' +
+						id +
+						'">' +
+						selector +
+						"{" +
+						property +
+						":" +
+						to +
+						";" +
+						"}</style>"
+				);
+				setTimeout(function () {
+					$("style#" + id)
+						.not(":last")
+						.remove();
+				}, 1000);
+			}
+		});
+	});
+
+	/**
 	 * Icon Size
 	 */
 	wp.customize("sacchaone_back2top_icon_size", function (value) {
