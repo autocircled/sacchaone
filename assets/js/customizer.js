@@ -1795,4 +1795,93 @@
 			}
 		});
 	});
+
+	wp.customize("sacchaone_back2top_position", function (value) {
+		value.bind(function (to) {
+			// let spacing = $(".scroll-to-top").attr("data-margin");
+			// console.log(spacing);
+			if ("left" === to) {
+				if (
+					$("body").hasClass("back2top-right") ||
+					$("body").hasClass("back2top-center")
+				) {
+					$("body").removeClass("back2top-right back2top-center");
+				}
+				removeScriptElement("style#sacchaone_back2top_horizon_spacing");
+				$("body").addClass("back2top-left");
+				// console.log($(".scroll-to-top").css("left"));
+				// $(".scroll-to-top").css("left", spacing);
+			} else if ("right" === to) {
+				if (
+					$("body").hasClass("back2top-left") ||
+					$("body").hasClass("back2top-center")
+				) {
+					$("body").removeClass("back2top-left back2top-center");
+				}
+				removeScriptElement("style#sacchaone_back2top_horizon_spacing");
+				$("body").addClass("back2top-right");
+				// console.log($(".scroll-to-top").css("left"));
+				// $(".scroll-to-top").css("right", spacing);
+			} else if ("center" === to) {
+				if (
+					$("body").hasClass("back2top-left") ||
+					$("body").hasClass("back2top-right")
+				) {
+					$("body").removeClass("back2top-left back2top-right");
+				}
+				$("body").addClass("back2top-center");
+				back2topCenterAlign();
+			}
+		});
+	});
+
+	wp.customize("sacchaone_back2top_horizon_spacing", function (value) {
+		value.bind(function (to) {
+			let selector = "body.back2top-enabled .scroll-to-top";
+			let id = "sacchaone_back2top_horizon_spacing";
+			let property = "right";
+
+			$(selector).attr("data-margin", to);
+
+			if ($("body").hasClass("back2top-left")) {
+				property = "left";
+			}
+
+			if ($("style#" + id).length) {
+				$("style#" + id).html(
+					selector + "{" + property + ":" + to + "px;" + "}"
+				);
+			} else {
+				$("head").append(
+					'<style id="' +
+						id +
+						'">' +
+						selector +
+						"{" +
+						property +
+						":" +
+						to +
+						"px;" +
+						"}</style>"
+				);
+				setTimeout(function () {
+					$("style#" + id)
+						.not(":last")
+						.remove();
+				}, 1000);
+			}
+		});
+	});
+
+	function back2topCenterAlign() {
+		if ($("body").hasClass("back2top-center")) {
+			let screenWidth = $("body").innerWidth();
+			let btnWidth = $(".scroll-to-top").innerWidth();
+			$(".scroll-to-top").css("left", screenWidth / 2 - btnWidth / 2);
+		}
+	}
+
+	function removeScriptElement(el) {
+		$(el).html("");
+	}
 })(jQuery);

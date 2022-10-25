@@ -212,6 +212,15 @@ if ( ! function_exists( 'sacchaone_get_dynamic_css' ) ) {
 		$css->set_selector( 'ul.social-icons svg:hover' );
 		$css->add_property( 'fill', $settings['sacchaone_icon_hover_color_setting'] );
 
+		$back2top_btn_position = get_theme_mod( 'sacchaone_back2top_position', $settings['sacchaone_back2top_position'] ); // left, right, center
+		if ( 'left' == $back2top_btn_position ) {
+			$css->set_selector( '.back2top-left .scroll-to-top' );
+			$css->add_property( 'left', $settings['sacchaone_back2top_horizon_spacing'] . 'px' );
+		} else if ( 'right'  == $back2top_btn_position ) {
+			$css->set_selector( '.back2top-right .scroll-to-top' );
+			$css->add_property( 'right', $settings['sacchaone_back2top_horizon_spacing'] . 'px' );
+		}
+
 		return $css->css_output();
 	}
 }
