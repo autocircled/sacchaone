@@ -233,7 +233,7 @@ if ( ! function_exists( 'sacchaone_get_dynamic_css' ) ) {
 			$css->add_property( 'width', $settings['sacchaone_back2top_button_size'] . 'px' );
 			$css->add_property( 'height', $settings['sacchaone_back2top_button_size'] . 'px' );
 		}
-
+		
 		//Icon Size (px)
 		if ( $settings['sacchaone_back2top_icon_size'] ) {
 			$css->set_selector( '.scroll-to-top i' );
@@ -291,13 +291,14 @@ if ( ! function_exists( 'sacchaone_get_defaults' ) ) {
 			'sacchaone_site_logo_bottom_pad'	=> '',
 			'sacchaone_site_logo_left_pad'		=> '',
 
-			'sacchaone_back2top_position'		=> 'right',
-			'sacchaone_back2top_arrow'			=> 'fa fa-angle-up',
-			'sacchaone_back2top_icon_size'		=> 25,
-			'sacchaone_back2top_button_size' 	=> 50,
-			'sacchaone_back2top_vertical_position' => 50,
-			'sacchaone_back2top_horizon_spacing' => 40,
-			'sacchaone_back2top_icon_radius' => 10,
+			'sacchaone_back2top_position'			=> 'right',
+			'sacchaone_back2top_arrow'				=> 'fa fa-angle-up',
+			'sacchaone_back2top_icon_size'			=> 25,
+			'sacchaone_back2top_button_size' 		=> 50,
+			'sacchaone_back2top_vertical_position'  => 50,
+			'sacchaone_back2top_horizon_spacing' 	=> 40,
+			'sacchaone_back2top_icon_radius' 		=> 10,
+			'sacchaone_back2top_button_opacity' 	=> '0.5',
 
 			'sacchaone_blog_settings'      => 'excerpt',
 			'sacchaone_dropdown_direction' => 'right',

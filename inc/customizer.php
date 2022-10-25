@@ -976,6 +976,7 @@ function sacchaone_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'sacchaone_back2top_button_size',
 		array(
+			'type'				=> 'theme_mod',
 			'capability'        => 'edit_theme_options',
 			'default'           => $defaults['sacchaone_back2top_button_size'],
 			'transport'         => 'postMessage',
@@ -990,7 +991,34 @@ function sacchaone_customize_register( $wp_customize ) {
 			'settings' 		=> 'sacchaone_back2top_button_size',
 			'type'			=> 'number',
 			'input_attrs' => array(
-				'min' => 30,
+				'min' 	=> 0,
+			),
+		)
+	);
+
+	/**
+	 * Setting: for Back to Top Button Opacity
+	 */
+	$wp_customize->add_setting(
+		'sacchaone_back2top_button_opacity',
+		array(
+			'type'				=> 'theme_mod',
+			'capability'        => 'edit_theme_options',
+			'default'           => $defaults['sacchaone_back2top_button_opacity'],
+			'transport'         => 'postMessage',
+		)
+	);
+
+	$wp_customize->add_control(
+		'sacchaone_back2top_button_opacity',
+		array(
+			'label'	   		=> __('Button Opacity','sacchaone'),
+			'section'  		=> 'sacchaone_footer_section',
+			'settings' 		=> 'sacchaone_back2top_button_opacity',
+			'type'			=> 'number',
+			'input_attrs' => array(
+				'min' 	=> 0,
+				'max'	=> 1.0,
 			),
 		)
 	);
