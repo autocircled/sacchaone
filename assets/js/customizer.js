@@ -1912,8 +1912,17 @@
 
 			if ($("style#" + id).length) {
 				$("style#" + id).html(
-					selector + "{" + property1 + ":" + to + "px;" + "}",
-					selector + "{" + property2 + ":" + to + "px;" + "}"
+					selector +
+						"{" +
+						property1 +
+						":" +
+						to +
+						"px;" +
+						property2 +
+						":" +
+						to +
+						"px;" +
+						"}"
 				);
 			} else {
 				$("head").append(
@@ -1926,20 +1935,47 @@
 						":" +
 						to +
 						"px;" +
-						"}</style>",
+						property2 +
+						":" +
+						to +
+						"px;" +
+						"}</style>"
+				);
+				setTimeout(function () {
+					$("style#" + id)
+						.not(":last")
+						.remove();
+				}, 1000);
+			}
+		});
+	});
 
+	/**
+	 * Icon Size
+	 */
+	wp.customize("sacchaone_back2top_icon_size", function (value) {
+		value.bind(function (to) {
+			let selector = ".scroll-to-top i";
+			let id = "sacchaone_back2top_icon_size";
+			let property = "font-size";
+
+			if ($("style#" + id).length) {
+				$("style#" + id).html(
+					selector + "{" + property + ":" + to + "px;" + "}"
+				);
+			} else {
 				$("head").append(
 					'<style id="' +
 						id +
 						'">' +
 						selector +
 						"{" +
-						property2 +
+						property +
 						":" +
 						to +
 						"px;" +
 						"}</style>"
-				));
+				);
 				setTimeout(function () {
 					$("style#" + id)
 						.not(":last")
@@ -1952,7 +1988,7 @@
 	/**
 	 * Button Border Radius
 	 */
-	 wp.customize("sacchaone_back2top_icon_radius", function (value) {
+	wp.customize("sacchaone_back2top_icon_radius", function (value) {
 		value.bind(function (to) {
 			let selector = ".scroll-to-top";
 			let id = "sacchaone_back2top_icon_radius";

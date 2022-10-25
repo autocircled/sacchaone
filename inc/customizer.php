@@ -877,7 +877,7 @@ function sacchaone_customize_register( $wp_customize ) {
 		array(
 			'type'              => 'theme_mod',
 			'capability'        => 'edit_theme_options',
-			'default'           => '',
+			'default'           => $defaults['sacchaone_back2top_arrow'],
 			'transport'         => 'postMessage',
 		)
 	);
@@ -885,7 +885,7 @@ function sacchaone_customize_register( $wp_customize ) {
 	$wp_customize->add_control(
 		'sacchaone_back2top_arrow',
 		array(
-			'label'    => __( 'Arrow Icon', 'sacchaone' ),
+			'label'    => __( 'Font Awesome Icon', 'sacchaone' ),
 			'section'  => 'sacchaone_footer_section',
 			'settings' => 'sacchaone_back2top_arrow',
 			'type'     => 'text',
@@ -939,6 +939,9 @@ function sacchaone_customize_register( $wp_customize ) {
 			'section'  		=> 'sacchaone_footer_section',
 			'settings' 		=> 'sacchaone_back2top_horizon_spacing',
 			'type'			=> 'number',
+			'input_attrs' => array(
+				'min' => 0,
+			),
 		)
 	);
 
@@ -961,6 +964,9 @@ function sacchaone_customize_register( $wp_customize ) {
 			'section'  		=> 'sacchaone_footer_section',
 			'settings' 		=> 'sacchaone_back2top_vertical_position',
 			'type'			=> 'number',
+			'input_attrs' => array(
+				'min' => 0,
+			),
 		)
 	);
 
@@ -983,6 +989,9 @@ function sacchaone_customize_register( $wp_customize ) {
 			'section'  		=> 'sacchaone_footer_section',
 			'settings' 		=> 'sacchaone_back2top_button_size',
 			'type'			=> 'number',
+			'input_attrs' => array(
+				'min' => 30,
+			),
 		)
 	);
 
@@ -1005,6 +1014,9 @@ function sacchaone_customize_register( $wp_customize ) {
 			'section'  		=> 'sacchaone_footer_section',
 			'settings' 		=> 'sacchaone_back2top_icon_size',
 			'type'			=> 'number',
+			'input_attrs' => array(
+				'min' => 10,
+			),
 		)
 	);
 
@@ -1015,7 +1027,7 @@ function sacchaone_customize_register( $wp_customize ) {
 		'sacchaone_back2top_icon_radius',
 		array(
 			'capability'        => 'edit_theme_options',
-			'default'           => '5' .'px',
+			'default'           => $defaults['sacchaone_back2top_icon_radius'],
 			'transport'         => 'postMessage',
 		)
 	);
@@ -1027,6 +1039,9 @@ function sacchaone_customize_register( $wp_customize ) {
 			'section'  		=> 'sacchaone_footer_section',
 			'settings' 		=> 'sacchaone_back2top_icon_radius',
 			'type'			=> 'number',
+			'input_attrs' => array(
+				'min' => 0,
+			),
 		)
 	);
 	

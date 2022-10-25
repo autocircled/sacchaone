@@ -212,7 +212,7 @@ if ( ! function_exists( 'sacchaone_get_dynamic_css' ) ) {
 		$css->set_selector( 'ul.social-icons svg:hover' );
 		$css->add_property( 'fill', $settings['sacchaone_icon_hover_color_setting'] );
 
-		$back2top_btn_position = get_theme_mod( 'sacchaone_back2top_position', $settings['sacchaone_back2top_position'] ); // left, right, center
+		$back2top_btn_position = $settings['sacchaone_back2top_position']; // left, right, center
 		if ( 'left' == $back2top_btn_position ) {
 			$css->set_selector( '.back2top-left .scroll-to-top' );
 			$css->add_property( 'left', $settings['sacchaone_back2top_horizon_spacing'] . 'px' );
@@ -222,22 +222,26 @@ if ( ! function_exists( 'sacchaone_get_dynamic_css' ) ) {
 		}
 
 		//Bottom Position (px)
-		$back2top_btm_position = get_theme_mod( 'sacchaone_back2top_vertical_position', $settings['sacchaone_back2top_vertical_position'] );
-		if ( $back2top_btm_position ) {
+		if ( $settings['sacchaone_back2top_vertical_position'] ) {
 			$css->set_selector( '.scroll-to-top' );
 			$css->add_property( 'bottom', $settings['sacchaone_back2top_vertical_position'] . 'px' );
 		}
 
 		//Buttom Size (px)
-		$back2top_btm_size = get_theme_mod( 'sacchaone_back2top_button_size', $settings['sacchaone_back2top_button_size'] );
-		if ( $back2top_btm_size ) {
+		if ( $settings['sacchaone_back2top_button_size'] ) {
 			$css->set_selector( '.scroll-to-top' );
 			$css->add_property( 'width', $settings['sacchaone_back2top_button_size'] . 'px' );
 			$css->add_property( 'height', $settings['sacchaone_back2top_button_size'] . 'px' );
 		}
+
 		//Icon Size (px)
-		$back2top_border_radius = get_theme_mod( 'sacchaone_back2top_icon_radius', $settings['sacchaone_back2top_icon_radius'] );
-		if ( $back2top_border_radius ) {
+		if ( $settings['sacchaone_back2top_icon_size'] ) {
+			$css->set_selector( '.scroll-to-top i' );
+			$css->add_property( 'font-size', $settings['sacchaone_back2top_icon_size'] . 'px' );
+		}
+
+		//Border Radius (px)
+		if ( $settings['sacchaone_back2top_icon_radius'] ) {
 			$css->set_selector( '.scroll-to-top' );
 			$css->add_property( 'border-radius', $settings['sacchaone_back2top_icon_radius'] . 'px' );
 		}
@@ -288,10 +292,12 @@ if ( ! function_exists( 'sacchaone_get_defaults' ) ) {
 			'sacchaone_site_logo_left_pad'		=> '',
 
 			'sacchaone_back2top_position'		=> 'right',
-			'sacchaone_back2top_icon_size'		=> '25px',
-			'sacchaone_back2top_button_size' 	=> '50',
-			'sacchaone_back2top_vertical_position'=> '50px',
-			'sacchaone_back2top_horizon_spacing' => '',
+			'sacchaone_back2top_arrow'			=> 'fa fa-angle-up',
+			'sacchaone_back2top_icon_size'		=> 25,
+			'sacchaone_back2top_button_size' 	=> 50,
+			'sacchaone_back2top_vertical_position' => 50,
+			'sacchaone_back2top_horizon_spacing' => 40,
+			'sacchaone_back2top_icon_radius' => 10,
 
 			'sacchaone_blog_settings'      => 'excerpt',
 			'sacchaone_dropdown_direction' => 'right',
