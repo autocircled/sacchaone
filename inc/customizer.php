@@ -976,7 +976,7 @@ function sacchaone_customize_register( $wp_customize ) {
 	$wp_customize->add_setting(
 		'sacchaone_back2top_button_opacity',
 		array(
-			'tupe'				=> 'theme_mod',
+			'type'				=> 'theme_mod',
 			'capability'        => 'edit_theme_options',
 			'default'           => $defaults['sacchaone_back2top_button_opacity'],
 			'transport'         => 'postMessage',
