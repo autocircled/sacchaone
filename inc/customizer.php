@@ -2696,7 +2696,7 @@ function sacchaone_customize_partial_blogdescription() {
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
 function sacchaone_customize_preview_js() {
-	wp_enqueue_script( 'sacchaone-customizer', get_template_directory_uri() . '/assets/js/customizer.js', array( 'customize-preview' ), _SACCHAONE_VERSION, true );
+	wp_enqueue_script( 'sacchaone-customizer', get_template_directory_uri() . '/assets/js/customizer/customizer.js', array( 'customize-preview' ), _SACCHAONE_VERSION, true );
 }
 add_action( 'customize_preview_init', 'sacchaone_customize_preview_js' );
 
