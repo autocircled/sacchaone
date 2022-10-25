@@ -234,6 +234,12 @@ if ( ! function_exists( 'sacchaone_get_dynamic_css' ) ) {
 			$css->add_property( 'height', $settings['sacchaone_back2top_button_size'] . 'px' );
 		}
 		
+		//Opacity
+		if ( $settings['sacchaone_back2top_button_opacity'] ) {
+			$css->set_selector( '.scroll-to-top' );
+			$css->add_property( 'opacity', $settings['sacchaone_back2top_button_opacity'] );
+		}
+		
 		//Icon Size (px)
 		if ( $settings['sacchaone_back2top_icon_size'] ) {
 			$css->set_selector( '.scroll-to-top i' );

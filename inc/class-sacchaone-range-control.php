@@ -25,14 +25,14 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'SacchaOne_Range_
 		public function enqueue() {
 			wp_enqueue_style(
 				'sacchaone-range-control',
-				SACCHAONE_THEME_DIR . 'assets/css/range-control.css',
+				SACCHAONE_THEME_DIR . 'assets/css/customizer/range-control.css',
 				'',
 				_SACCHAONE_VERSION,
 				'all'
 			);
 			wp_enqueue_script(
 				'sacchaone-range-control-js',
-				SACCHAONE_THEME_DIR . 'assets/js/range-control.js',
+				SACCHAONE_THEME_DIR . 'assets/js/customizer/range-control.js',
 				array( 'jquery' ),
 				_SACCHAONE_VERSION,
 				true
