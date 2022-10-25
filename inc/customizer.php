@@ -955,7 +955,7 @@ function sacchaone_customize_register( $wp_customize ) {
 	);
 
 	$wp_customize->add_control(
-		'sacchaone_back2top_vertical',
+		'sacchaone_back2top_vertical_position',
 		array(
 			'label'	   		=> __('Bottom Position (px)','sacchaone'),
 			'section'  		=> 'sacchaone_footer_section',
