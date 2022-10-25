@@ -1798,8 +1798,6 @@
 
 	wp.customize("sacchaone_back2top_position", function (value) {
 		value.bind(function (to) {
-			// let spacing = $(".scroll-to-top").attr("data-margin");
-			// console.log(spacing);
 			if ("left" === to) {
 				if (
 					$("body").hasClass("back2top-right") ||
@@ -1807,10 +1805,9 @@
 				) {
 					$("body").removeClass("back2top-right back2top-center");
 				}
+				$(".scroll-to-top").attr({ style: "" });
 				removeScriptElement("style#sacchaone_back2top_horizon_spacing");
 				$("body").addClass("back2top-left");
-				// console.log($(".scroll-to-top").css("left"));
-				// $(".scroll-to-top").css("left", spacing);
 			} else if ("right" === to) {
 				if (
 					$("body").hasClass("back2top-left") ||
@@ -1818,10 +1815,9 @@
 				) {
 					$("body").removeClass("back2top-left back2top-center");
 				}
+				$(".scroll-to-top").attr({ style: "" });
 				removeScriptElement("style#sacchaone_back2top_horizon_spacing");
 				$("body").addClass("back2top-right");
-				// console.log($(".scroll-to-top").css("left"));
-				// $(".scroll-to-top").css("right", spacing);
 			} else if ("center" === to) {
 				if (
 					$("body").hasClass("back2top-left") ||
@@ -1840,8 +1836,7 @@
 			let selector = "body.back2top-enabled .scroll-to-top";
 			let id = "sacchaone_back2top_horizon_spacing";
 			let property = "right";
-
-			$(selector).attr("data-margin", to);
+			// let property2 = "height";
 
 			if ($("body").hasClass("back2top-left")) {
 				property = "left";
