@@ -73,6 +73,86 @@
 		});
 	});
 
+	/**
+	 * Site Title Font Size
+	 */
+	 wp.customize("sacchaone_site_title_font_size", function (value) {
+		value.bind(function (to) {
+			let selector = ".site-title";
+			let id = "sacchaone_site_title_font_size";
+			let property = "font-size";
+			if ($("style#" + id).length) {
+				$("style#" + id).html(
+					selector +
+						"{" +
+						property +
+						":" +
+						to +
+						"px;" +
+						"}"
+				);
+			} else {
+				$("head").append(
+					'<style id="' +
+						id +
+						'">' +
+						selector +
+						"{" +
+						property +
+						":" +
+						to +
+						"px;" +
+						"}</style>"
+				);
+				setTimeout(function () {
+					$("style#" + id)
+						.not(":last")
+						.remove();
+				}, 1000);
+			}
+		});
+	});	
+
+	/**
+	 * Site Tagline Font Size
+	 */
+	 wp.customize("sacchaone_site_tagline_font_size", function (value) {
+		value.bind(function (to) {
+			let selector = "site-description";
+			let id = "sacchaone_site_tagline_font_size";
+			let property = "font-size";
+			if ($("style#" + id).length) {
+				$("style#" + id).html(
+					selector +
+						"{" +
+						property +
+						":" +
+						to +
+						"px;" +
+						"}"
+				);
+			} else {
+				$("head").append(
+					'<style id="' +
+						id +
+						'">' +
+						selector +
+						"{" +
+						property +
+						":" +
+						to +
+						"px;" +
+						"}</style>"
+				);
+				setTimeout(function () {
+					$("style#" + id)
+						.not(":last")
+						.remove();
+				}, 1000);
+			}
+		});
+	});	
+
 	wp.customize("sacchaone_container_width", function (value) {
 		value.bind(function (to) {
 			let selector =

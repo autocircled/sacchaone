@@ -105,6 +105,9 @@ function sacchaone_customize_register( $wp_customize ) {
 			'section'  => 'title_tagline',
 			'settings' => 'sacchaone_site_title_font_size',
 			'type'     => 'number',
+			'input_attrs' => array(
+				'min' => 0,
+			),
 		)
 	);
 
@@ -112,11 +115,11 @@ function sacchaone_customize_register( $wp_customize ) {
 	 * Setting and Control for Site Title Font Color 
 	 */
 	$wp_customize->add_setting(
-		'sacchaone_site_title_font_color',
+		'header_site_title_color',
 		array(
 			'type'              => 'theme_mod',
 			'capability'        => 'edit_theme_options',
-			'default'           => $defaults['sacchaone_site_title_font_color'],
+			'default'           => $defaults['header_site_title_color'],
 			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_hex_color',
 		)
@@ -125,11 +128,11 @@ function sacchaone_customize_register( $wp_customize ) {
 	$wp_customize->add_control(
 		new WP_Customize_Color_Control(
 			$wp_customize, 
-			'sacchaone_site_title_font_color',
+			'header_site_title_color',
 			array(
 				'label'    => esc_html__( 'Site Title Color', 'sacchaone' ),
 				'section'  => 'title_tagline',
-				'settings' => 'sacchaone_site_title_font_color',
+				'settings' => 'header_site_title_color',
 			)
 		)
 	);
@@ -154,6 +157,9 @@ function sacchaone_customize_register( $wp_customize ) {
 			'section'  => 'title_tagline',
 			'settings' => 'sacchaone_site_tagline_font_size',
 			'type'     => 'number',
+			'input_attrs' => array(
+				'min' => 0,
+			),
 		)
 	);
 
@@ -161,11 +167,11 @@ function sacchaone_customize_register( $wp_customize ) {
 	 * Setting and Control for Site Tagline Font Color 
 	 */
 	$wp_customize->add_setting(
-		'sacchaone_site_tagline_font_color',
+		'header_tagline_color',
 		array(
 			'type'              => 'theme_mod',
 			'capability'        => 'edit_theme_options',
-			'default'           => $defaults['sacchaone_site_tagline_font_color'],
+			'default'           => $defaults['header_tagline_color'],
 			'transport'         => 'postMessage',
 			'sanitize_callback' => 'sanitize_hex_color',
 		)
@@ -174,17 +180,17 @@ function sacchaone_customize_register( $wp_customize ) {
 	$wp_customize->add_control(
 		new WP_Customize_Color_Control(
 			$wp_customize, 
-			'sacchaone_site_tagline_font_color',
+			'header_tagline_color',
 			array(
 				'label'    => esc_html__( 'Site Tagline Color', 'sacchaone' ),
 				'section'  => 'title_tagline',
-				'settings' => 'sacchaone_site_tagline_font_color',
+				'settings' => 'header_tagline_color',
 			)
 		)
 	);
 
 	 /**
-	 * Setting and Control for Site Title Padding Text. 
+	 * Setting and Control for Header Padding. 
 	 */
 	$wp_customize->add_setting(
 		'sacchaone_site_title_pad_text',
@@ -199,7 +205,7 @@ function sacchaone_customize_register( $wp_customize ) {
 	$wp_customize->add_control(
 		'sacchaone_site_title_pad_text',
 		array(
-			'label'    => esc_html__( 'Site Title Padding (px)', 'sacchaone' ),
+			'label'    => esc_html__( 'Padding (px)', 'sacchaone' ),
 			'section'  => 'title_tagline',
 			'settings' => 'sacchaone_site_title_pad_text',
 			'type'     => 'hidden',
@@ -207,7 +213,7 @@ function sacchaone_customize_register( $wp_customize ) {
 	);
 
 	/**
-	 * Setting and Control for Site Title Top Padding. 
+	 * Setting and Control for Header Top Padding. 
 	 */
 	$wp_customize->add_setting(
 		'sacchaone_site_title_top_pad',
@@ -230,7 +236,7 @@ function sacchaone_customize_register( $wp_customize ) {
 	);
 
 	/**
-	 * Setting and Control for Site Title Right Padding. 
+	 * Setting and Control for Header Right Padding. 
 	 */
 	$wp_customize->add_setting(
 		'sacchaone_site_title_right_pad',
@@ -253,7 +259,7 @@ function sacchaone_customize_register( $wp_customize ) {
 	);
 
 	/**
-	 * Setting and Control for Site Title Bottom Padding. 
+	 * Setting and Control for Header Bottom Padding. 
 	 */
 	$wp_customize->add_setting(
 		'sacchaone_site_title_bottom_pad',
@@ -276,7 +282,7 @@ function sacchaone_customize_register( $wp_customize ) {
 	);
 
 	/**
-	 * Setting and Control for Site Title Left Padding. 
+	 * Setting and Control for Header Left Padding. 
 	 */
 	$wp_customize->add_setting(
 		'sacchaone_site_title_left_pad',
@@ -294,236 +300,6 @@ function sacchaone_customize_register( $wp_customize ) {
 			'label'    => esc_html__( 'Left', 'sacchaone' ),
 			'section'  => 'title_tagline',
 			'settings' => 'sacchaone_site_title_left_pad',
-			'type'     => 'number',
-		)
-	);
-
-	 /**
-	 * Setting and Control for Site Tagline Padding Text. 
-	 */
-	$wp_customize->add_setting(
-		'sacchaone_site_tagline_pad_text',
-		array(
-			'type'              => 'theme_mod',
-			'capability'        => 'edit_theme_options',
-			'default'			=>'',
-			'transport'         => 'postMessage',
-		)
-	);
-
-	$wp_customize->add_control(
-		'sacchaone_site_tagline_pad_text',
-		array(
-			'label'    => esc_html__( 'Site Tagline Padding (px)', 'sacchaone' ),
-			'section'  => 'title_tagline',
-			'settings' => 'sacchaone_site_tagline_pad_text',
-			'type'     => 'hidden',
-		)
-	);
-
-	/**
-	 * Setting and Control for Site Tagline Top Padding. 
-	 */
-	$wp_customize->add_setting(
-		'sacchaone_site_tagline_top_pad',
-		array(
-			'type'              => 'theme_mod',
-			'capability'        => 'edit_theme_options',
-			'default'           => $defaults['sacchaone_site_tagline_top_pad'],
-			'transport'         => 'postMessage',
-		)
-	);
-
-	$wp_customize->add_control(
-		'sacchaone_site_tagline_top_pad',
-		array(
-			'label'    => esc_html__( 'Top', 'sacchaone' ),
-			'section'  => 'title_tagline',
-			'settings' => 'sacchaone_site_tagline_top_pad',
-			'type'     => 'number',
-		)
-	);
-
-	/**
-	 * Setting and Control for Site Tagline Right Padding. 
-	 */
-	$wp_customize->add_setting(
-		'sacchaone_site_tagline_right_pad',
-		array(
-			'type'              => 'theme_mod',
-			'capability'        => 'edit_theme_options',
-			'default'           => $defaults['sacchaone_site_tagline_right_pad'],
-			'transport'         => 'postMessage',
-		)
-	);
-
-	$wp_customize->add_control(
-		'sacchaone_site_tagline_right_pad',
-		array(
-			'label'    => esc_html__( 'Right', 'sacchaone' ),
-			'section'  => 'title_tagline',
-			'settings' => 'sacchaone_site_tagline_right_pad',
-			'type'     => 'number',
-		)
-	);
-
-	/**
-	 * Setting and Control for Site Tagline Bottom Padding. 
-	 */
-	$wp_customize->add_setting(
-		'sacchaone_site_tagline_bottom_pad',
-		array(
-			'type'              => 'theme_mod',
-			'capability'        => 'edit_theme_options',
-			'default'           => $defaults['sacchaone_site_tagline_bottom_pad'],
-			'transport'         => 'postMessage',
-		)
-	);
-
-	$wp_customize->add_control(
-		'sacchaone_site_tagline_bottom_pad',
-		array(
-			'label'    => esc_html__( 'Bottom', 'sacchaone' ),
-			'section'  => 'title_tagline',
-			'settings' => 'sacchaone_site_tagline_bottom_pad',
-			'type'     => 'number',
-		)
-	);
-
-	/**
-	 * Setting and Control for Site Tagline Left Padding. 
-	 */
-	$wp_customize->add_setting(
-		'sacchaone_site_tagline_left_pad',
-		array(
-			'type'              => 'theme_mod',
-			'capability'        => 'edit_theme_options',
-			'default'           => $defaults['sacchaone_site_tagline_left_pad'],
-			'transport'         => 'postMessage',
-		)
-	);
-
-	$wp_customize->add_control(
-		'sacchaone_site_tagline_left_pad',
-		array(
-			'label'    => esc_html__( 'Left', 'sacchaone' ),
-			'section'  => 'title_tagline',
-			'settings' => 'sacchaone_site_tagline_left_pad',
-			'type'     => 'number',
-		)
-	);
-
-	/**
-	 * Setting and Control for Logo Padding Text. 
-	 */
-	$wp_customize->add_setting(
-		'sacchaone_site_logo_pad_title',
-		array(
-			'type'              => 'theme_mod',
-			'capability'        => 'edit_theme_options',
-			'default'			=>'',
-			'transport'         => 'postMessage',
-		)
-	);
-
-	$wp_customize->add_control(
-		'sacchaone_site_logo_pad_title',
-		array(
-			'label'    => esc_html__( 'Logo Padding (px)', 'sacchaone' ),
-			'section'  => 'title_tagline',
-			'settings' => 'sacchaone_site_logo_pad_title',
-			'type'     => 'hidden',
-		)
-	);
-
-	/**
-	 * Setting and Control for Site Logo Top Padding. 
-	 */
-	$wp_customize->add_setting(
-		'sacchaone_site_logo_top_pad',
-		array(
-			'type'              => 'theme_mod',
-			'capability'        => 'edit_theme_options',
-			'default'           => $defaults['sacchaone_site_logo_top_pad'],
-			'transport'         => 'postMessage',
-		)
-	);
-
-	$wp_customize->add_control(
-		'sacchaone_site_logo_top_pad',
-		array(
-			'label'    => esc_html__( 'Top', 'sacchaone' ),
-			'section'  => 'title_tagline',
-			'settings' => 'sacchaone_site_logo_top_pad',
-			'type'     => 'number',
-		)
-	);
-
-	/**
-	 * Setting and Control for Site Logo Right Padding. 
-	 */
-	$wp_customize->add_setting(
-		'sacchaone_site_logo_right_pad',
-		array(
-			'type'              => 'theme_mod',
-			'capability'        => 'edit_theme_options',
-			'default'           => $defaults['sacchaone_site_logo_right_pad'],
-			'transport'         => 'postMessage',
-		)
-	);
-
-	$wp_customize->add_control(
-		'sacchaone_site_logo_right_pad',
-		array(
-			'label'    => esc_html__( 'Right', 'sacchaone' ),
-			'section'  => 'title_tagline',
-			'settings' => 'sacchaone_site_logo_right_pad',
-			'type'     => 'number',
-		)
-	);
-
-	/**
-	 * Setting and Control for Site Logo Bottom Padding. 
-	 */
-	$wp_customize->add_setting(
-		'sacchaone_site_logo_bottom_pad',
-		array(
-			'type'              => 'theme_mod',
-			'capability'        => 'edit_theme_options',
-			'default'           => $defaults['sacchaone_site_logo_bottom_pad'],
-			'transport'         => 'postMessage',
-		)
-	);
-
-	$wp_customize->add_control(
-		'sacchaone_site_logo_bottom_pad',
-		array(
-			'label'    => esc_html__( 'Bottom', 'sacchaone' ),
-			'section'  => 'title_tagline',
-			'settings' => 'sacchaone_site_logo_bottom_pad',
-			'type'     => 'number',
-		)
-	);
-
-	/**
-	 * Setting and Control for Site Logo Left Padding. 
-	 */
-	$wp_customize->add_setting(
-		'sacchaone_site_logo_left_pad',
-		array(
-			'type'              => 'theme_mod',
-			'capability'        => 'edit_theme_options',
-			'default'           => $defaults['sacchaone_site_logo_left_pad'],
-			'transport'         => 'postMessage',
-		)
-	);
-
-	$wp_customize->add_control(
-		'sacchaone_site_logo_left_pad',
-		array(
-			'label'    => esc_html__( 'Left', 'sacchaone' ),
-			'section'  => 'title_tagline',
-			'settings' => 'sacchaone_site_logo_left_pad',
 			'type'     => 'number',
 		)
 	);
