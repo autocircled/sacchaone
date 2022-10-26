@@ -27,10 +27,22 @@ if ( ! function_exists( 'sacchaone_get_dynamic_css' ) ) {
 		$css->add_property( 'position', true === $settings['sacchaone_hide_site_title'] ? 'absolute' : 'relative' );
 		$css->add_property( 'clip', true === $settings['sacchaone_hide_site_title'] ? 'rect(1px, 1px, 1px, 1px)' : 'auto' );
 		
+		//Site Title Font Size (px)
+		if ( $settings['sacchaone_site_title_font_size'] ) {
+			$css->set_selector( '.site-title' );
+			$css->add_property( 'font-size', $settings['sacchaone_site_title_font_size'] . 'px' );
+		}
+
 		// Site Description
 		$css->set_selector( '.site-description' );
 		$css->add_property( 'position', true === $settings['sacchaone_hide_site_desc'] ? 'absolute' : 'relative' );
 		$css->add_property( 'clip', true === $settings['sacchaone_hide_site_desc'] ? 'rect(1px, 1px, 1px, 1px)' : 'auto' );
+
+		//Site Tagline Font Size (px)
+		if ( $settings['sacchaone_site_tagline_font_size'] ) {
+			$css->set_selector( '.site-description' );
+			$css->add_property( 'font-size', $settings['sacchaone_site_tagline_font_size'] . 'px' );
+		}
 
 		// Body container width
 		$css->set_selector( 'header.container, header .container, main.container, footer .container' );
@@ -277,8 +289,6 @@ if ( ! function_exists( 'sacchaone_get_defaults' ) ) {
 			'sacchaone_hide_site_title'    => false,
 			'sacchaone_hide_site_desc'     => true,
 
-			'sacchaone_site_title_font_color'   => '#117889',
-			'sacchaone_site_tagline_font_color' => '#b4c1d0',
 			'sacchaone_site_title_font_size' 	=> 25,
 			'sacchaone_site_tagline_font_size'	=> 20,
 
