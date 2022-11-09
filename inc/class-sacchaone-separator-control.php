@@ -26,14 +26,14 @@ if ( class_exists( 'WP_Customize_Control' ) && ! class_exists( 'SacchaOne_Custom
 		public function enqueue() {
 			wp_enqueue_style(
 				'sacchaone-separator-control',
-				SACCHAONE_THEME_DIR . 'assets/css/customizer/custom-separator.css',
+				SACCHAONE_THEME_URI . '/assets/css/customizer/custom-separator.css',
 				'',
 				_SACCHAONE_VERSION,
 				'all'
 			);
 			wp_enqueue_script(
 				'sacchaone-separator-control-js',
-				SACCHAONE_THEME_DIR . 'assets/js/customizer/custom-separator.js',
+				SACCHAONE_THEME_URI . '/assets/js/customizer/custom-separator.js',
 				array( 'jquery' ),
 				_SACCHAONE_VERSION,
 				true
