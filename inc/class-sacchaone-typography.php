@@ -20,6 +20,15 @@ if ( ! class_exists( 'SacchaOne_Typography' ) ) {
 		 */
 		public function __construct() {
             add_action( 'customize_register', array( $this, 'customizer_options' ) );
+            add_action( 'wp_enqueue_scripts', array( $this, 'load_fonts' ) );
+
+            // CSS output
+			if ( is_customize_preview() ) {
+				add_action( 'customize_preview_init', array( $this, 'customize_preview_init' ) );
+				add_action( 'wp_head', array( $this, 'live_preview_styles' ), 999 );
+			} else {
+				add_filter( 'ocean_head_css', array( $this, 'head_css' ), 99 );
+			}
         }
 
         /**
@@ -339,18 +348,51 @@ if ( ! class_exists( 'SacchaOne_Typography' ) ) {
                         $default = ! empty( $el['defaults']['line-height'] ) ? $el['defaults']['line-height'] : null;
 
                         $wp_customize->add_setting(
-                            'sacchaone_typo_line_height_' . $key,
+                            $key . '_typography[line-height]',
                             array(
-                                'default'  => $default,
+                                'type'              => 'theme_mod',
+                                'sanitize_callback' => 'sacchaone_sanitize_number',
+                                'transport'         => $transport,
+                                'default'           => $default,
+                            )
+                        );
+                        
+                        $wp_customize->add_setting(
+                            $key . '_tablet_typography[line-height]',
+                            array(
+                                'sanitize_callback' => 'sacchaone_sanitize_number_blank',
+                                'transport'         => $transport,
+                            )
+                        );
+                        
+                        $wp_customize->add_setting(
+                            $key . '_mobile_typography[line-height]',
+                            array(
+                                'sanitize_callback' => 'sacchaone_sanitize_number_blank',
+                                'transport'         => $transport,
                             )
                         );
 
                         $wp_customize->add_control(
-                            'sacchaone_typo_line_height_' . $key,
-                            array(
-                                'label'  	  => esc_html__( 'Line Height (px)','sacchaone'),
-                                'section'	  => 'sacchaone_typography_section_' . $key,
-                                'setting'	  => 'sacchaone_typo_line_height_' . $key,			
+                            new SacchaOne_Customizer_Slider_Control(
+                                $wp_customize,
+                                $key . '_typography[line-height]',
+                                array(
+                                    'label'  	  => esc_html__( 'Line Height (px)','sacchaone'),
+                                    'section'	  => 'sacchaone_typography_section_' . $key,
+                                    // 'settings'        => array(
+                                    //     'desktop' => $key . '_typography[line-height]',
+                                    //     'tablet'  => $key . '_tablet_typography[line-height]',
+                                    //     'mobile'  => $key . '_mobile_typography[line-height]',
+                                    // ),
+                                    'priority'        => 10,
+                                    'active_callback' => $active_callback,
+                                    'input_attrs'     => array(
+                                        'min'  => 0,
+                                        'max'  => 4,
+                                        'step' => 0.1,
+                                    ),
+                                )
                             )
                         );
                     }
@@ -411,6 +453,110 @@ if ( ! class_exists( 'SacchaOne_Typography' ) ) {
             }
             
         }
+
+        /**
+		 * Loads js file for customizer preview
+		 *
+		 * @since 1.0.9
+		 */
+		public function customize_preview_init() {
+			// wp_enqueue_script( 'sacchaone-typography-customize-preview', SACCHAONE_INC_DIR_URI . 'customizer/assets/js/typography-customize-preview.min.js', array( 'customize-preview' ), _SACCHAONE_VERSION, true );
+			// wp_localize_script(
+			// 	'sacchaone-typography-customize-preview',
+			// 	'sacchaOneTG',
+			// 	array(
+			// 		'googleFontsUrl'    => '//fonts.googleapis.com',
+			// 		'googleFontsWeight' => '100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i',
+			// 	)
+			// );
+
+		}
+
+        /**
+		 * Loop through settings
+		 *
+		 * @since 1.0.9
+		 */
+		public function loop( $return = 'css' ) {
+            $css            = '';
+			$fonts          = array();
+			$elements       = self::elements();
+			$preview_styles = array();
+
+            // Loop through each elements that need typography styling applied to them
+			foreach ( $elements as $element => $array ) {
+                //var_dump($array);
+                // Add empty css var
+				$add_css    = '';
+				$tablet_css = '';
+				$mobile_css = '';
+
+                // Get target and current mod
+				// $target         = isset( $array['target'] ) ? $array['target'] : '';
+				// $get_mod        = get_theme_mod( $element . '_typography' );
+				// $tablet_get_mod = get_theme_mod( $element . '_tablet_typography' );
+				// $mobile_get_mod = get_theme_mod( $element . '_mobile_typography' );
+            }
+        }
+
+        /**
+		 * Get CSS
+		 *
+		 * @since 1.0.9
+		 */
+		public function head_css( $output ) {
+
+			// Get CSS
+			$typography_css = self::loop( 'css' );
+
+			// Loop css
+			if ( $typography_css ) {
+				$output .= $typography_css;
+			}
+
+			// Return output css
+			return $output;
+
+		}
+
+        /**
+		 * Returns correct CSS to output to wp_head
+		 *
+		 * @since 1.0.9
+		 */
+		public function live_preview_styles() {
+
+			$live_preview_styles = []; //self::loop( 'preview_styles' );
+
+			if ( $live_preview_styles ) {
+				foreach ( $live_preview_styles as $key => $val ) {
+					if ( ! empty( $val ) ) {
+						echo '<style class="' . $key . '"> ' . $val . '</style>';
+					}
+				}
+			}
+
+		}
+
+        /**
+		 * Loads Google fonts
+		 *
+		 * @since 1.0.9
+         * @todo create replica function of `oceanwp_enqueue_google_font`
+		 */
+		public function load_fonts() {
+
+			// Get fonts
+			$fonts = self::loop( 'fonts' );
+
+			// Loop through and enqueue fonts
+			if ( ! empty( $fonts ) && is_array( $fonts ) ) {
+				foreach ( $fonts as $font ) {
+					// oceanwp_enqueue_google_font( $font );
+				}
+			}
+
+		}
 
 
     }

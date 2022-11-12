@@ -23,13 +23,15 @@ if ( ! defined( 'SACCHAONE_THEME_SETTINGS' ) ) {
 	define( 'SACCHAONE_THEME_SETTINGS', 'theme_mods_sacchaone' );
 }
 
-if ( ! defined( 'SACCHAONE_THEME_DIR' ) ) {
-	define( 'SACCHAONE_THEME_DIR', trailingslashit( get_stylesheet_directory_uri() ) );
-}
-
 if ( ! defined( 'SACCHAONE_PREFIX' ) ) {
 	define( 'SACCHAONE_PREFIX', '_sacchaone_' );
 }
+
+define( 'SACCHAONE_THEME_DIR', get_template_directory() );
+define( 'SACCHAONE_THEME_URI', get_template_directory_uri() );
+
+define( 'SACCHAONE_INC_DIR', SACCHAONE_THEME_DIR . '/inc/' );
+define( 'SACCHAONE_INC_DIR_URI', SACCHAONE_THEME_URI . '/inc/' );
 
 
 
@@ -198,10 +200,12 @@ require get_template_directory() . '/inc/class-sacchaone-metabox.php';
 /**
  * Customizer additions.
  */
+require get_template_directory() . '/inc/customizer/sanitization-callbacks.php';
 require get_template_directory() . '/inc/class-sacchaone-css.php';
 require get_template_directory() . '/inc/dynamic-css.php';
 require get_template_directory() . '/inc/class-sacchaone-range-control.php';
 require get_template_directory() . '/inc/class-sacchaone-separator-control.php';
+require get_template_directory() . '/inc/customizer/class-sacchaone-customizer-slider-control.php';
 require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/inc/class-sacchaone-typography.php';
 
