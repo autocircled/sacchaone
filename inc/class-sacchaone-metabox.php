@@ -29,8 +29,10 @@ if ( ! class_exists( 'SacchaOne_Metabox' ) ) {
 		 * @param string   $post_type Post type.
 		 * @param \WP_Post $post      Post object.
 		 */
-		public function action_add_meta_boxes(string $post_type, \WP_Post $post) : void {
-			add_meta_box( 'saccha-metabox-1', __( 'Additional Settings', 'sacchaone' ), [ $this, 'saccha_metabox_1_callback' ] );
+		public function action_add_meta_boxes(string $post_type, $post) : void {
+			if ($post_type !== 'link') {
+				add_meta_box( 'saccha-metabox-1', __( 'Additional Settings', 'sacchaone' ), [ $this, 'saccha_metabox_1_callback' ] );
+			}
 		}
 
 		/**
