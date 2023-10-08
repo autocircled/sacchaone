@@ -3,7 +3,7 @@
 Contributors: autocircle
 Tags: custom-menu, custom-logo, entertainment, one-column, two-columns, left-sidebar, right-sidebar, custom-colors, featured-images, full-width-template, post-formats, theme-options, threaded-comments, translation-ready, blog
 
-Requires at least: 4.5
+Requires at least: 5.6
 Tested up to: 6.3
 Requires PHP: 5.6
 Stable tag: 1.1.0
