@@ -153,11 +153,7 @@ function sacchaone_scripts() {
 
 	wp_enqueue_style( 'sacchaone-main-style', get_template_directory_uri() . '/assets/css/sacchaone-style.css', array(), _SACCHAONE_VERSION, 'all' );
 
-	// wp_enqueue_script( 'jquery' );
-
 	wp_enqueue_script( 'sacchaone-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array(), _SACCHAONE_VERSION, true );
-
-	// wp_enqueue_script( 'bootstrap-js', get_template_directory_uri() . '/assets/js/bootstrap.min.js', array(), _SACCHAONE_VERSION, true );
 
 	wp_enqueue_script( 'lazyload', get_template_directory_uri() . '/assets/js/lazy-load-images.min.js', array(), _SACCHAONE_VERSION, true );
 
